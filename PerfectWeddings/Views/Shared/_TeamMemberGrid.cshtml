@@ -1,0 +1,24 @@
+﻿@model PerfectWeddings.Models.AgileViewModel
+<div id="teamMemeberGrid">
+    <table class="table table-hover table-bordered" id="teamMemberTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.teamMemberList) {
+            <tr>
+                <td class="text-center">@Html.DisplayFor(modelItem => item.Name)</td>
+                <td class="text-center">@Html.DisplayFor(modelItem => item.RoleName)</td> 
+                <td class="text-center">
+                    @Ajax.ActionLink(" ", "EditTeamMember", new { id = item.id }, new AjaxOptions { UpdateTargetId = "EditMembermodal", OnComplete = "onTeamMemberEdit" }, new { @class = "fa fa-pencil", @title = "Edit" }) |
+                    @Ajax.ActionLink(" ", "DeleteTeamMember", new { id = item.id }, new AjaxOptions { UpdateTargetId = "teamMemeberGrid", OnBegin = "return confirm('Are you sure you want to delete that Team Member and its content?');" }, new { @class = "fa fa-trash-o", @title = "Delete" })
+                </td>
+            </tr> 
+            }
+            </tbody>
+        </table>
+</div>

@@ -1,0 +1,172 @@
+﻿@model PerfectWeddings.DataTransferObjects.RegisterDto
+<style>
+   
+     .user .field-validation-valid + .glyphicon-warning-sign +.glyphicon-ok {
+        display: block !important;
+        color: green !important;
+    }
+
+     .field-validation-error + .glyphicon-warning-sign {
+        display: block !important;
+        color: red !important;
+    }
+</style>
+
+
+@using (Ajax.BeginForm("Register", "Account", null, new AjaxOptions { HttpMethod = "Post", OnSuccess = "SaveRegistrationSuccess", OnFailure = "SaveRegistrationError" }, new { @class = "form-horizontal", @id = "createUserForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="user">
+        <div class="col-lg-4 form-group p0">
+            @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "control-label requiredfield" })
+        </div>
+
+        <div class="col-lg-8 form-group">
+            <div class="has-success has-feedback input-icon">
+                <i class="fa fa-user" id="pqr"></i>
+                <i class="icon-exclamation-sign"></i>
+                @Html.TextBoxFor(model => model.userName, new { @class = "form-control placeholder-no-fix abc", @placeholder = "User Name", @id = "txtUserName" })
+                @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger xyz" })
+                <span class="glyphicon glyphicon-warning-sign form-control-feedback " style="margin-top: 15px;display:none" id="inputicon" ></span>
+                <span class="glyphicon glyphicon-ok form-control-feedback " style="margin-top: 15px;display:none" id="inputicon"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="">
+        <div class="col-lg-4 form-group p0">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label requiredfield" })
+        </div>
+        <div class="col-lg-8 form-group">
+            <div class="input-icon">
+                <i class="fa fa-lock"></i>
+                @Html.TextBoxFor(model => model.password, new { @type = "password", @id = "register_password", @class = "form-control placeholder-no-fix", @autocomplete = "off", @placeholder = "Password" })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+        <div class="">
+            <div class="col-lg-4 form-group p0">
+                @Html.LabelFor(model => model.rPassword, htmlAttributes: new { @class = "control-label requiredfield" })
+            </div>
+            <div class="col-lg-8 form-group">
+                <div class="controls">
+                    <div class="input-icon">
+                        <i class="fa fa-check"></i>
+                        @Html.TextBoxFor(model => model.rPassword, new { @type = "password", @id = "txtRPassword", @class = "form-control placeholder-no-fix", @autocomplete = "off", @placeholder = "Re-type Password" })
+                        @Html.ValidationMessageFor(model => model.rPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="col-lg-4 form-group p0">
+                @Html.LabelFor(model => model.firstName, htmlAttributes: new { @class = "control-label requiredfield" })
+            </div>
+            <div class="col-lg-8 form-group">
+                <div class="input-icon">
+                    <i class="fa fa-font"></i>
+                    @Html.TextBoxFor(model => model.firstName, new { @id = "txtFirstName", @class = "form-control placeholder-no-fix", @autocomplete = "off", @placeholder = "First Name" })
+                    @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="col-lg-4 form-group p0">
+                @Html.LabelFor(model => model.lastName,htmlAttributes: new { @class = "control-label requiredfield" })
+            </div>
+            <div class="col-lg-8 form-group">
+                <div class="input-icon">
+                    <i class="fa fa-font"></i>
+                    @Html.TextBoxFor(model => model.lastName, new { @id = "txtLastName", @class = "form-control placeholder-no-fix", @autocomplete = "off", @placeholder = "Last Name" })
+                    @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="col-lg-4 form-group p0">
+                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label requiredfield" })
+            </div>
+            <div class="col-lg-8 form-group">
+                <div class="input-icon">
+                    <i class="fa fa-envelope"></i>
+                    @Html.TextBoxFor(model => model.email, new { @id = "txtEmail", @class = "form-control placeholder-no-fix", @autocomplete = "off", @placeholder = "Email" })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="col-lg-4 form-group p0">
+                @Html.LabelFor(model => model.company,htmlAttributes: new { @class = "control-label requiredfield" })
+            </div>
+            <div class="col-lg-8 form-group">
+                <div class="input-icon">
+                    <i class="fa fa-location-arrow"></i>
+                    @Html.TextBoxFor(model => model.company, new { @id = "txtCompany", @class = "form-control placeholder-no-fix", @autocomplete = "off", @placeholder = "Company", @onblur ="GetStatusOfUser();"})
+                    @Html.ValidationMessageFor(model => model.company, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        @*<div class="CompanySection p0" id="CompanySection">*@
+
+            <div class="">
+                <div class="col-lg-4 form-group p0">
+                    @Html.LabelFor(model => model.CompanyAddress,htmlAttributes: new { @class = "control-label requiredfield" })
+                </div>
+                <div class="col-lg-8 form-group">
+                    <div class="input-icon">
+                        <i class="fa fa-location-arrow"></i>
+                        @Html.TextBoxFor(model => model.CompanyAddress, new { @id = "CompanyAddress", @class = "form-control placeholder-no-fix", @autocomplete = "off", @placeholder = "Company  Address", @disabled = "true" })
+                        @Html.ValidationMessageFor(model => model.CompanyAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="">
+                <div class="col-lg-4 form-group p0">
+                    @Html.LabelFor(model => model.CompanyPhone, htmlAttributes: new { @class = "control-label requiredfield" })
+                </div>
+                <div class="col-lg-8 form-group">
+                    <div class="input-icon">
+                        <i class="fa fa-location-arrow"></i>
+                        @Html.TextBoxFor(model => model.CompanyPhone, new { @id = "CompanyPhone", @class = "form-control placeholder-no-fix", @autocomplete = "off", @placeholder = "Company Phone", @disabled = "true" })
+                        @Html.ValidationMessageFor(model => model.CompanyPhone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        @*</div>*@
+
+    
+    
+        <div class="form-actions">
+            <div class="col-lg-12">
+                <a href="/Account/Login" class="btn-primary btn">Login</a>
+                <button type="submit" id="register-submit-btn" class="btn btn-primary pull-right" onclick="">Sign Up </button>
+            </div>
+        </div>
+    <div class="form-actions">
+        <p>
+            By clicking Sign Up, you agree to our
+            <a id="terms-link" href="/Account/TermsAndConditions" target="_blank" rel="nofollow">Terms And Conditions</a>
+            and that you have read our
+            <a id="privacy-link" href="/Account/PrivacyPolicy" target="_blank" rel="nofollow">Pivacy Policy</a>
+        </p>
+                </div>
+}
+@*<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>*@
+
+<script>
+    function SaveRegistrationSuccess() {
+        debugger;
+        showToaster({ msg: "Registration Successfully " });
+
+    }
+    function SaveRegistrationError() {
+        showToaster({ title: "Error:", msg: "Unable to process your request, Please contact to Admin", priority: "error" });
+    }
+
+</script>

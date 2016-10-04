@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "LockScreen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-lock">
+
+    <div class="page-body">
+        <div class="lock-head"> Locked </div>
+        <div class="lock-body">
+            <div style="color:white;">@ViewBag.errorMsg</div>
+            <div class="pull-left lock-avatar-block">
+                <img src="@HttpContext.Current.Session["Image"].ToString()" class="lock-avatar">
+            </div>
+            
+            <form class="lock-form pull-left" action="LockScreen" method="post">
+                <h4>@ViewBag.UserName</h4>
+                
+                <div class="form-group">
+                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off"
+                           placeholder="Password" name="password" />
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn red uppercase">Login</button>
+                </div>
+            </form>
+        </div>
+        <div class="lock-bottom">
+             <a href="">Not @ViewBag.UserName</a>
+         </div>
+    </div>
+    <div class="page-footer-custom"> 2014 &copy; Metronic. Admin Dashboard Template. </div>
+</div>
+

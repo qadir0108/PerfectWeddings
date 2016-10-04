@@ -1,0 +1,34 @@
+﻿@model PerfectWeddings.DataTransferObjects.HomeDto
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="portlet light ">
+    <div class="portlet-body ">
+        <div class="tabbable-line">
+            <ul class="nav nav-tabs ">
+                <li class="active">
+                    <a href="#tab_agile" data-toggle="tab" aria-expanded="true" id="link_agile">Agile Process Flow</a>
+                </li>
+                <li class="">
+                    <a href="#tab_waterfall" data-toggle="tab" aria-expanded="false" id="link_waterfall">Waterfall Process Flow</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_agile">
+                    @Html.Partial("_AgileProcessFlowPartial", Model)
+                </div>
+                <div class="tab-pane" id="tab_waterfall">
+                    @Html.Partial("_WaterFallProcessFlowPartial", Model)
+                </div>
+            </div>
+        </div>
+        @Html.Partial("_MyWorkPartial", Model.DashBoardSection)      
+    </div>
+</div>
+
+@Scripts.Render("~/CaliberScripts/Home")
+
+
+
+
+

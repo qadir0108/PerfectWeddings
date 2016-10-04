@@ -1,0 +1,168 @@
+﻿@model PerfectWeddings.DataTransferObjects.HomeDashboardDto
+
+<div class="portlet light ">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-social-dribbble font-blue-sharp"></i>
+            <span class="caption-subject font-blue-sharp bold uppercase">My Work</span>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <div class="row">
+            @if (Model.UserStories.Count != 0)
+            {
+                <div class="col-md-6 col-sm-6">
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption caption-md">
+                                <i class="fa fa-user-secret font-green"></i>
+                                <span class="caption-subject font-green bold uppercase">User Stories</span>
+                                @{
+                                    var userStoriesCount = Model.UserStories.Count;
+                                }
+                                <span class="caption-helper">( Total: @userStoriesCount )</span>
+                            </div>
+                            <div class="inputs">
+                                <div class="portlet-input input-inline input-small ">
+                                    <div class="input-icon right">
+                                        <i class="icon-magnifier"></i>
+                                        <input type="text" id="txtUserStorieSearch" class="form-control form-control-solid input-circle" placeholder="search...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body" id="DivMyWorkUserStories">
+                            @Html.Partial("_MyWorkUserStoriesPartial", Model.UserStories)
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.Tasks.Count != 0)
+            {
+                <div class="col-md-6 col-sm-6">
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption caption-md">
+                                <i class="fa fa-map font-green"></i>
+                                <span class="caption-subject font-green bold uppercase">Tasks</span>
+                                @{
+                                    var taskCount = Model.Tasks.Count;
+                                }
+                                <span class="caption-helper">( Total: @taskCount )</span>
+                            </div>
+                            <div class="inputs">
+                                <div class="portlet-input input-inline input-small ">
+                                    <div class="input-icon right">
+                                        <i class="icon-magnifier"></i>
+                                        <input type="text" id="txtTaskSearch" class="form-control form-control-solid input-circle" placeholder="search...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body" id="DivMyWorkTask">
+                            @Html.Partial("_MyWorkTasksPartial", Model.Tasks)
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.Defects.Count != 0)
+            {
+                <div class="col-md-6 col-sm-6">
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption caption-md">
+                                <i class="fa fa-bug font-green"></i>
+                                <span class="caption-subject font-green bold uppercase">Defects</span>
+                                @{
+                                    var defectCount = Model.Defects.Count;
+                                }
+                                <span class="caption-helper">( Total: @defectCount )</span>
+                            </div>
+                            <div class="inputs">
+                                <div class="portlet-input input-inline input-small ">
+                                    <div class="input-icon right">
+                                        <i class="icon-magnifier"></i>
+                                        <input type="text" id="txtDefectSearch" class="form-control form-control-solid input-circle" placeholder="search...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body" id="DivMyWorkDefect">
+                            @Html.Partial("_MyWorkDefectsPartial", Model.Defects)
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.TestCases.Count != 0)
+            {
+                <div class="col-md-6 col-sm-6">
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption caption-md">
+                                <i class="fa fa-language font-green"></i>
+                                <span class="caption-subject font-green bold uppercase">Test Cases</span>
+                                @{
+                                    var testCaseCount = Model.TestCases.Count;
+                                }
+                                <span class="caption-helper">( Total: @testCaseCount )</span>
+                            </div>
+                            <div class="inputs">
+                                <div class="portlet-input input-inline input-small ">
+                                    <div class="input-icon right">
+                                        <i class="icon-magnifier"></i>
+                                        <input type="text" id="txtTestCaseSearch" class="form-control form-control-solid input-circle" placeholder="search...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body" id="DivMyWorkTestCase">
+                            @Html.Partial("_MyWorkTestCasesPartial", Model.TestCases)
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.Requirements.Count != 0)
+            {
+                <div class="col-md-6 col-sm-6">
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption caption-md">
+                                <i class="fa fa-user-secret font-green"></i>
+                                <span class="caption-subject font-green bold uppercase">Requirements</span>
+                                @{
+                                    var requirementCount = Model.Requirements.Count;
+                                }
+                                <span class="caption-helper">( Total: @requirementCount )</span>
+                            </div>
+                            <div class="inputs">
+                                <div class="portlet-input input-inline input-small ">
+                                    <div class="input-icon right">
+                                        <i class="icon-magnifier"></i>
+                                        <input type="text" id="txtRequirementSearch" class="form-control form-control-solid input-circle" placeholder="search...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body" id="DivMyWorkRequirement">
+                            @Html.Partial("_MyWorkRequirementsPartial", Model.Requirements)
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.UserStories.Count == 0 && Model.Tasks.Count == 0 && Model.Defects.Count == 0 && Model.TestCases.Count == 0 && Model.Requirements.Count == 0)
+            {
+                <div class="col-md-12 text-center">
+                    No Data
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        home.init();
+    });
+</script>
+
+

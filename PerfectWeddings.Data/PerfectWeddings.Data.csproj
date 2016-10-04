@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BC8C2657-8FD5-4940-8680-7F17E70BED45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PerfectWeddings.Data</RootNamespace>
+    <AssemblyName>PerfectWeddings.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\HoneyMoonPackage.cs" />
+    <Compile Include="Entities\BlogEntryCategory.cs" />
+    <Compile Include="Entities\BlogEntryTag.cs" />
+    <Compile Include="Entities\BlogEntryComment.cs" />
+    <Compile Include="Entities\BudgetSummary.cs" />
+    <Compile Include="Entities\BudgetList.cs" />
+    <Compile Include="Entities\Event.cs" />
+    <Compile Include="Entities\Guest.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Message.cs" />
+    <Compile Include="Entities\BlogEntry.cs" />
+    <Compile Include="Entities\SupplierCoupon.cs" />
+    <Compile Include="Entities\WebSitePage.cs" />
+    <Compile Include="Entities\EventSeatingTable.cs" />
+    <Compile Include="Entities\WebSiteSettings.cs" />
+    <Compile Include="Entities\WebSite.cs" />
+    <Compile Include="Entities\CheckListComment.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\iBaseEntity.cs" />
+    <Compile Include="Entities\Location.cs" />
+    <Compile Include="Entities\PerfectWeddingsContext.cs" />
+    <Compile Include="Entities\NormalUser.cs" />
+    <Compile Include="Entities\SupplierCategory.cs" />
+    <Compile Include="Entities\SocialAccount.cs" />
+    <Compile Include="Entities\SupplierEnquiry.cs" />
+    <Compile Include="Entities\SupplierFacility.cs" />
+    <Compile Include="Entities\CheckList.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\SupplierReview.cs" />
+    <Compile Include="Entities\SupplierAdvertisement.cs" />
+    <Compile Include="Entities\SupplierCompany.cs" />
+    <Compile Include="Entities\Supplier.cs" />
+    <Compile Include="EntityManager\LocationManager.cs" />
+    <Compile Include="EntityManager\UserManager.cs" />
+    <Compile Include="EntityManager\NormalUserManager.cs" />
+    <Compile Include="EntityManager\SupplierCategoryManager.cs" />
+    <Compile Include="EntityManager\BaseEntityManager.cs" />
+    <Compile Include="EntityManager\IBaseEntityManager.cs" />
+    <Compile Include="Migrations\201610031023277_Initial.cs" />
+    <Compile Include="Migrations\201610031023277_Initial.Designer.cs">
+      <DependentUpon>201610031023277_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PerfectWeddings.Common\PerfectWeddings.Common.csproj">
+      <Project>{f1af18a9-6e13-481f-890d-3ecfeb3d85aa}</Project>
+      <Name>PerfectWeddings.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PerfectWeddings.Enums\PerfectWeddings.Enums.csproj">
+      <Project>{e9385eb4-5589-4878-b2d6-d1c438848881}</Project>
+      <Name>PerfectWeddings.Enums</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610031023277_Initial.resx">
+      <DependentUpon>201610031023277_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,191 @@
+﻿@using PerfectWeddings.HtmlHelpers
+
+ <!-- MODULE PERMISSION Start-->
+@{
+
+    if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+        || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true) 
+        || (Session["ReleaseAccess"] != null && Convert.ToBoolean(Session["ReleaseAccess"].ToString()) == true))
+    {
+        <li class="menu-dropdown mega-menu-dropdown  ">
+            <a href="javascript:;">
+                Plan
+                <span class="arrow"></span>
+            </a>
+            <ul class="dropdown-menu">
+                @{
+
+        if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+            || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true))
+        {
+            if (Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.BackLog, (Convert.ToInt32(Session["UserKey"]))))
+            {
+                <li>
+                    <a href="@Url.Action("Index2","TaskManager")" class="nav-link ">Planning</a>
+                </li>
+            }
+        }
+
+        if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+            || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true))
+        {
+            <li>
+                <a href="@Url.Action("Index", "Roadmap")" class="nav-link ">Road Map</a>
+            </li>
+        }
+                }
+            </ul>
+        </li>
+    }
+}
+
+@{
+    if (Session["ProcessAccess"] != null || Session["TestExecutionAccess"] != null || Session["TrackAccess"] != null )
+    {
+        <li class="menu-dropdown mega-menu-dropdown  ">
+            <a href="javascript:;">
+                Manage
+                <span class="arrow"></span>
+            </a>
+            <ul class="dropdown-menu">
+
+                @{
+        if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+            || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true))
+        {
+            if (Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.UserStories, (Convert.ToInt32(Session["UserKey"]))))
+            {
+                <li>
+                    <a href="@Url.Action("Index","UserStories")" class="nav-link ">User Stories</a>
+                </li>
+            }
+        }
+                }
+
+                @{
+        if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+            || ((Session["SupportAccess"] != null && Convert.ToBoolean(Session["SupportAccess"].ToString()) == true)) 
+            || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true) 
+            || (Session["TestExecutionAccess"] != null && Convert.ToBoolean(Session["TestExecutionAccess"].ToString()) == true))
+        {
+            if ((Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.TestCases, (Convert.ToInt32(Session["UserKey"])))))
+            {
+                <li>
+                    <a href="@Url.Action("Index", "TestCases")" class="nav-link ">Test Cases</a>
+                </li>
+            }
+        }
+                }
+
+                @{
+        if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+            || (Session["SupportAccess"] != null && Convert.ToBoolean(Session["SupportAccess"].ToString()) == true) 
+            || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true) 
+            || (Session["TestExecutionAccess"] != null && Convert.ToBoolean(Session["TestExecutionAccess"].ToString()) == true))
+        {
+            if ((Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.Defects, (Convert.ToInt32(Session["UserKey"])))))
+            {
+                <li>
+                    <a href="@Url.Action("Index","Defects")" class="nav-link ">Defects</a>
+                </li>
+            }
+        }
+                }
+
+                @{
+        if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) )
+        {
+            <li>
+                <a href="@Url.Action("Index","#")" class="nav-link ">Process</a>
+            </li>
+        }
+                }
+
+            </ul>
+        </li>
+    }
+}
+
+@{
+    if (Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true )
+    {
+        if ((Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.ExecuteFunctional, (Convert.ToInt32(Session["UserKey"])))))
+        {
+            <li class="menu-dropdown classic-menu-dropdown  ">
+                <a href="javascript:;">
+                    Execute
+                    <span class="arrow"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="@Url.Action("Index", "FunctionalArea")" class="nav-link ">Functional Execution</a>
+                    </li>
+                   
+                </ul> 
+            </li>
+        }
+    }
+}
+
+@{
+
+    if (Session["ProcessAccess"] != null || Session["TestExecutionAccess"] != null || Session["TrackAccess"] != null)
+    {
+        <li class="menu-dropdown classic-menu-dropdown  ">
+            <a href="javascript:;">
+                Track
+                <span class="arrow"></span>
+            </a>
+            <ul class="dropdown-menu">
+                @if (Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true )
+                {
+                    <li>
+                        <a href="@Url.Action("Index", "Track")" class="nav-link ">Dashboard</a>
+                    </li>
+                }
+                <li class="dropdown-submenu ">
+                    <a href="javascript:;" class="nav-link nav-toggle">Charts</a>
+                    <ul class="dropdown-menu">
+                        @if (Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true )
+                        {
+                            <li>
+                                <a href="javascript:;" class="nav-link ">Project</a>
+                            </li>
+                        }
+
+                        @if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true ) 
+                            ||  (Session["TestExecutionAccess"] != null && Convert.ToBoolean(Session["TestExecutionAccess"].ToString()) == true))
+                        {
+                            <li>
+                                <a href="@Url.Action("Automation", "Track")" class="nav-link ">Automation</a>
+                            </li>
+                        }
+                        @if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true )
+                            || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true) 
+                            || ((Session["TestExecutionAccess"] != null && Convert.ToBoolean(Session["TestExecutionAccess"].ToString()) == true)))
+                        {
+                            <li>
+                                <a href="@Url.Action("DefectChart", "Track")" class="nav-link ">Defects</a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+                @if (Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true )
+                {
+                    <li>
+                        <a href="javascript:;" class="nav-link ">Reports</a>
+                    </li>
+                }
+            </ul>
+        </li>
+
+    }
+} 
+
+ <!-- MODULE PERMISSION CODE END-->
+
+
+
+   <!-- REMOVE/COMMENT BELOW CODE WHEN USING MODULE PERMISSION CODE ABOVE-->
+
+ 

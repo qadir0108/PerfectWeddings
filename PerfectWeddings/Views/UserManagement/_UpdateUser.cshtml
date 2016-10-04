@@ -1,0 +1,138 @@
+﻿@model PerfectWeddings.DataTransferObjects.BasicProfileDto
+
+@using (Ajax.BeginForm("_UpdateUser", "UserManagement", null,
+                        new AjaxOptions { HttpMethod = "Post", OnSuccess = "UserManagement.UpdateUserSuccess", OnFailure = "UserManagement.UpdateUserError" },
+                        new { @class = "form-horizontal", @id = "createUserForm" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model=>model.EncryptPassword)
+
+    <div id="">
+        <div style="left:0 !important">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Update User</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="" data-always-visible="1" data-rail-visible1="1">
+                        <div class="">
+                            <!-- BEGIN SAMPLE FORM PORTLET-->
+                            <div class=" ">
+                                <div class=" form">
+                                    <div class="col-lg-12 form-group">
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label requiredfield" })
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class=" input-icon">
+                                                <i class="fa fa-user"></i>
+                                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control placeholder-no-fix", @placeholder = "User Name", @id = "txtUserNameUpdate" })
+                                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <div class="col-lg-3">
+                                            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label requiredfield" })
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="input-icon">
+                                                <i class="fa fa-envelope"></i>
+                                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email", @id = "txtEmail" })
+                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label requiredfield" })
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="input-icon">
+                                                <i class="fa fa-user"></i>
+                                                @Html.TextBoxFor(model => model.Password, new { @type = "password", @id = "txtPassword", @class = "form-control", @autocomplete = "off", @placeholder = "password",@value="" })
+                                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label requiredfield" })
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="input-icon">
+                                                <i class="fa fa-font"></i>
+                                                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control placeholder-no-fix", @placeholder = "First Name", @id = "txtFirstNameUpdate", @autocomplete = "off" })
+                                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label requiredfield" })
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="input-icon">
+                                                <i class="fa fa-font"></i>
+                                               
+                                                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @placeholder = "Last Name", @id = "txtLastNameUpdate", @autocomplete = "off" })
+                                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(model => model.JoinDate, htmlAttributes: new { @class = "control-label requiredfield" })
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="input-icon">
+                                                <i class="fa fa-font"></i>
+                                                @Html.TextBoxFor(model => model.JoinDate, new { @class = "form-control", @placeholder = "Date of Joining", @id = "txtDateUpdate", @autocomplete = "off" })
+                                                @Html.ValidationMessageFor(model => model.JoinDate, "", new { @class = "text-danger" })
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label " })
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.DropDownListFor(model => model.IsActive, new SelectList(ViewBag.Status, "Value", "Text"), "Select", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                                            <input type="hidden" id="Userid" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- END SAMPLE FORM PORTLET-->
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-lg-12 form-group">
+                        <div class="col-lg-12">
+                            <button type="submit" data-dismiss="modal" class="btn grey-mint btn-outline">Close</button>
+                            <button type="submit" class="btn btn-default Btn_Edit_User" onclick="">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+}
+
+ 
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+

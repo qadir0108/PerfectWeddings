@@ -1,0 +1,281 @@
+﻿
+@Scripts.Render("~/Content/requirement")
+    <div class="@Html.getSetBoxedCss()"> 
+        <div class="row tabbable-line">
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+                <div id="jstree_div" class="tree-demo">
+                    <ul id="tree" class="nav nav-tabs ">
+                        <li data-jstree='{"icon" : "fa fa-info-circle icon-state-info"}'>
+                            <span class="caption-subject font-blue-madison bold uppercase">Help</span>
+                            <ul>                                
+                                <li data-jstree='{"selected" : true, "opened" : true, "icon" : "fa fa-book icon-state-info"}'>
+                                    <a href="#Waterfalltab1"  data-toggle="tab"> Waterfall Setup </a>                                 
+                                
+                                </li> 
+                                <li data-jstree='{ "opened" : true, "icon" : "fa fa-book icon-state-info" }'>
+                                    <a href="#Agiletab1"  data-toggle="tab"> Agile Setup </a>                                   
+                                   
+                                </li>                               
+                            </ul>
+                        </li>                       
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-7 col-xs-12">               
+                <div class="tab-content">
+                    <!-- GENERAL QUESTION TAB -->
+                    <div class="tab-pane active" id="Waterfalltab1">
+                        <div id="accordion1" class="panel-group">
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_1"> 1. Waterfall Setup Navigation </a>
+                                    </h4>
+                                </div>
+                                <div id="accordion1_1" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <p>
+                                            <strong>1. </strong>
+                                            In the home page, Select Waterfall Process Flow tab. Click on the Setup icon.  (or)
+                                        </p>
+                                        <p>
+                                            <strong>2. </strong>
+                                            In the header, click on Setup button and click on the Waterfall option in the drop down list.
+                                        </p>
+                                        <p>Users that have access to the Waterfall Setup page can set up and manage </p>
+                                        <ul>
+                                            <li>
+                                                Projects
+                                            </li>
+                                            <li>
+                                                Phases
+                                            </li>
+                                            <li>
+                                                Teams, Team Members and Roles
+                                            </li>
+                                            <li>
+                                                Functional Areas
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            Projects are the higher level in the hierarchy. For each Project, users can add/manage multiple phases within a waterfall process, add/manage Teams and add/manage Functional Areas of a project.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_2"> 2. Waterfall Setup Projects</a>
+                                    </h4>
+                                </div>
+                                <div id="accordion1_2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            In the Waterfall Setup page, click on the Projects tab.
+                                        </p>
+                                        <p>
+                                            Users can Add/Manage Projects in this page.
+                                        </p>
+                                        <p>
+                                            Click on “Add a Project” button. In the pop up, enter Project Name and Description. Clicking on Save will add the Project to the grid.
+                                        </p>
+                                        <p>
+                                            Users can edit/delete the Projects and its content.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_3"> 3. Waterfall Setup Phases</a>
+                                    </h4>
+                                </div>
+                                <div id="accordion1_3" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            In the Waterfall Setup page, click on the Phases tab.
+                                        </p>
+                                        <p>
+                                            Users can Add/Manage Phases for each Project in this page.
+                                        </p>
+                                        <p>
+                                            In the drop down list, select a Project and click on “New” button. In the pop up, enter Phase Name. Clicking on Save will add the Phase to the grid. User can create nested nested children by selecting the nested parent and clicking on “New Child” button.
+                                        </p>
+                                        <p>
+                                            Users can edit/delete the Phases from the grid.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-warning">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_4"> 4. Waterfall Setup Teams, Team Members and Roles </a>
+                                    </h4>
+                                </div>
+                                <div id="accordion1_4" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            In the Waterfall Setup page, click on the Teams tab.
+                                        </p>
+                                        <p>
+                                            Users can Add/Manage Teams and Assign/Unassign Team members for each Project in this page.
+                                        </p>
+                                        <p>
+                                            Click on “Add a Team” button. In the pop up, enter Team Name and Description. Clicking on Save will allow the user to Add Team Members. Click on “Add a Team Member” button. In the pop up, user can select the existing users that are signed up to Caliber Matrix as a Team Member. User can select existing roles or define new roles by click on the “+” button. Once the user saves all the added information, the Team will be added to the grid.
+                                        </p>
+                                        <p>
+                                            Users can edit the Teams, Team Members and Roles from the grid. Users can delete the Teams and its content.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_5"> 5. Waterfall Setup Functional Areas </a>
+                                    </h4>
+                                </div>
+                                <div id="accordion1_5" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            In the Waterfall Setup page, click on the Areas tab.
+                                        </p>
+                                        <p>
+                                            Users can Add/Manage Areas for each Project in this page.
+                                        </p>
+                                        <p>
+                                            In the drop down list, select a Project and click on “New” button. In the pop up, enter Area Name. Clicking on Save will add the Area to the grid. User can create nested nested children by selecting the nested parent and clicking on “New Child” button.
+                                        </p>
+                                        <p>
+                                            Users can edit/delete the Areas from the grid.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>                          
+                            
+                        </div>
+                    </div>     
+                    <div class="tab-pane" id="Agiletab1">
+                        <div id="accordion1" class="panel-group">
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion1" href="#accordion2_1"> 1. Agile Setup Navigation </a>
+                                    </h4>
+                                </div>
+                                <div id="accordion2_1" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <p>
+                                            <strong>1. </strong>
+                                            In the home page, Select Agile Process Flow tab. Click on the Setup icon.    (or)
+                                        </p>
+                                        <p>
+                                            <strong>2. </strong>
+                                            In the header, click on Setup button and click on the Agile option in the drop down list.
+                                        </p>
+                                        <p>Users that have access to the Agile Setup page can set up and manage  </p>
+                                        <ul>
+                                            <li>
+                                                Teams, Team Members and Roles
+                                            </li>
+                                            <li>
+                                                Iterations/Sprints
+                                            </li>
+                                            <li>
+                                                Functional Areas
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            Teams are the higher level in the hierarchy. The projects will be managed by the teams. Projects can be defined as the Functional Areas. Single team can manage multiple Projects or Multiple Teams can work on Single Project.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion1" href="#accordion2_2"> 2. Agile Setup Teams, Team Members and Roles</a>
+                                    </h4>
+                                </div>
+                                <div id="accordion2_2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            In the Agile Setup page, click on the Teams tab.
+                                        </p>
+                                        <p>
+                                            Users can Add/Manage Teams and Assign/Unassign Team members for each Team in this page.
+                                        </p>
+                                        <p>
+                                            Click on “Add a Team” button. In the pop up, enter Team Name and Description. Clicking on Save will allow the user to Add Team Members. Click on “Add a Team Member” button. In the pop up, user can select the existing users that are signed up to Caliber Matrix as a Team Member. User can select existing roles or define new roles by click on the “+” button. Once the user saves all the added information, the Team will be added to the grid.
+                                        </p>
+                                        <p>
+                                            Users can edit the Teams, Team Members and Roles from the grid. Users can delete the Teams and its content.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion1" href="#accordion2_3"> 3. Agile Setup Iterations/Sprints</a>
+                                    </h4>
+                                </div>
+                                <div id="accordion2_3" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            In the Agile Setup page, click on the Iterations/Sprints tab.
+                                        </p>
+                                        <p>
+                                            Users can Add/Manage Iterations/Sprints for each Team in this page.
+                                        </p>
+                                        <p>
+                                            In the drop down list, select a Team and click on “New” button. In the pop up, enter Iteration/Sprint Name, Start Date and End Date. Clicking on Save will add the Iteration to the grid.
+                                        </p>
+                                        <p>
+                                            Users can edit/delete the Iterations/Sprints from the grid.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-warning">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion1" href="#accordion2_4"> 4. Agile Setup Functional Areas </a>
+                                    </h4>
+                                </div>
+                                <div id="accordion2_4" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                            In the Agile Setup page, click on the Areas tab.
+                                        </p>
+                                        <p>
+                                            Users can Add/Manage Areas for each Team in this page.
+                                        </p>
+                                        <p>
+                                            In the drop down list, select a Team and click on “New” button. In the pop up, enter Area Name. Clicking on Save will add the Area to the grid. User can create nested nested children by selecting the nested parent and clicking on “New Child” button.
+                                        </p>
+                                        <p>
+                                            Users can edit/delete the Areas from the grid.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>                          
+
+                        </div>
+                    </div>              
+                </div>
+            </div>
+        </div>       
+    </div>
+<script>
+    $(document).ready(function () {
+        requirement.requirementInit();
+        UITree.init();
+    });
+
+</script>
+
+<script src="~/Scripts/CaliberScripts/Requirement.js"></script>

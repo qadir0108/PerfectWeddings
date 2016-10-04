@@ -1,0 +1,86 @@
+﻿@model PerfectWeddings.Models.AgileViewModel
+<div id="EditMembermodal">
+    @using (Ajax.BeginForm("SaveTeamMemeber", null,
+            new AjaxOptions { 
+                UpdateTargetId = "teamMemeberGrid", 
+                LoadingElementId = "myLoadingElement",     
+                OnSuccess = "onTeamMemberSuccess",
+                OnFailure = "onTeamMemberError"
+            },
+            new { id = "FormTeamMemeber" }))
+    {
+        <div id="basic" class="modal fade" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title" id="TeamMemberTitle" style="color: black;"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="scroller" style="height: 150px" data-always-visible="1" data-rail-visible1="1">
+                            <div class="row"> 
+                                <div class="col-md-12">
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
+                                    @Html.Hidden("isRoleExist")
+                                    @Html.Hidden("isEdit")
+                                    @Html.HiddenFor(model => model.teamMember.id)
+                                    @Html.HiddenFor(model => model.teamMember.teamID)
+                                    <div class="col-lg-12 form-group">
+                                        <div  class="col-lg-3">
+                                            @Html.LabelFor(model => model.teamMember.UserID)
+                                            <span class="required">*</span>
+                                        </div>
+                                        <div  class="input-group col-lg-9">
+                                            @Html.DropDownListFor(model => model.teamMember.UserID, new SelectList(Model.userList, "value", "Text"), "Select User", new { @class = "col-md-12 form-control required-field", id = "ddlUserName" })
+                                            @Html.ValidationMessageFor(model => model.teamMember.UserID)
+                                        </div>
+                                    </div>  
+                                    <div class="col-lg-12 form-group">
+                                        <div  class="col-lg-3">
+                                            @Html.LabelFor(model => model.teamMember.RoleID)
+                                            <span class="required">*</span>
+                                        </div>
+                                        <div class="input-group col-lg-9">
+                                            @Html.DropDownListFor(model => model.teamMember.RoleID, new SelectList(Model.roleList, "value", "Text"), "Select Role", new { @class = "col-md-12 form-control required-field", id = "ddlRole" })
+                                            <span class="input-group-btn pl10" onclick='TeamRole.TeamRoleClick();'>
+                                                <a class="btn btn-default btn-icon-only" id="btnTeamRole" data-toggle="modal" >
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </span>
+                                            @Html.ValidationMessageFor(model => model.teamMember.RoleID)
+                                        </div>
+                                    </div>                                                                   
+                                                                     
+                                    @Html.TextBoxFor(model => model.Other, new { @class = "form-control", @placeholder = "Other", id = "txtOther", style = "display:none" })                               
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" id="btnSaveTeamMember" class="btn btn-default  btn " value="Save" />    
+                        <button type="button" data-dismiss="modal" class="btn grey-mint btn-outline">Cancel</button>                                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="modal fade bs-modal-lg" id="DivTeamRole" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog"></div>
+</div>
+<div class="modal fade bs-modal-lg" id="DivAddTeamRole" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog"></div>
+</div>
+
+@Scripts.Render("~/PerfectWeddings/TeamRole")
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        // Bind custom validation to given form.
+        $.validator.unobtrusive.parse($('#FormTeamMemeber'));
+    });
+
+</script>

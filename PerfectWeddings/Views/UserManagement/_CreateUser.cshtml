@@ -1,0 +1,128 @@
+﻿@model PerfectWeddings.DataTransferObjects.BasicProfileDto
+
+@using (Ajax.BeginForm("_CreateUser", "UserManagement", null,
+                        new AjaxOptions { HttpMethod = "Post", OnSuccess = "UserManagement.SaveUserSuccess", OnFailure = "UserManagement.SaveUserError" },
+                        new { @class = "form-horizontal", @id = "createUserForm" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true)
+
+    <div>
+        <div style="left:0 !important">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Create New  User</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="" data-always-visible="1" data-rail-visible1="1">
+                        <div class="">
+                            <!-- BEGIN SAMPLE FORM PORTLET-->
+                            <div class="">
+                                <div class="form">
+                                    <div class="col-md-12 form-group">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label requiredfield" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="input-icon">
+                                                <i class="fa fa-user"></i>
+                                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control placeholder-no-fix", @placeholder = "User Name", @id = "txtUserName" })
+                                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 form-group">
+                                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label requiredfield" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="input-icon">
+                                                <i class="fa fa-envelope"></i>
+                                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email", @id = "txtEmail" })
+                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 form-group">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label requiredfield" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="input-icon">
+                                                <i class="fa fa-lock"></i>
+                                                @Html.TextBoxFor(model => model.Password, new { @type = "password", @id = "txtPassword", @class = "form-control placeholder-no-fix", @autocomplete = "off", @placeholder = "Password" })
+                                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 form-group">
+                                        <div class="col-md-3 ">
+                                            @Html.LabelFor(model => model.ReTypePassword, new { @class = "requiredfield " })
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="controls">
+                                                <div class="input-icon">
+                                                    <i class="fa fa-check"></i>
+                                                    @Html.TextBoxFor(model => model.ReTypePassword, new { @type = "password", @id = "txtRPassword", @class = "form-control placeholder-no-fix", @placeholder = "Re-TypePassword" })
+                                                    @Html.ValidationMessageFor(model => model.ReTypePassword, "", new { @class = "text-danger" })
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 form-group">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label requiredfield" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="input-icon">
+                                                <i class="fa fa-font"></i>
+                                                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control placeholder-no-fix", @placeholder = "First Name", @id = "txtFirstName" })
+                                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 form-group">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label requiredfield" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="input-icon">
+                                                <i class="fa fa-font"></i>
+                                                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @placeholder = "Last Name", @id = "txtFirstName" })
+                                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                            </div>
+                                       </div>
+                                    </div>
+
+                                  
+                                </div>
+                            </div>
+                            <!-- END SAMPLE FORM PORTLET-->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-12 form-group">
+                        <div class="col-md-12">
+                            <button type="submit" data-dismiss="modal" class="btn grey-mint btn-outline">Close</button>
+                            <button type="submit" class="btn btn-default" id="Btn_Create_User">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>

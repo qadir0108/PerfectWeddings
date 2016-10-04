@@ -1,0 +1,65 @@
+﻿@model PerfectWeddings.DataTransferObjects.PrivilegeCodeDto
+@using (Ajax.BeginForm("_UpdatePrivilege", "Roles", null,
+                        new AjaxOptions { HttpMethod = "Post", OnSuccess = "PrivilegeManagement.UpdatePrivilegeSuccess", OnFailure = "PrivilegeManagement.UpdatePrivilegeError" },
+                        new { @class = "form-horizontal", @id = "createUserForm" }))
+{
+
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+<div class="" style="left:0 !important">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Update Privilege</h4>
+        </div>
+        <div class="modal-body">
+            <div class="" data-always-visible="1" data-rail-visible1="1">
+                <div class="">
+                    <!-- BEGIN SAMPLE FORM PORTLET-->
+                    <div class="">
+                        <div class="form">
+                            <div class="col-lg-12 form-group">
+                                <div class="col-lg-3">
+                                    @*<label id="lblRoleName" class="control-label">Privilege Code</label>
+                <label class="control-label visible-ie8 visible-ie9">Privilege Code</label>*@
+                                    @Html.LabelFor(model => model.PrivilegeCode, htmlAttributes: new { @class = "control-label requiredfield", @id = "lblRoleName" })
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="input-icon">
+                                        <i class="fa fa-user"></i>
+                                        @*<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Enter Privilege Code" id="txtPrivilegeCodeUpdate" />
+                    <label id="lblErrorPrivilegeCodeUpdate" class="validateMessage"></label>*@
+                                        @Html.TextBoxFor(model => model.PrivilegeCode, new { @class = "form-control placeholder-no-fix", @placeholder = "Enter Privilege Code", @id = "txtPrivilegeCode" })
+                                        @Html.ValidationMessageFor(model => model.PrivilegeCode, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <!-- END SAMPLE FORM PORTLET-->
+
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col-lg-12 form-group">
+                <div class="col-lg-12">
+                    <button type="button" data-dismiss="modal" class="btn grey-mint btn-outline">Close</button>
+                    <button type="submit" id="btnUpdatePrivilege" class="btn btn-default updateBtn">Update</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+    
+}
+
+<script src="~/Scripts/CaliberScripts/UserManagement.js"></script>
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>

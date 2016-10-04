@@ -1,0 +1,42 @@
+﻿@model PerfectWeddings.DataTransferObjects.BasicProfileDto
+
+@using (Ajax.BeginForm("_DeleteUser", "UserManagement", null,
+                        new AjaxOptions { HttpMethod = "Post", OnSuccess = "UserManagement.DeleteUserSuccess", OnFailure = "UserManagement.DeleteUserError" },
+                        new { @class = "form-horizontal", @id = "createUserForm" }))
+{
+
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+    <div id="DelUserModel">
+        <div style="left:0 !important">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Delete  User</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="" data-always-visible="1" data-rail-visible1="1">
+                        <div class="">
+                            <!-- BEGIN SAMPLE FORM PORTLET-->
+                            <div class="">
+                                <div class="form">
+                                    <div class="form-group">
+                                        <p class="text-center">Are you sure you want to delete the <label style="font-weight: bold;" class="control-label nameVal">@Model.UserName</label> User ?</p>
+                                        <input type="hidden" class="hiddenName" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END SAMPLE FORM PORTLET-->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn grey-mint btn-outline">Close</button>
+                    <button type="submit" class="btn btn-default  BtnDeleteUserButton" data-val="0" data-name="" id="">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

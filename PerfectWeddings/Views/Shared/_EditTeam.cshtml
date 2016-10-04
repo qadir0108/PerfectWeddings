@@ -1,0 +1,80 @@
+﻿@model PerfectWeddings.Models.AgileViewModel
+
+<div id="Editmodal">
+    @using (Ajax.BeginForm("SaveTeam",
+            null,
+            new AjaxOptions { UpdateTargetId = "teamGrid", LoadingElementId = "myLoadingElement", OnSuccess = "onTeamSaveSuccess", OnFailure = "onTeamSaveError" },
+            new { id = "formTeam" }))
+    {
+        <div id="TeamModal" class="modal fade" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title" id="TeamTitle" style="color: black;"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="" style="data-always-visible="1" data-rail-visible1="1">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
+                                    @Html.Hidden("isTeamEdit")
+                                    @Html.HiddenFor(model => model.teamAgile.id)
+                                    <div class="col-lg-12 form-group">
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(model => model.teamAgile.teamName)
+                                            <span class="required">*</span>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextBoxFor(model => model.teamAgile.teamName, new { @class = "form-control required-field", @id = "txtTName", @maxlength = "50", @title = "Max 50 characters" })
+                                            @Html.ValidationMessageFor(model => model.teamAgile.teamName)
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <div class="col-lg-3 p0">
+                                            @Html.LabelFor(model => model.teamAgile.Description)
+                                        </div>
+                                        <div class="col-lg-9">
+                                            @Html.TextAreaFor(model => model.teamAgile.Description, new { @class = "form-control", @id = "txtDescription", maxlength = "5000", @title = "Max 5000 characters" })
+                                            @Html.ValidationMessageFor(model => model.teamAgile.Description)
+                                        </div>
+                                    </div>
+                                    <div id="divTeamMemberGrid" style="display: none">
+                                        <label id="lblTeamMemberMessage" class="validateMessage">@ViewData["TeamMemberMessage"]</label>
+                                        <hr />
+                                        <input id="btnAddTeamMember" value="Add a Team Member" type="button" class="btn btn-default" data-toggle="modal" data-target="#basic" onclick="onbtnAddTeamMemberClick();" />
+                                        <h4>Team Members</h4>
+                                        @if (Model.teamMemberList != null)
+                                        {
+                                            @Html.Partial("_TeamMemberGrid", this.Model)
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-12">
+                            <input type="submit" id="btnSaveTeam" class="btn btn-default  btn " value="Save" />
+                            <button type="button" data-dismiss="modal" class="btn grey-mint btn-outline">Cancel </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                debugger;
+                // Bind custom validation to given form.
+                $.validator.unobtrusive.parse($('#formTeam'));
+
+            });
+
+        </script>
+    }
+</div>
+
+
+
+

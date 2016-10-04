@@ -1,0 +1,643 @@
+﻿
+<style>
+    .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox]{
+            margin-left: -23px !important;
+
+    }
+</style>
+
+<div class="">
+    <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
+        <div class="portlet ">
+
+            <div class="portlet-body">
+                <div class="table-toolbar">
+                    <div class="row">
+
+                        <div class="col-md-10">
+                            <div class="btn-group form-inline">
+                                <select class="form-control " id="ddlprivelegecode_permission"></select>
+
+                                @*<label id="lblprivelegecode_permission" class="theme-font"></label>*@
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group pull-right">
+
+                                @*<button type="button" id="Btn_Create_New_Privilege_Permission" class="btn btn-default pull-right Btn_Create_New_Privilege_Permission">Save</button>
+                                &nbsp;
+                                &nbsp;
+
+                                <button class="btn grey-mint btn-sm btn-outline dropdown-toggle" href="#" data-toggle="dropdown" title="Tools" data-close-others="true">
+                                    <i class="fa fa-cogs"></i>
+                                </button>*@
+                                
+                                <ul class="dropdown-menu pull-right" id="sample_privilagepermission_tool">
+                                    <li>
+                                        <a href="javascript:;" data-action="0" class="tool-action">
+                                            <i class="fa fa-print"></i> Print
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-action="4" class="tool-action">
+                                            <i class="fa fa-file-excel-o"></i> Export to Excel
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-action="2" class="tool-action">
+                                            <i class="fa fa-file-pdf-o"></i> Save as PDF
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portlet-body">
+                    <div class="table-container" id="tblPrivilegePermission_Container" style="display:none;">
+                        <div id="datatable_ajax_wrapper" class="">
+                            <button type="button" id="Btn_Create_New_Privilege_Permission" class="btn btn-default pull-right Btn_Create_New_Privilege_Permission" style="margin-left:1px ! important">Save</button>
+
+                            <button class="btn grey-mint btn-sm btn-outline dropdown-toggle" href="#" data-toggle="dropdown" title="Tools" data-close-others="true">
+                                <i class="fa fa-cogs"></i>
+                            </button>
+                            <br /><br />
+                            <table class="table table-striped table-bordered table-hover tblPrivilegePermission" id="tblPrivilegePermission" aria-describedby="datatable_ajax_info" role="grid">
+                                <thead>
+                                    <tr role="row" class="heading">
+                                        <th class="text-center" width="5%"> Permission </th>
+                                        <th class="text-center" width="5%"> Grant Permission </th>
+                                    </tr>
+                                </thead>
+                                @*<tfoot>
+                                    <tr id="filterrow">
+                                        <th width="5%"></th>
+                                        <th width="5%" id="txtaction" style="display:none"></th>
+                                    </tr>
+                                </tfoot>*@
+                                @*<button type="button" id="Btn_Create_New_Privilege_Permission" class="btn btn-default pull-right Btn_Create_New_Privilege_Permission">Save</button>*@
+                                @*<tbody>*@
+                                    @*<tr>
+                                        <td></td>
+                                    </tr>*@
+                                    
+                                  
+                                @*</tbody>*@
+                               
+                            </table>
+                            @*<button type="button" id="Btn_Create_New_Privilege_Permission" class="btn btn-default pull-right Btn_Create_New_Privilege_Permission">Save</button>*@
+                        </div>
+                        @*<button type="button" id="Btn_Create_New_Privilege_Permission" class="btn btn-default pull-right Btn_Create_New_Privilege_Permission">Save</button>*@
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <a href="javascript:;" class="page-quick-sidebar-toggler">
+            <i class="icon-login"></i>
+        </a>
+
+        <!-- /.modal -->
+        <div id="Modal_Create_Privilege_Permission" class="modal fade" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog" style="left:0 !important">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title"> New  Privilege Permission</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="scroller" style="height:340px" data-always-visible="1" data-rail-visible1="1">
+                            <div class="row">
+                                <!-- BEGIN SAMPLE FORM PORTLET-->
+                                <div class="portlet light ">
+                                    <div class="portlet-body form">
+                                        <div class="form-group">
+                                            <label id="lblRoleName" class="control-label">Privilege Code</label>
+                                            <label class="control-label visible-ie8 visible-ie9">Privilege Code</label>
+                                            <div class="input-icon">
+                                                <i class="fa fa-user"></i>
+                                                <select class="form-control ddlPrivilege" name="ddlPrivilege" id="ddlPrivilege"></select>
+                                                <label id="lblErrorPrivilegeCode2" class="validateMessage"></label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label id="lblRoleName" class="control-label">Permission</label>
+                                            <label class="control-label visible-ie8 visible-ie9">Permission</label>
+                                            <div class="input-icon">
+                                                <i class="fa fa-user"></i>
+                                                <select class="form-control ddlPermission" name="ddlPermission" id="ddlPermission"></select>
+                                                <label id="lblErrorPermission" class="validateMessage"></label>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label id="lblRoleName" class="control-label">Authorization</label>
+                                            <label class="control-label visible-ie8 visible-ie9">Authorization</label>
+                                            <div class="input-icon">
+                                                <i class="fa fa-user"></i>
+                                                <select class="form-control ddlAuthorization" name="ddlAuthorization" id="ddlAuthorization">
+                                                    <option value="2">Select Authorization</option>
+                                                    <option value="1">Grant Permission</option>
+                                                    <option value="0">Deny Permission</option>
+                                                </select>
+                                                <label id="lblErrorAuthorization" class="validateMessage"></label>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <!-- END SAMPLE FORM PORTLET-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal for Upadate-->
+
+        <div id="Modal_Update_Privilege_Permission" class="modal fade" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog" style="left:0 !important">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title"> Update  Privilege Permission</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="scroller" style="height:340px" data-always-visible="1" data-rail-visible1="1">
+                            <div class="row">
+                                <!-- BEGIN SAMPLE FORM PORTLET-->
+                                <div class="portlet light ">
+                                    <div class="portlet-body form">
+                                        <div class="form-group">
+                                            <label id="lblRoleName" class="control-label">Privilege Code</label>
+                                            <label class="control-label visible-ie8 visible-ie9">Privilege Code</label>
+                                            <div class="input-icon">
+                                                <i class="fa fa-user"></i>
+                                                <select class="form-control ddlPrivilegeUpdate" name="ddlPrivilegeUpdate" id="ddlPrivilegeUpdate"></select>
+                                                <label id="lblErrorPrivilegeCodeUpdate" class="validateMessage"></label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label id="lblRoleName" class="control-label">Permission</label>
+                                            <label class="control-label visible-ie8 visible-ie9">Permission</label>
+                                            <div class="input-icon">
+                                                <i class="fa fa-user"></i>
+                                                <select class="form-control ddlPermissionUpdate" name="ddlPermissionUpdate" id="ddlPermissionUpdate"></select>
+                                                <label id="lblErrorPermissionUpdate" class="validateMessage"></label>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label id="lblRoleName" class="control-label">Authorization</label>
+                                            <label class="control-label visible-ie8 visible-ie9">Authorization</label>
+                                            <div class="input-icon">
+                                                <i class="fa fa-user"></i>
+                                                <select class="form-control ddlAuthorizationUpdate" name="ddlAuthorizationUpdate" id="ddlAuthorizationUpdate">
+                                                    <option value="2">Select Authorization</option>
+                                                    <option value="1">Grant Permission</option>
+                                                    <option value="0">Deny Permission</option>
+                                                </select>
+                                                <input type="hidden" id="txtCpp_key" />
+                                                <label id="lblErrorAuthorizationUpdate" class="validateMessage"></label>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <!-- END SAMPLE FORM PORTLET-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Close</button>
+                        <button type="button" id="Btn_Update_Privilege_Permission" class="btn green Btn_Update_Privilege_Permission">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <link href="~/assets/pages/css/bootstrap-multiselect.css" rel="stylesheet" />
+        <script src="~/Scripts/bootstrap-multiselect.js"></script>
+        <script type="text/javascript">
+
+            var dataCheckedBox = new Array();
+            PopulatingDropDowns();
+            $(document).ready(function () {
+                $('#managecolumnselect').multiSelect();
+
+               // PopulatingDropDowns();
+                bindPrivilegePermissionGrid();
+                PopulatePerevilegeGrid();
+                $('#ddlPrivilegeAssign').multiselect({
+                    includeSelectAllOption: true
+                });
+
+            });
+            function PopulatingDropDowns() {
+
+                //populating Privelege code
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("getAllPrivileges", "Roles")',
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#ddlPrivilege").empty();
+                        $("#ddlPrivilegeUpdate").empty();
+                        $("#ddlprivelegecode_permission").empty();
+                        $("#ddlPrivilegeAssign").empty();
+
+
+                        var html = '<option value = -1>Select Privilege Code</option>';
+                        $("#ddlPrivilege").append(html);
+                        $("#ddlPrivilegeUpdate").append(html);
+                        $("#ddlprivelegecode_permission").append(html);
+                        $.each(data, function (i) {
+                           // alert( data[i].cpc_name)
+                            var html = '<option value="' + data[i].cpc_key + '">' + data[i].cpc_name + '</option>';
+                            $("#ddlPrivilege").append(html);
+                            $("#ddlPrivilegeUpdate").append(html);
+
+                            $("#ddlPrivilegeAssign").append(html);
+
+                            $("#ddlprivelegecode_permission").append(html);
+                        });
+                        $(".ddlPrivilegeAssign").multiselect('destroy');
+                        $(".ddlPrivilegeAssign").multiselect();
+
+                    }
+                });
+                //populating Privelege code
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("getAllPermission", "Roles")',
+                    dataType: 'json',
+                    success: function (data) {
+                      
+                        $("#ddlPermission").empty();
+                        $("#ddlPermissionUpdate").empty();
+                        var html = '<option value = -1 >Select Permission Code</option>';
+
+                        $("#ddlPermission").append(html);
+                        $("#ddlPermissionUpdate").append(html);
+                        $.each(data, function (i) {
+                            var html = '<option value="' + data[i].prm_key + '">' + " " + data[i].prm_name + '</option>';
+                           // alert(i);
+                            $("#ddlPermission").append(html);
+                            $("#ddlPermissionUpdate").append(html);
+                        });
+                    }
+                });
+
+            }
+
+            $("#Btn_Create_New_Privilege_Permission").on("click", function () {
+
+                var dataArray = [];
+                $('.chkPrivelegePermission:checked').each(function () {
+                    dataArray.push($(this).val());
+                });
+                console.log(dataArray);
+                var PrivilegeKey = $('#ddlprivelegecode_permission').val();
+
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("CreatePrivilegePermission", "Roles")',
+                    data: { PrivilegeKey: PrivilegeKey, values: dataArray },
+                    dataType: 'json',
+                    cache: false,
+                    traditional: true,
+                    success: function (data) {
+                        var message = data;
+                        if (message == "2") {
+                            showToaster({ msg: "Privilege Permission Set Sucessfully", priority: "success" });
+
+                            $('#ddlPrivilege').val('-1');
+                            $("#ddlPermission").val('-1');
+                            $("#ddlAuthorization").val('2');
+
+                        }
+                        else
+                            if (message == "1") {
+                                showToaster({ msg: "Privilege Permission is already Set", priority: "info" });
+
+                                $('#ddlPrivilege').val('-1');
+                                $("#ddlPermission").val('-1');
+                                $("#ddlAuthorization").val('2');
+                            }
+                    }
+                });
+            });
+            $("#ddlprivelegecode_permission").change(function () {
+
+                if (($("#ddlprivelegecode_permission").val()) != -1) {
+                    $("#lblprivelegecode_permission").val('');
+                    var text = $("#ddlprivelegecode_permission option:selected").text();
+
+                    $("#tblPrivilegePermission_Container").show();
+                    $("#lblprivelegecode_permission").text('Please select permissions for ' + text + ' privilege');
+                    bindPrivilegePermissionGrid();
+                    $.ajax({
+                        type: 'GET',
+                        url: '@Url.Action("getAllPriviledgePermission", "Roles")',
+                        data: { cpc_id: ($("#ddlprivelegecode_permission").val()) },
+                        dataType: 'json',
+                        success: function (data) {
+
+                            var items = '';
+                            $.each(data, function (i, item) {
+
+                                $('.chkPrivelegePermission[value=' + item.cpp_prm_key + ']').prop("checked", true);
+                            });
+                        }
+                    });
+                }
+                else {
+                    $("#lblprivelegecode_permission").text('');
+                    $("#tblPrivilegePermission_Container").hide();
+                }
+
+            });
+
+            function bindPrivilegePermissionGrid() {
+                debugger;
+                var value = $("#ddlprivelegecode_permission").val();
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("getAllPermission", "Roles")',
+                    dataType: 'json',
+                    success: function (data) {
+                        var datatableInstance = $('.tblPrivilegePermission').DataTable({
+                            "bDestroy": true,
+                            "destroy": true,
+                            "paging": true,
+                            "sort": true,
+                            "searching": true,
+                            "sDom": "<t><<'form-group pull-left padding-top-20'l> <'pull-right theme2-padding-top-20'ip>> ",
+                            "bInfo": false,
+                            "lengthMenu": [
+                                [10, 20, 50, 100, 150, -1],
+                                [10, 20, 50, 100, 150, "All"] // change per page values here
+                            ],
+                            "pageLength": 10, // default record count per page
+                            //"pagingType": "full_numbers",
+
+
+                            data: data,
+                            "columns": [
+                                { data: 'prm_name' },
+
+                                {
+                                    'data': { 'ob': 'ob', 'prm_key': 'prm_key' },
+                                    'sortable': false,
+                                    'render': function (ob) {
+                                       return "<input type='checkbox' value=" + ob.prm_key + " id='chkPrivelegePermission' class='chkPrivelegePermission' data-val='" + ob.prm_key + "'> ";
+                                        //return "<input type='checkbox' value=" + ob.prm_key + " id='chkPrivelegePermission"+ ob.prm_key + " class='chkPrivelegePermission' data-val='" + ob.prm_key + "'> ";
+
+                                    }
+                                }
+                            ],
+                            buttons: [
+                          { extend: 'print', className: 'btn dark btn-outline' },
+                          { extend: 'copy', className: 'btn red btn-outline' },
+                          { extend: 'pdf', className: 'btn green btn-outline' },
+                          { extend: 'excel', className: 'btn yellow btn-outline ' },
+                          { extend: 'csv', className: 'btn purple btn-outline ' },
+                          { extend: 'colvis', className: 'btn dark btn-outline', text: 'Columns' }
+                            ],
+
+                        });
+                        $('#sample_privilagepermission_tool > li > a.tool-action').on('click', function () {
+                            debugger;
+                            var action = $(this).attr('data-action');
+                            datatableInstance.button(action).trigger();
+                        });
+                    }
+                });
+            }
+            $('#tblPrivilegePermission tfoot tr#filterrow th').each(function () {
+                debugger;
+                var title = $('#tblPrivilegePermission tfoot th').eq($(this).index()).text();
+                $(this).html('<input type="text" onclick="stopPropagation(evt);"class="mw85 form-control"style="width:88%" placeholder="Search' + title + '"/>');
+                $('#tblPrivilegePermission tfoot tr#filterrow th input[type=text]').on('click', function (evt) {
+                    debugger;
+                    if (evt.stopPropagation() != undefined) {
+                        evt.stopPropagation();
+                    } else {
+                        evt.cancelBubble = true;
+                    }
+                })
+            });
+            $("#tblPrivilegePermission tfoot input").on('keyup change', function () {
+                debugger;
+
+                $('.tblPrivilegePermission').DataTable()
+            .column($(this).parent().index() + ':visible')
+            .search(this.value)
+            .draw();
+            });
+
+            var r = $('#tblPrivilegePermission tfoot tr');
+            r.find('th').each(function () {
+                $(this).css('padding', 8);
+            });
+            $('#tblPrivilegePermission thead').append(r);
+            $('#search_0').css('text-align', 'center');
+
+
+            $("body").on("click", ".EditPrivilegePermission", function () {
+                var cpp_key = $(this).attr("data-key");
+                var cpc_key = $(this).attr("data-cpc-key");
+                var prm_key = $(this).attr("data-prm-key");
+                var cpc_is_allowed = $(this).attr("data-cpp-is-allowed");
+                $('#ddlPrivilegeUpdate').val(cpc_key);
+                $('#ddlPermissionUpdate').val(prm_key);
+                $('#ddlAuthorizationUpdate').val(cpc_is_allowed);
+                $("#txtCpp_key").val(cpp_key);
+
+                lblErrorPrivilegeCodeUpdate.innerHTML = "";
+                $("[id$=ddlPrivilegeUpdate").css('border', '1px solid');
+                lblErrorPermissionUpdate.innerHTML = "";
+                $("[id$=ddlPermissionUpdate").css('border', '1px solid');
+                lblErrorAuthorizationUpdate.innerHTML = "";
+                $("[id$=ddlAuthorizationUpdate").css('border', '1px solid');
+            });
+
+            $("#Btn_Update_Privilege_Permission").on("click", function () {
+
+                var id = $('#txtCpp_key').val();
+                var Privilege = $('#ddlPrivilegeUpdate').val();
+                var Permission = $('#ddlPermissionUpdate').val();
+                var Authorization = $('#ddlAuthorizationUpdate').val();
+                if (Privilege == '-1' || Permission == '-1' || Authorization == '2') {
+                    if (Privilege == '-1') {
+                        lblErrorPrivilegeCodeUpdate.innerHTML = "Privilege Code is Required";
+                        $("[id$=ddlPrivilegeUpdate").css('border', '1px solid Red');
+                        IsValid = "0";
+                    }
+                    if (Permission == '-1') {
+                        lblErrorPermissionUpdate.innerHTML = "Permission is Required";
+                        $("[id$=ddlPermissionUpdate").css('border', '1px solid Red');
+                        IsValid = "0";
+                    }
+                    if (Authorization == '2') {
+                        lblErrorAuthorizationUpdate.innerHTML = "Authorization is Required";
+                        $("[id$=ddlAuthorizationUpdate").css('border', '1px solid Red');
+                        IsValid = "0";
+                    }
+                }
+                else {
+                    $.ajax({
+                        type: 'GET',
+                        url: '@Url.Action("UpdatePrivilegePermission", "Roles")',
+                        // data: "id=" + role_key
+                        data: { id: id, cpc_key: Privilege, prm_key: Permission, cpp_is_allowed: Authorization },
+                        dataType: 'json',
+                        success: function (data) {
+                            var message = data;
+                            if (message == "2") {
+                                showToaster({ msg: "Privilege Permission Updated Successfully", priority: "success" });
+
+                                $('#ddlPrivilege').val('-1');
+                                $("#ddlPermission").val('-1');
+                                $("#ddlAuthorization").val('2');
+                                bindPrivilegePermissionGrid();
+                                $('#Modal_Update_Privilege_Permission').modal('hide');
+                            }
+                        }
+                    });
+                }
+            });
+
+            $("#BtnPrivilegeAssign").on("click", function () {
+
+                var ddltext = $('#ddlPrivilegeAssign').val();
+                // var ddltext = $("#ddlPrivilegeAssign option:selected").text();
+                var i;
+
+                if (ddltext != '') {
+                    var user_key = document.getElementById("txt_user_key_Privelege").value;
+
+                    $.ajax({
+                        type: 'GET',
+                        url: '@Url.Action("AssignPrivilegesToUser", "Roles")',
+                        data: { user_key: user_key, cpc_keys: $("#ddlPrivilegeAssign").val() },
+                        dataType: 'json',
+                        cache: false,
+                        traditional: true,
+                        success: function (data) {
+                            var message = data;
+                            if (message == "2") {
+                                showToaster({ msg: "Privilege Assigned Sucessfully", priority: "success" });
+
+                                $('#AssignPrivilege').modal('hide');
+                                $('#ddlPrivilegeAssign').multiselect('deselectAll', true);
+
+                            }
+                            if (message == "1") {
+                                showToaster({ msg: "Privilege already Assigned", priority: "info" });
+
+                                $('#AssignPrivilege').modal('hide');
+                            }
+                        }
+                    });
+                }
+                else {
+                    $("#lblErrorPrivilegeAssignSelect").css("display", "block");
+                }
+            });
+
+            $("body").on("click", ".btnPrivilege", function () {
+
+                $('.ddlPrivilegeAssign').multiselect('deselectAll', true);
+                $('#ddlPrivilegeAssign').multiselect('refresh');
+                $("#lblErrorPrivilegeAssignSelect").css("display", "none");
+                var user_name = $(this).attr("data-username");
+                var name_key = $(this).attr("data-name");
+                var user_key = $(this).attr("data-key");
+                document.getElementById("txtUsername_Privelege").value = user_name;
+                document.getElementById("txtName_Privelege").value = name_key;
+                document.getElementById("txt_user_key_Privelege").value = user_key;
+                PopulatingDropDowns();
+                // $('#ddlPrivilegeAssign').val('-1');
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("getPrivilegesByid", "Roles")',
+                    data: { usr_id: user_key },
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#tblAssignPrivilege').empty();
+                        var items = '';
+                        $.each(data, function (i, item) {
+
+                            var date = new Date(item.usp_created_date);
+                            var newDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+
+                            var rows = "<tr class=\"odd gradeX\">"
+                            + "<td>" + item.usp_cpc_name + "</td>"
+                            + "<td>" + newDate + "</td>"
+                             + "<td> <a id = 'btnRemoveSelectedRole' class='btnRemoveSelectedPrevelege' data-val='" + item.usp_key + "' > <i class='fa fa-trash-o' aria-hidden='true'></i> </a>  </td>";
+                            + "</tr>";
+
+                            $('#tblAssignPrivilege').append(rows);
+
+                        });
+                    }
+                });
+
+            });
+            $("body").on("click", ".btnRemoveSelectedPrevelege", function () {
+
+                var privilege_key = $(this).attr("data-val");
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("DeletePrivilegeAssignedToUser", "Roles")',
+                    data: "id=" + privilege_key,
+                    dataType: 'json',
+                    success: function (data) {
+                        var message = data;
+                        if (message == "2") {
+                            showToaster({ msg: "Privilege Removed Sucessfully", priority: "info" });
+
+                            $('#AssignPrivilege').modal('hide');
+                        }
+
+                    }
+                });
+
+            });
+            function PopulatePerevilegeGrid() {
+
+            }
+
+            function OpenManageGridViewList() {
+
+                $.get('UserManagement/_ManageColumnPartial', function (data) {
+
+                    $('#ManageGridView').html(data);
+
+                    $("#ManageGridView").modal({});
+                });
+            }
+        </script>
+    </div>
+</div>
+<script src="~/assets/global/scripts/datatable.js"></script>
+<script src="~/assets/global/plugins/datatables/datatables.min.js"></script>
+
+<script src="~/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
+
+<script src="~/assets/global/scripts/app.min.js"></script>
+<script src="~/assets/pages/scripts/table-datatables-buttons.min.js"></script>

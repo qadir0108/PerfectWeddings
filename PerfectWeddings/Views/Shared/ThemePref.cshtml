@@ -1,0 +1,314 @@
+﻿@model PerfectWeddings.DataTransferObjects.ThemePreferenceDto
+
+<div class="actions">
+    <!-- BEGIN PAGE TITLE -->
+    <div class="page-toolbar">
+        <!-- BEGIN THEME-1 PANEL -->
+        <div class="btn-group btn-theme-panel col-lg-1">
+            <a href="javascript:;" class="btn dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-settings"></i>
+            </a>
+
+            <div class="dropdown-menu theme-panel pull-right dropdown-custom hold-on-click">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <h3>THEME COLORS</h3>
+                        <div class="row">
+                            @{
+                                var color = Model.qmatrix_themepref_color;
+                                var defaultCss = "";
+                                var bluehokiCss = "";
+                                var bluesteelCss = "";
+                                var yelloworangeCss = "";
+                                var yellowcrustaCss = "";
+                                var greenhazeCss = "";
+                                var redsungloCss = "";
+                                var redintenseCss = "";
+                                var purpleplumCss = "";
+                                var purplestudioCss = "";
+                                if (color == "Sea Green")
+                                {
+                                    bluehokiCss = "active";
+                                }
+                                else if (color == "Blue Steel")
+                                {
+                                    bluesteelCss = "active";
+                                }
+                                else if (color == "Orange")
+                                {
+                                    yelloworangeCss = "active";
+                                }
+                                else if (color == "Yellow Crusta")
+                                {
+                                    yellowcrustaCss = "active";
+                                }
+                                else if (color == "Green Haze")
+                                {
+                                    greenhazeCss = "active";
+                                }
+                                else if (color == "Red Sunglo")
+                                {
+                                    redsungloCss = "active";
+                                }
+                                else if (color == "Red Intense")
+                                {
+                                    redintenseCss = "active";
+                                }
+                                else if (color == "Purple Plum")
+                                {
+                                    purpleplumCss = "active";
+                                }
+                                else if (color == "Purple Studio")
+                                {
+                                    purplestudioCss = "active";
+                                }
+                                else if(color == "Default")
+                                {
+                                    defaultCss= "active";
+                                }
+
+                            }
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <ul class="theme-colors">
+                                    <li class="theme-color theme-color-default default-color @defaultCss" data-theme="default" id="defaultcolor">
+                                        <span class="theme-color-view default-color"></span>
+                                        <span class="theme-color-name default-color">Default</span>
+                                    </li>
+                                    <li class="theme-color theme-color-blue-hoki blue-hoki-color @bluehokiCss" data-theme="blue-hoki">
+                                        <span class="theme-color-view blue-hoki-color"></span>
+                                        <span class="theme-color-name blue-hoki-color">Sea Green</span>
+                                    </li>
+                                    <li class="theme-color theme-color-blue-steel blue-steel-color @bluesteelCss" data-theme="blue-steel">
+                                        <span class="theme-color-view blue-steel-color"></span>
+                                        <span class="theme-color-name blue-steel-color">Blue Steel</span>
+                                    </li>
+                                    <li class="theme-color theme-color-yellow-orange yellow-orange-color @yelloworangeCss" data-theme="yellow-orange">
+                                        <span class="theme-color-view yellow-orange-color"></span>
+                                        <span class="theme-color-name color-orange yellow-orange-color">Orange</span>
+                                    </li>
+                                    <li class="theme-color theme-color-yellow-crusta yellow-crusta-color @yellowcrustaCss" data-theme="yellow-crusta">
+                                        <span class="theme-color-view yellow-crusta-color"></span>
+                                        <span class="theme-color-name yellow-crusta-color">Yellow Crusta</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <ul class="theme-colors">
+                                    <li class="theme-color theme-color-green-haze green-haze-color @greenhazeCss" data-theme="green-haze">
+                                        <span class="theme-color-view green-haze-color"></span>
+                                        <span class="theme-color-name green-haze-color">Green Haze</span>
+                                    </li>
+                                    <li class="theme-color theme-color-red-sunglo red-sunglo-color @redsungloCss" data-theme="red-sunglo">
+                                        <span class="theme-color-view red-sunglo-color"></span>
+                                        <span class="theme-color-name red-sunglo-color">Red Sunglo</span>
+                                    </li>
+                                    <li class="theme-color theme-color-red-intense red-intense-color @redintenseCss" data-theme="red-intense">
+                                        <span class="theme-color-view red-intense-color"></span>
+                                        <span class="theme-color-name red-intense-color">Red Intense</span>
+                                    </li>
+                                    <li class="theme-color theme-color-purple-plum purple-plum-color @purpleplumCss" data-theme="purple-plum">
+                                        <span class="theme-color-view purple-plum-color"></span>
+                                        <span class="theme-color-name purple-plum-color">Purple Plum</span>
+                                    </li>
+                                    <li class="theme-color theme-color-purple-studio purple-studio-color @purplestudioCss" data-theme="purple-studio">
+                                        <span class="theme-color-view purple-studio-color"></span>
+                                        <span class="theme-color-name purple-studio-color">Purple Studio</span>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <form method="post" id="themeprefform">
+                        <input type="hidden" id="qmatrix_themepref_color" name="qmatrix_themepref_color" value="@Model.qmatrix_themepref_color" />
+                        <input type="hidden" name="qmatrix_themepref_type" value="1" />
+
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 seperator">
+                            <h3>LAYOUT</h3>
+                            <ul class="theme-settings">
+                                <li>
+                                    Theme Style
+                                    @Html.DropDownListFor(model => model.qmatrix_themepref_themestyle, new SelectList(Model.ThemePreferenceThemeStyle, "Key", "Value"), new { @class = "theme-setting theme-setting-style form-control input-sm input-small input-inline tooltips", @title = "Change theme style", @container = "body", @data_placement = "left" })
+
+                                </li>
+                                <li>
+                                    Layout
+                                    @Html.DropDownListFor(model => model.qmatrix_themepref_layout, new SelectList(Model.ThemePreferenceLayout, "Key", "Value"), new { @class = "theme-setting theme-setting-layout form-control input-sm input-small input-inline tooltips", @title = "Change layout type", @container = "body", @data_placement = "left" })
+                                </li>
+                                <li>
+                                    Top Menu Style
+
+                                    @Html.DropDownListFor(model => model.qmatrix_themepref_topmenustyle, new SelectList(Model.ThemePreferenceTopMenuStyle, "Key", "Value"), new { @class = "theme-setting theme-setting-top-menu-style form-control input-sm input-small input-inline tooltips", @title = "Change top menu dropdowns style", @container = "body", @data_placement = "left" })
+
+                                </li>
+                                <li>
+                                    Top Menu Mode
+                                    @Html.DropDownListFor(model => model.qmatrix_themepref_topmenumode, new SelectList(Model.ThemePreferenceTopMenuMode, "Key", "Value"), new { @class = "theme-setting theme-setting-top-menu-mode form-control input-sm input-small input-inline tooltips", @title = "Enable fixed(sticky) top menu", @container = "body", @data_placement = "left" })
+
+                                <li>
+                                    Mega Menu Style
+                                    @Html.DropDownListFor(model => model.qmatrix_themepref_megamenustyle, new SelectList(Model.ThemePreferenceMegaMenuStyle, "Key", "Value"), new { @class = "theme-setting theme-setting-mega-menu-style form-control input-sm input-small input-inline tooltips", @title = "Change mega menu dropdowns style", @container = "body", @data_placement = "left" })
+
+                                </li>
+                                <li>
+                                    Mega Menu Mode
+                                    @Html.DropDownListFor(model => model.qmatrix_themepref_megamenumode, new SelectList(Model.ThemePreferenceMegaMenuMode, "Key", "Value"), new { @class = "theme-setting theme-setting-mega-menu-mode form-control input-sm  tooltips", @title = "Enable fixed(sticky) mega menu", @container = "body", @data_placement = "left" })
+
+                                </li>
+                                <li>
+                                    Font Size
+                                    @Html.DropDownListFor(model => model.qmatrix_themepref_fontsize, new SelectList(Model.ThemePreferenceFontSize, "Key", "Value"), new { @class = "qmatrix_themepref_fontsize form-control input-sm tooltips", @title = "Enable fixed(sticky) mega menu", @container = "body", @data_placement = "left" })
+
+                                </li>
+                                <li>
+                                    <button type="button" onclick="saveThemePref1()" class="btn btn-default saveThemePref1"> Save </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END THEME PANEL -->
+    </div>
+    <!-- END PAGE TITLE -->
+</div>
+<script type="text/javascript">
+
+    $(".theme-color").click(function () {
+        document.getElementById('qmatrix_themepref_color').value = ($(this).text().replace(/\s+/g, ' ').trim());
+    });
+    function removePreviousColorTheme() {
+        $('body').removeClass("default-theme");
+        $('body').removeClass("blue-hoki-theme");
+        $('body').removeClass("blue-steel-theme");
+        $('body').removeClass("yellow-orange-theme");
+        $('body').removeClass("yellow-crusta-theme");
+        $('body').removeClass("green-haze-theme");
+        $('body').removeClass("red-sunglo-theme");
+        $('body').removeClass("red-intense-theme");
+        $('body').removeClass("purple-plum-theme");
+        $('body').removeClass("purple-studio-theme");
+    }
+    $(document).ready(function () {
+
+        //var color = $("#qmatrix_themepref_color").val();
+        //if (color = "Default") {
+        //    $("#defaultcolor").addClass('active');
+        //}
+
+
+        $(".default-color").on("click", function () {
+            removePreviousColorTheme();
+            $('body').addClass("default-theme");
+
+        });
+        $(".blue-hoki-color").on("click", function () {
+            removePreviousColorTheme();
+            $('body').addClass("blue-hoki-theme");
+        });
+        $(".blue-steel-color").on("click", function () {
+            removePreviousColorTheme();
+            $('body').addClass("blue-steel-theme");
+        });
+        $(".yellow-orange-color").on("click", function () {
+            removePreviousColorTheme();
+            $('body').addClass("yellow-orange-theme");
+
+        });
+        $(".yellow-crusta-color").on("click", function () {
+            removePreviousColorTheme();
+            $('body').addClass("yellow-crusta-theme");
+
+        });
+        $(".green-haze-color").on("click", function () {
+            removePreviousColorTheme();
+            $('body').addClass("green-haze-theme");
+        });
+
+        $(".red-sunglo-color").on("click", function () {
+            removePreviousColorTheme();
+            $('body').addClass("red-sunglo-theme");
+        });
+        $(".red-intense-color").on("click", function () {
+            removePreviousColorTheme();
+            $('body').addClass("red-intense-theme");
+        });
+        $(".purple-plum-color").on("click", function () {
+            removePreviousColorTheme();
+            $('body').addClass("purple-plum-theme");
+        });
+        $(".purple-studio-color").on("click", function () {
+            removePreviousColorTheme();
+            $('body').addClass("purple-studio-theme");
+
+        });
+        @*$.ajax({
+                                    type: 'GET',
+            url: '@Url.Action("getUserPreference", "ThemePreference")',
+            dataType: 'json',
+            success: function (data) {
+                                            if (data == null) {
+                                                return;
+                                            }
+                                            if (data.qmatrix_themepref_type == "1") {
+                                                //set selected values for the dropdowns
+                                                if (data.qmatrix_themepref_topmenustyle == "dark") {
+                        $('#qmatrix_themepref_topmenustyle').val(data.qmatrix_themepref_topmenustyle);
+                        $('#topmenu').find("li").addClass("dropdown-dark");
+                                                }
+                                                if (data.qmatrix_themepref_topmenustyle == "Light") {
+                        $('#qmatrix_themepref_topmenustyle').val(data.qmatrix_themepref_topmenustyle);
+                        $('#topmenu').find("li").addClass("dropdown-dark");
+                                                }
+
+                    //for overriding the default settings
+                    $(".ldr").css("display", "none");
+                    $("#bdy").css("display", "block");
+                                            }
+                                        }
+                                    });*@
+    });
+    function saveThemePref1() {
+        data_array = $("#themeprefform").serialize();
+        $.ajax({
+            type: "POST",
+            url: '/ThemePreference/savePreferences',
+            data: data_array,
+            dataType: "Json",
+            success: function (data) {
+                showToaster({ msg: "Your Preferences Set Successfully", priority: "info" });
+            },
+            failure: function (response) {
+            },
+            complete: function () {
+                $('#Loader_Forget').hide();
+            }
+        });
+    }
+    $("#qmatrix_themepref_fontsize").change(function () {
+        debugger;
+        var FontSizeStyle = this.value;
+        if (FontSizeStyle == "small") {
+            Removebodyfontclass();
+            $('body').addClass("Theme-Font-Size-Small");
+        }
+        if (FontSizeStyle == "large") {
+            Removebodyfontclass();
+            $('body').addClass("Theme-Font-Size-Large");
+        }
+        if (FontSizeStyle == "medium") {
+            Removebodyfontclass();
+        }
+        //alert("Handler for .change() called." + FontSizeStyle);
+    });
+    function Removebodyfontclass() {
+        $('body').removeClass("Theme-Font-Size-Small");
+        $('body').removeClass("Theme-Font-Size-Large");
+    }
+
+   
+</script>

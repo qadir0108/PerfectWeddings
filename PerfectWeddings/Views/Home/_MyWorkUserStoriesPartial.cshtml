@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PerfectWeddings.DataTransferObjects.MyWorkDto>
+
+<div class="scroller dashboard-section" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+    <div class="general-item-list">
+        @foreach (var work in Model)
+        {
+            <div class="item">
+                <div class="item-head">
+                    <div class="item-details">
+                        <span class="item-name blue primary-link">
+                            @work.Title
+                        </span>
+                    </div>
+                    <span class="item-status ">
+                        @{ 
+                            var stateColor = string.Empty;
+                            if(work.State == "New")
+                            {
+                                stateColor = "bg-yellow";
+                            }
+                            if (work.State == "Approved")
+                            {
+                                stateColor = "bg-blue ";
+                            }
+                            if (work.State == "Committed")
+                            {
+                                stateColor = "bg-red ";
+                            }
+                            if (work.State == "Done")
+                            {
+                                stateColor = "bg-green-haze";
+                            }
+
+                        }
+                        @if (stateColor != string.Empty)
+                        {
+                            <span class="badge badge-empty @stateColor"></span> @work.State
+                        }                        
+                    </span>
+                </div>
+                <div class="item-body">
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

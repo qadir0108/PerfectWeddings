@@ -1,0 +1,84 @@
+﻿
+<link href="../Content/combo.select.css" rel="stylesheet" />
+<!-- BEGIN HEADER TOP -->
+<div class="page-header-top">
+    <div class="@Html.getSetBoxedCss()">
+        <!-- BEGIN LOGO -->
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="page-logo">
+                <a style="text-decoration:none;" href="@Url.Action("Index","Home")">
+                    <h3><span id="Logo11" class="Logo11"><b>CALIBER</b></span><span id="Logo22" class="Logo22"><b>MATRIX</b> </span></h3>
+                </a>
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler col-xs-12"></a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-5 col-xs-12 col-offset-md-1" style="margin-top:6px;">
+            <div class="input-group" id="projectSetupButtonDDL">
+                <div id="DdlDiv" style="visibility:hidden">
+                    @*<select id="ddlProject" class="col-xs-4 col-md-6"></select>*@
+                    <select id="ddlProject" class="" style="margin-top:10px;"></select>
+                </div>
+                <div class="input-group-btn">
+                    <div class="btn-group margin-bottom-5 zindexfordropdown" style="padding-left: 10px;">
+                        <a class="btn btn-default dropdown-toggle setupbtn" data-toggle="dropdown" aria-expanded="false">
+                            Setup
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu setupDropdown" style="z-index:110;">
+                            <li>
+                                <a href="/ProjectSetup/Index">Agile</a>
+                            </li>
+                            <li>
+                                <a href="/ProjectSetup/WaterFall">Waterfall</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="col-sm-6 col-md-3 col-xs-12 col-md-offset-1">
+            <div class="top-menu">
+                <ul id="topmenu" class="nav navbar-nav pull-right collapse">
+                    <!-- END INBOX DROPDOWN -->
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <li class="dropdown dropdown-user ">
+                        <a href="@Url.Action("Index", "Profile")" title="My Profile">
+
+                            @if (HttpContext.Current.Session["Image"] != null && HttpContext.Current.Session["Image"].ToString() != "")
+                                {
+                                <img alt=""  class="img-circle userpicthumb" src="@HttpContext.Current.Session["Image"].ToString()">
+                                }
+                                else
+                                {
+                                <img alt="No Image" title="No Image" class="img-circle userpicthumb" src="~/assets/layouts/layout3/img/blank-profile.png" />
+                                }
+                            @if (HttpContext.Current.Session["Username"] != null)
+                                {
+                                <span class="username username-hide-mobile"> @HttpContext.Current.Session["Username"].ToString() </span>
+                                }
+                        </a>       
+                    </li>
+                    <li>
+                        <a href="@Url.Action("HelpPage","Home")" class="Logout" title="Need Help?" >
+                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                        </a>
+                    </li>                    
+                    <li>
+                        <a href="@Url.Action("LogOutUser","Account")" class="Logout">
+                            <i class="fa fa-power-off" aria-hidden="true"></i> Log Out
+                        </a>
+                    </li>
+                    <!-- END QUICK SIDEBAR TOGGLER -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+    </div>
+</div>
+<!-- END HEADER TOP -->
+<!-- BEGIN HEADER MENU -->
+<!-- END HEADER MENU -->

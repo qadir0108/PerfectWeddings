@@ -1,0 +1,98 @@
+﻿@model PerfectWeddings.DataTransferObjects.HomeDto
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="mt-element-step">
+            <div class="row step-line">
+                <div class="mt-step-desc">
+                </div>
+                <div class="col-md-offset-1 col-md-2 mt-step-col first step-1">
+                    <a href="ProjectSetup/WaterFall" class="mt-step-number bg-white" style="">
+                        <i class="fa fa-cogs"></i>
+                    </a>
+                    <div class="mt-step-title uppercase font-grey-cascade">Setup</div>
+                    <div class="mt-step-content font-grey-cascade">Setup the Projects, Phases, Teams and Functional Areas</div>
+                </div>
+                <div class="col-md-2 mt-step-col step-2">
+                    <div class="btn-group">
+                        <div class="mt-step-number bg-white" style="" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                            <i class="fa fa-slideshare"></i>
+                        </div>
+                        @if ((Model.WaterfallProjectList).Count != 0)
+                        {
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;" style="color: #337ab7;"> Waterfall Project </a>
+                                </li>
+                                <li class="divider"> </li>
+                                @foreach (var project in Model.WaterfallProjectList)
+                                {
+                                    <li>
+                                        <a href="javascript:;" data-value=@project.Value class="ddlPlanLink"> @project.Text </a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                    <div class="mt-step-title uppercase font-grey-cascade">Plan</div>
+                    <div class="mt-step-content font-grey-cascade">Plan the Phases, Roadmap and Releases</div>
+                </div>
+                <div class="col-md-2 mt-step-col step-3">
+                    <div class="btn-group">
+                        <div class="mt-step-number bg-white" style="" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                            <i class="icon-user"></i>
+                        </div>
+                        @if ((Model.WaterfallProjectList).Count != 0)
+                        {
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;" style="color: #337ab7;"> Waterfall Project </a>
+                                </li>
+                                <li class="divider"> </li>
+                                @foreach (var project in Model.WaterfallProjectList)
+                                {
+                                    <li>
+                                        <a href="javascript:;" data-value=@project.Value class="ddlManageLink"> @project.Text </a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                    <div class="mt-step-title uppercase font-grey-cascade">Manage</div>
+                    <div class="mt-step-content font-grey-cascade">Manage your Requirements, Test Cases, Defects and Processes</div>
+                </div>
+                <div class="col-md-2 mt-step-col step-4">
+                    <div class="btn-group">
+                        <div class="mt-step-number bg-white" style="" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                            <i class="fa fa-laptop"></i>
+                        </div>
+                        @if ((Model.WaterfallProjectList).Count != 0)
+                        {
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;" style="color: #337ab7;"> Waterfall Project </a>
+                                </li>
+                                <li class="divider"> </li>
+                                @foreach (var project in Model.WaterfallProjectList)
+                                {
+                                    <li>
+                                        <a href="javascript:;" data-value=@project.Value class="ddlExecuteLink"> @project.Text </a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                    <div class="mt-step-title uppercase font-grey-cascade">Execute</div>
+                    <div class="mt-step-content font-grey-cascade">Execute your Test cases (Manual and Automation)</div>
+                </div>
+                <div class="col-md-2 mt-step-col step-5 last">
+                    <div class="mt-step-number bg-white" style="">
+                        <i class="icon-bar-chart"></i>
+                    </div>
+                    <div class="mt-step-title uppercase font-grey-cascade">Track</div>
+                    <div class="mt-step-content font-grey-cascade">Track the progress of the work</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

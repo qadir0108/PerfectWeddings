@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{12DBB4CA-2B0C-4340-BDFF-D2F3740EA0AA}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectWeddings", "PerfectWeddings\PerfectWeddings.csproj", "{35C28770-0FFF-4FCD-9070-6328F98538FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectWeddings.Business", "PerfectWeddings.Business\PerfectWeddings.Business.csproj", "{2FAC642C-0142-4382-82FD-1424CD59EC29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectWeddings.Data", "PerfectWeddings.Data\PerfectWeddings.Data.csproj", "{BC8C2657-8FD5-4940-8680-7F17E70BED45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectWeddings.Enums", "PerfectWeddings.Enums\PerfectWeddings.Enums.csproj", "{E9385EB4-5589-4878-B2D6-D1C438848881}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectWeddings.Common", "PerfectWeddings.Common\PerfectWeddings.Common.csproj", "{F1AF18A9-6E13-481F-890D-3ECFEB3D85AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35C28770-0FFF-4FCD-9070-6328F98538FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35C28770-0FFF-4FCD-9070-6328F98538FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35C28770-0FFF-4FCD-9070-6328F98538FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35C28770-0FFF-4FCD-9070-6328F98538FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FAC642C-0142-4382-82FD-1424CD59EC29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FAC642C-0142-4382-82FD-1424CD59EC29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FAC642C-0142-4382-82FD-1424CD59EC29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FAC642C-0142-4382-82FD-1424CD59EC29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC8C2657-8FD5-4940-8680-7F17E70BED45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC8C2657-8FD5-4940-8680-7F17E70BED45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC8C2657-8FD5-4940-8680-7F17E70BED45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC8C2657-8FD5-4940-8680-7F17E70BED45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9385EB4-5589-4878-B2D6-D1C438848881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9385EB4-5589-4878-B2D6-D1C438848881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9385EB4-5589-4878-B2D6-D1C438848881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9385EB4-5589-4878-B2D6-D1C438848881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1AF18A9-6E13-481F-890D-3ECFEB3D85AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1AF18A9-6E13-481F-890D-3ECFEB3D85AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1AF18A9-6E13-481F-890D-3ECFEB3D85AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1AF18A9-6E13-481F-890D-3ECFEB3D85AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

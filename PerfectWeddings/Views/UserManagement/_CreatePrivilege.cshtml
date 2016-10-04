@@ -1,0 +1,65 @@
+﻿@model PerfectWeddings.DataTransferObjects.PrivilegeCodeDto
+
+
+
+@using (Ajax.BeginForm("_CreatePrivilege", "Roles", null,
+                        new AjaxOptions { HttpMethod = "Post", OnSuccess = "PrivilegeManagement.SavePrivilegeSuccess", OnFailure = "PrivilegeManagement.SavePrivilegeError" },
+                        new { @class = "form-horizontal", @id = "createUserForm" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true)
+    <div>
+        <div class="" style="left:0 !important">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Create New  Privilege</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="" data-always-visible="1" data-rail-visible1="1">
+                        <div class="">
+                            <!-- BEGIN SAMPLE FORM PORTLET-->
+                            <div class=" ">
+                                <div class="">
+                                    <div class="col-lg-12 form-group">
+                                        <div class="col-lg-3">
+                                            @Html.LabelFor(model => model.PrivilegeCode, htmlAttributes: new { @class = "control-label requiredfield", @id = "lblRoleName" })
+
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="input-icon">
+                                                <i class="fa fa-user"></i>
+                                                @Html.TextBoxFor(model => model.PrivilegeCode, new { @class = "form-control placeholder-no-fix", @placeholder = "Enter Privilege Code", @id = "txtPrivilegeCode" })
+                                                @Html.ValidationMessageFor(model => model.PrivilegeCode, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col-lg-12 form-group">
+                        <div class="col-lg-12">
+                            <button type="button" data-dismiss="modal" class="btn grey-mint btn-outline">Close</button>
+                            <button type="submit" id="Btn_Create_New_Privilege" class="btn btn-default">Save</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+   
+</script>
+
+<script src="~/Scripts/CaliberScripts/UserManagement.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>

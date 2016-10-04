@@ -1,0 +1,405 @@
+﻿@model PerfectWeddings.DataTransferObjects.ThemePreferenceDto
+
+<!-- BEGIN SIDEBAR -->
+<form method="post" id="themeprefform2">
+    <div class="theme-panel hidden-xs hidden-sm">
+        <div class="toggler"> </div>
+        <div class="toggler-close"> </div>
+
+
+        <input type="hidden" id="qmatrix_themepref_color" name="qmatrix_themepref_color" value="Dark Blue" />
+        <input type="hidden" name="qmatrix_themepref_type" id="qmatrix_themepref_type" value="2" />
+
+        <div class="theme-options">
+            <div class="theme-option theme-colors clearfix">
+                <span> THEME COLOR </span>
+                @{
+                    var color = Model.qmatrix_themepref_color;
+                    var defaultCss = "";
+                    var darkblueCss = "";
+                    var blueCss = "";
+                    var greyCss = "";
+                    var lightCss = "";
+                    var light2Css = "";
+
+                    if (color == "Dark Blue")
+                    {
+                        darkblueCss = "current";
+                    }
+                    else if (color == "Blue")
+                    {
+                        blueCss = "current";
+                    }
+                    else if (color == "Grey")
+                    {
+                        greyCss = "current";
+                    }
+                    else if (color == "Light")
+                    {
+                        lightCss = "current";
+                    }
+                    else if (color == "Light 2")
+                    {
+                        light2Css = "current";
+                    }
+                    else if (color == "Default")
+                    {
+                        defaultCss = "current";
+                    }
+
+                }
+                <ul class="">
+                    <li class="color-default  tooltips @defaultCss" id="def" data-style="default" data-container="body" data-original-title="Default"></li>
+                    <li class="color-darkblue tooltips @darkblueCss" id="dblue" data-style="darkblue" data-container="body" data-original-title="Dark Blue"> </li>
+                    <li class="color-blue tooltips @blueCss" id="blue" data-style="blue" data-container="body" data-original-title="Blue"> </li>
+                    <li class="color-grey tooltips @greyCss" id="grey" data-style="grey" data-container="body" data-original-title="Grey"> </li>
+                    <li class="color-light tooltips @lightCss" id="light" data-style="light" data-container="body" data-original-title="Light"> </li>               
+                    <li class="color-light2 tooltips @light2Css" id="light2" data-style="light2" data-container="body" data-html="true" data-original-title="Light 2"> </li>
+                </ul>
+            </div>
+
+            <div class="theme-option">
+                <span> Theme Style </span>
+                @Html.DropDownListFor(model => model.qmatrix_themepref_themestyle, new SelectList(Model.ThemePreferenceThemeStyle, "Key", "Value"), new { @class = "layout-style-option form-control input-sm", @style = "text-transform:capitalize;" })
+               
+            </div>
+            <div class="theme-option">
+                <span> Layout </span>
+                @Html.DropDownListFor(model => model.qmatrix_themepref_layout, new SelectList(Model.ThemePreferenceLayout, "Key", "Value"), new { @class = "layout-option form-control input-sm", @style = "text-transform:capitalize;" })
+               
+            </div>
+            <div class="theme-option">
+                <span> Header </span>
+                @Html.DropDownListFor(model => model.qmatrix_themepref_header, new SelectList(Model.ThemePreferenceHeader , "Key", "Value"), new { @class = "page-header-option form-control input-sm" , @style = "text-transform:capitalize;" })
+               
+            </div>
+
+            <div class="theme-option">
+                <span> Top Menu Dropdown</span>
+                @Html.DropDownListFor(model => model.qmatrix_themepref_topmenudropdown, new SelectList(Model.ThemePreferenceTopMenuDropdown , "Key", "Value"), new { @class = "page-header-top-dropdown-style-option form-control input-sm", @style = "text-transform:capitalize;" })
+               
+            </div>
+
+            <div class="theme-option">
+                <span> Sidebar Mode</span>
+                @Html.DropDownListFor(model => model.qmatrix_themepref_sidebarmode, new SelectList(Model.ThemePreferenceSidebarMode , "Key", "Value"), new { @class = "sidebar-option form-control input-sm", @style = "text-transform:capitalize;" })
+             
+            </div>
+
+            <div class="theme-option">
+                <span> Sidebar Menu </span>
+                @Html.DropDownListFor(model => model.qmatrix_themepref_sidebarmenu, new SelectList(Model.ThemePreferenceSidebarMenu , "Key", "Value"), new { @class = "sidebar-menu-option form-control input-sm", @style = "text-transform:capitalize;" })
+                
+            </div>
+
+            <div class="theme-option">
+                <span> Sidebar Style </span>
+                @Html.DropDownListFor(model => model.qmatrix_themepref_sidebarstyle, new SelectList(Model.ThemePreferenceSidebarStyle  , "Key", "Value"), new { @class = "sidebar-style-option form-control input-sm", @style = "text-transform:capitalize;" })
+               
+            </div>
+
+            <div class="theme-option">
+                <span> Sidebar Position </span>
+                @Html.DropDownListFor(model => model.qmatrix_themepref_sidebarposition, new SelectList(Model.ThemePreferenceSidebarPosition , "Key", "Value"), new { @class = "sidebar-pos-option form-control input-sm", @style = "text-transform:capitalize;" })
+               
+            </div>
+
+            <div class="theme-option">
+                <span> Footer </span>
+                @Html.DropDownListFor(model => model.qmatrix_themepref_footer, new SelectList(Model.ThemePreferenceFooter , "Key", "Value"), new { @class = "page-footer-option form-control input-sm", @style = "text-transform:capitalize;" })
+              
+            </div>      
+                
+            <div class="theme-option">
+                <span> Font Size </span>
+                @Html.DropDownListFor(model => model.qmatrix_themepref_fontsize, new SelectList(Model.ThemePreferenceFontSize, "Key", "Value"), new { @class = "qmatrix_themepref_fontsize form-control input-sm", @style = "text-transform:capitalize;" })
+               
+            </div>
+            <div class="theme-option">
+                <button type="button" onclick="saveThemePref2()"
+                        class="btn btn-circle btn-default btn-large saveThemePref2">
+                    Save
+                </button>
+            </div>
+            <div class="theme-option">
+            </div>
+
+        </div>
+
+
+    </div>
+</form>
+
+<script>
+    //Set Theme Preferences stored by the user
+    var color = "";
+    var headerType = "";
+    $(document).ready(function () {
+        @*$.ajax({
+            type: 'GET',
+            url: '@Url.Action("getUserPreference", "ThemePreference")',
+            dataType: 'json',
+            success: function (data) {               
+            
+            }
+        });*@
+    });  
+    
+    function applyColorToTheme(color) {
+        switch (color) {
+            case "Default":
+                color = '<link href="../assets/layouts/layout/css/themes/default.css" rel="stylesheet" />';
+                break;
+            case "Dark Blue":
+                color = '<link href="../assets/layouts/layout/css/themes/darkblue.css" rel="stylesheet" />';
+                break;
+            case "Blue":
+                color = '<link href="../assets/layouts/layout/css/themes/blue.css" rel="stylesheet" />';
+                break;
+            case "Grey":
+                color = '<link href="../assets/layouts/layout/css/themes/grey.css" rel="stylesheet" />';
+                break;
+            case "Light":
+                color = '<link href="../assets/layouts/layout/css/themes/light.css" rel="stylesheet" />';
+                break;
+            case "Light 2":
+                color = '<link href="../assets/layouts/layout/css/themes/light2.css" rel="stylesheet" />';
+                break;
+            default:
+                color = '<link href="../assets/layouts/layout/css/themes/darkblue.css" rel="stylesheet" />';
+        }
+        return color
+    }
+    function applySelected(data) {
+        if (data.qmatrix_themepref_themestyle != "" && data.qmatrix_themepref_themestyle != null) {
+            document.getElementById("qmatrix_themepref_themestyle").value = data.qmatrix_themepref_themestyle;
+        }
+        if (data.qmatrix_themepref_layout != "" && data.qmatrix_themepref_layout != null) {
+            document.getElementById("qmatrix_themepref_layout").value = data.qmatrix_themepref_layout;
+        }
+        if (data.qmatrix_themepref_header != "" && data.qmatrix_themepref_header != null) {
+            document.getElementById("qmatrix_themepref_header").value = data.qmatrix_themepref_header;
+        }
+        if (data.qmatrix_themepref_topmenudropdown != "" && data.qmatrix_themepref_topmenudropdown != null) {
+            document.getElementById("qmatrix_themepref_topmenudropdown").value = data.qmatrix_themepref_topmenudropdown;
+        }
+        if (data.qmatrix_themepref_sidebarmode != "" && data.qmatrix_themepref_sidebarmode != null) {
+            document.getElementById("qmatrix_themepref_sidebarmode").value = data.qmatrix_themepref_sidebarmode;
+        }
+        if (data.qmatrix_themepref_sidebarmenu != "" && data.qmatrix_themepref_sidebarmenu != null) {
+            document.getElementById("qmatrix_themepref_sidebarmenu").value = data.qmatrix_themepref_sidebarmenu;
+        }
+        if (data.qmatrix_themepref_sidebarstyle != "" && data.qmatrix_themepref_sidebarstyle != null) {
+            document.getElementById("qmatrix_themepref_sidebarstyle").value = data.qmatrix_themepref_sidebarstyle;
+        }
+        if (data.qmatrix_themepref_sidebarposition != "" && data.qmatrix_themepref_sidebarposition != null) {
+            document.getElementById("qmatrix_themepref_sidebarposition").value = data.qmatrix_themepref_sidebarposition;
+        }
+        if (data.qmatrix_themepref_footer != "" && data.qmatrix_themepref_footer != null) {
+            document.getElementById("qmatrix_themepref_footer").value = data.qmatrix_themepref_footer;
+        }
+        if (data.qmatrix_themepref_type != "" && data.qmatrix_themepref_type != null) {
+            document.getElementById("qmatrix_themepref_type").value = data.qmatrix_themepref_type;
+        }
+    }
+    function checkID(color) {
+        switch (color) {
+            case "Default":
+                color = "color-default";
+                break;
+            case "Dark Blue":
+                color = "#dblue";
+                break;
+            case "Blue":
+                color = "#blue";
+                break;
+            case "Grey":
+                color = "#grey";
+                break;
+            case "Light":
+                color = "#light";
+                break;
+            case "Light 2":
+                color = "#light2";
+                break;
+            default:
+                color = "#dblue";
+        }
+        return color
+    };
+    function setColorText(color) {
+        switch (color) {
+            case "Default":
+                color = "Default";
+                break;
+            case "Dark Blue":
+                color = "Dark Blue";
+                break;
+            case "Blue":
+                color = "Blue";
+                break;
+            case "Grey":
+                color = "Grey";
+                break;
+            case "Light":
+                color = "Light";
+                break;
+            case "Light 2":
+                color = "Light 2";
+                break;
+
+            default:
+                color = "Dark Blue";
+        }
+        return color
+    }
+    function checkColor(color) {
+        switch (color) {
+            case "Default":
+                color = ".color-default current tooltips";
+                break;
+            case "Dark Blue":
+                color = ".color-darkblue current tooltips";
+                break;
+            case "Blue":
+                color = ".color-blue current tooltips";
+                break;
+            case "Grey":
+                color = ".color-grey current tooltips";
+                break;
+            case "Light":
+                color = ".color-light current tooltips";
+                break;
+            case "Light 2":
+                color = ".color-light2 current tooltips";
+                break;
+            default:
+                color = ".color-darkblue current tooltips";
+                
+        }
+        return color
+    };
+    $("#qmatrix_themepref_fontsize").change(function () {
+        var FontSizeStyle = this.value;
+        if (FontSizeStyle == "small") {
+            Removebodyfontclass();
+            $('body').addClass("Theme-Font-Size-Small");
+        }
+        if (FontSizeStyle == "large") {
+            Removebodyfontclass();
+            $('body').addClass("Theme-Font-Size-Large");
+        }
+        if (FontSizeStyle == "medium") {
+            Removebodyfontclass();
+        }
+        //alert("Handler for .change() called." + FontSizeStyle);
+    });
+    function Removebodyfontclass() {
+        $('body').removeClass("Theme-Font-Size-Small");
+        $('body').removeClass("Theme-Font-Size-Large");
+    }
+
+    $(document).click(function (e) {
+
+        // Check if click was triggered on or within #menu_content
+        if ($(e.target).closest(".theme-options").length > 0) {
+            return false;
+        }
+
+       else if ($(e.target).closest(".toggler").length > 0) {
+            return false;
+        }
+
+       else if ($(e.target).closest(".toggler-clos").length > 0) {
+           return false;
+       }
+       else {
+           $(".toggler-close").css("display", "none");
+           $(".toggler").css("display", "block");
+           $(".theme-options").hide();
+       }
+            });
+
+    
+    // for default li
+    $(".color-default").click(function () {
+
+        $(".clearfix").css("background-color", "#1f1f1f");
+        $(".Logo11").css("color", "#f87373");
+        $(".Logo22").css("color", "#2e6da4");
+        document.getElementById('qmatrix_themepref_color').value = "Default";
+        var themeCssFile = applyColorToTheme(document.getElementById('qmatrix_themepref_color').value);
+        $("#themecss").append(themeCssFile);
+    });
+    // for Dark Blue li
+    $(".color-darkblue").click(function () {
+        $(".clearfix").css("background-color", "#2b3643");
+        $(".Logo11").css("color", "#f87373");
+        $(".Logo22").css("color", "#2e6da4");
+        document.getElementById('qmatrix_themepref_color').value = "Dark Blue";
+        var themeCssFile = applyColorToTheme(document.getElementById('qmatrix_themepref_color').value);
+        $("#themecss").append(themeCssFile);
+    });
+    // for Blue li
+    $(".color-blue").click(function () {
+        //$(".Logo22").css("color", "#5b8194");
+        $(".clearfix").css("background-color", "#2D5F8B");
+        $(".Logo11").css("color", "#f87373");
+        $(".Logo22").css("color", "white");
+        document.getElementById('qmatrix_themepref_color').value = "Blue";
+        var themeCssFile = applyColorToTheme(document.getElementById('qmatrix_themepref_color').value);
+        $("#themecss").append(themeCssFile);
+    });
+    // for Grey li
+    $(".color-grey").click(function () {
+        $(".clearfix").css("background-color", "#4f5a67");
+        $(".Logo11").css("color", "#f87373");
+        $(".Logo22").css("color", "#2e6da4");
+       
+        document.getElementById('qmatrix_themepref_color').value = "Grey";
+        var themeCssFile = applyColorToTheme(document.getElementById('qmatrix_themepref_color').value);
+        $("#themecss").append(themeCssFile);
+    });
+    // for Light li
+    $(".color-light").click(function () {
+        $(".clearfix").css("background-color", "#747F8C");
+        $(".Logo11").css("color", "#f87373");
+        $(".Logo22").css("color", "#2e6da4");
+        document.getElementById('qmatrix_themepref_color').value = "Light";
+        var themeCssFile = applyColorToTheme(document.getElementById('qmatrix_themepref_color').value);
+        $("#themecss").append(themeCssFile);
+    });
+    // for Light2 li
+    $(".color-light2").click(function () {
+        $(".clearfix").css("background-color", "#E1E1E1");
+        $(".Logo11").css("color", "#f87373");
+        $(".Logo22").css("color", "#2e6da4");
+        document.getElementById('qmatrix_themepref_color').value = "Light 2";
+        var themeCssFile = applyColorToTheme(document.getElementById('qmatrix_themepref_color').value);
+        $("#themecss").append(themeCssFile);
+    });
+    // save theme prefs
+    $(".saveThemePref2").click(function () {
+        $('#Loader_Forget').show();
+        var data_array = $("#themeprefform2").serialize();
+        $.ajax({
+            type: "POST",
+            url: '/ThemePreference/savePreferences',
+            data: data_array,
+            dataType: "Json",
+            success: function (data) {
+                var message = data;
+                showToaster({ msg: "Your Preferences saved Successfully", priority: "success" });
+              
+
+            },
+            failure: function (response) {
+             
+            },
+            complete: function () {
+                $('#Loader_Forget').hide();
+      
+            }
+        });
+    });
+</script>

@@ -1,0 +1,34 @@
+﻿ <!-- MODULE PERMISSION Start-->
+@{
+    
+    if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+        || (Session["PortfolioAccess"] != null && Convert.ToBoolean(Session["PortfolioAccess"].ToString()) == true))
+    {
+<li class="menu-dropdown classic-menu-dropdown  ">
+    <a href="javascript:;">
+        Plan
+        <span class="arrow"></span>
+    </a>
+    <ul class="dropdown-menu">
+        @if (Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.BackLog, (Convert.ToInt32(Session["UserKey"]))))
+        {
+            <li>
+                <a href="@Url.Action("Index", "Portfolio")" class="nav-link ">Planning</a>
+            </li>
+        }
+        <li>
+            <a href="@Url.Action("Index","#")" class="nav-link ">RoadMap</a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","#")" class="nav-link ">Track</a>
+        </li>
+    </ul>
+</li>
+}
+}
+
+
+<!-- MODULE PERMISSION CODE END-->
+
+
+

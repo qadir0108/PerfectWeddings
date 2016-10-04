@@ -1,0 +1,59 @@
+﻿@model PerfectWeddings.Models.AgileViewModel
+
+<div id="teamGrid">
+    <input id="btnAddTeam" value="Add a Team" type="button" class="btn btn-default " data-toggle="modal" data-target="#TeamModal" onclick="onbtnAddTeamClick();" />
+        <label id="lblAddTeamMemberMessage" class="validateMessage hide">@ViewData["AddTeamMessage"]</label>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN SAMPLE TABLE PORTLET-->
+                <div class="portlet "> 
+                    <div class="portlet-body ">
+                        <table class="table table-hover table-scrollable table-bordered" id="teamTable">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Description</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.teamAgileList)
+                                {
+                                    <tr>
+                                        <td class="text-center">
+                                            <span class="TeamName"> @Html.DisplayFor(modelItem => item.teamName) </span>
+                                            @Html.HiddenFor(modelItem => item.id, new { @class = "TeamId" })
+                                        </td>
+                                        <td class="text-center">@Html.DisplayFor(modelItem => item.Description)</td>
+                                        <td class="text-center">                                          
+                                            @Ajax.ActionLink(" ", "EditTeam", new { id = item.id }, new AjaxOptions { UpdateTargetId = "Editmodal", OnComplete = "return onTeamEdit()" }, new { @class = "fa fa-pencil", @title = "Edit" }) | 
+                                            @Ajax.ActionLink(" ", "DeleteTeam", new { id = item.id }, new AjaxOptions { UpdateTargetId = "teamGrid", OnComplete = "onTeamDelete()", OnBegin = "return confirm('Are you sure you want to delete that Team and its content?');" }, new { @class = "fa fa-trash-o", @title = "Delete" })
+                                           
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <!-- END SAMPLE TABLE PORTLET-->
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#teamTable").dataTable({
+                    "searching": false, "ordering": false, "info": false,
+                    "sDom": "<t><<'form-group pull-left padding-top-20'l> <'pull-right theme2-padding-top-20'ip>> ",
+
+                    "language": {
+                        "lengthMenu": "Show _MENU_ Records",
+                        "info": "",
+                        "infoEmpty": "",
+                    },
+                });
+
+    });
+</script>

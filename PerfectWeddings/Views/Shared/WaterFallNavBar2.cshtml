@@ -1,0 +1,110 @@
+﻿@using PerfectWeddings.HtmlHelpers
+
+<li class="nav-item start">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="fa fa-slideshare"></i>
+        <span class="title">Plan</span>
+        <span class="selected"></span>
+        <span class="arrow open"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item ">
+            <a href="@Url.Action("WaterfallPlanIndex","WaterfallPlan")" class="nav-link ">
+                <i class="fa fa-object-group"></i>
+                <span class="title">Planning</span>
+                <span class="selected"></span>
+            </a>
+        </li>     
+    </ul>
+  
+</li>
+<li class="nav-item start">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="fa fa-wrench"></i>
+        <span class="title">Manage</span>
+        <span class="selected"></span>
+        <span class="arrow open"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item ">
+            <a href="@Url.Action("Index","Requirement")" class="nav-link ">
+                <i class="fa fa-th-list"></i>
+                <span class="title">Requirments</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+        @if (Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.TestCases, (Convert.ToInt32(Session["UserKey"]))))
+        {
+            <li class="nav-item ">
+                <a href="@Url.Action("Index","TestCases")" class="nav-link ">
+                    <i class="fa fa-language"></i>
+                    <span class="title">Test Cases</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+        }
+        <li class="nav-item ">
+            <a href="#" class="nav-link ">
+                <i class="fa fa-thumbs-o-up"></i>
+                <span class="title">Release</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+@if (Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.Support, (Convert.ToInt32(Session["UserKey"]))))
+        {
+        <li class="nav-item ">
+            <a href="@Url.Action("Index","Incident")" class="nav-link ">
+                <i class="fa fa-support"></i>
+                <span class="title">Support</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+}
+    </ul>
+</li>
+@*@if (Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.ExecuteFunctional, (Convert.ToInt32(Session["UserKey"]))))*@
+@if (Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.ExecuteFunctional, (Convert.ToInt32(Session["UserKey"]))))
+{
+
+    <li class="nav-item start">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="fa fa-desktop"></i>
+            <span class="title">Execute</span>
+            <span class="selected"></span>
+            <span class="arrow open"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item ">
+                <a href="@Url.Action("Index", "FunctionalArea")" class="nav-link ">
+                    <i class="fa fa-cogs"></i>
+                    <span class="title">Functional Execution</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+        </ul>
+    </li>
+}
+<li class="nav-item start">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="icon-bar-chart"></i>
+        <span class="title">Track</span>
+        <span class="selected"></span>
+        <span class="arrow open"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item ">
+            <a href="#" class="nav-link ">
+                <i class="fa fa-dashboard"></i>
+                <span class="title">Dashboard</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a href="#" class="nav-link ">
+                <i class="fa fa-area-chart"></i>
+                <span class="title">Charts</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+    </ul>
+</li>

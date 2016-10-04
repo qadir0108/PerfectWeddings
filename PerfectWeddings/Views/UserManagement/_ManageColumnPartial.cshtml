@@ -1,0 +1,65 @@
+﻿<link href="/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/global/plugins/jquery-multi-select/css/multi-select.css" rel="stylesheet" type="text/css" />
+<script src="/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js" type="text/javascript"></script>
+<script src="~/Scripts/bootstrap-multiselect.js"></script>
+<div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add/Remove Column</h4>
+        </div>
+        <form id="form1">
+            <div class="modal-body">
+                <p>Please select column list which you feel to be in Datagrid</p>
+                <div class="form-group">
+                    <div class="col-md-12 text-center">
+                        @Html.DropDownList("list", new SelectList(ViewBag.TableColumns, "ID", "Description"), new { @multiple = "multiple", @class = "multi-select", @id = "managecolumnselect", @name = "my_multi_select1[]" })
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer margin-top-10">
+                <button type="button" class="btn btn-outline grey-mint" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" id="Add" data-dismiss="modal">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        debugger;
+        var TableName = '@(ViewBag.TableName)';
+        $('#managecolumnselect').multiSelect();
+        var columnList = $('#'+TableName).DataTable().columns().indexes();
+        for (i = 0; i < columnList.length; i++) {
+            debugger;
+            var IsColumnVisible = $('#'+TableName).DataTable().column(i).visible();
+            if (IsColumnVisible) {
+                $('#managecolumnselect').multiSelect('deselect', i.toString());
+            }
+            else {
+                $('#managecolumnselect').multiSelect('select', i.toString());
+            }
+        }
+
+        $("#Add").on('click', function () {
+            debugger;
+            var columnList = new Array();
+            $("#managecolumnselect option:selected").each(function () {
+                var $this = $(this);
+                if ($this.length) {
+                    var columnIndex = $this.val();
+                    $('#' + TableName).DataTable().column(parseInt(columnIndex)).visible(false);                  
+                }
+            });
+            $('#managecolumnselect :not(:selected)').each(function () {
+                var $this = $(this);
+                if ($this.length) {
+                    var columnIndex = $this.val();
+                    $('#' + TableName).DataTable().column(parseInt(columnIndex)).visible(true);
+                }
+            });
+          
+        });
+    });
+</script>

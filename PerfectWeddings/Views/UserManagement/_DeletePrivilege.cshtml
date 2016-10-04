@@ -1,0 +1,48 @@
+﻿@model PerfectWeddings.DataTransferObjects.PrivilegeCodeDto
+
+@using (Ajax.BeginForm("_DeletePrivilege", "Roles", null,
+                        new AjaxOptions { HttpMethod = "Post", OnSuccess = "PrivilegeManagement.DeletePrivilegeSuccess", OnFailure = "PrivilegeManagement.DeletePrivilegeError" },
+                        new { @class = "form-horizontal", @id = "createUserForm" }))
+{
+
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+<div class="" style="left:0 !important">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Delete Privilege</h4>
+        </div>
+        <div class="modal-body">
+            <div class="" data-always-visible="1" data-rail-visible1="1">
+                <div class="">
+                    <!-- BEGIN SAMPLE FORM PORTLET-->
+                    <div class="">
+                        <div class="form">
+                            <div class="col-lg-12 form-group form-group">
+
+                                <p>Are you sure you want to delete the <label class="control-label PrivilegenameVal" style="font-weight: bold;">@Model.PrivilegeCode</label> Privilege?</p> <input type="hidden" class="hiddenName" />
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- END SAMPLE FORM PORTLET-->
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn grey-mint btn-outline">Close</button>
+            <button type="submit" class="btn btn-default  deletePrivilegeButton" data-val="0" data-name="">Delete</button>
+        </div>
+    </div>
+
+</div>
+}
+
+<script src="~/Scripts/CaliberScripts/UserManagement.js"></script>

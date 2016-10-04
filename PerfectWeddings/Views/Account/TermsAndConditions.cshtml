@@ -1,0 +1,398 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Terms & Conditions </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    
+    <link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="../assets/pages/css/login.min.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <!-- END THEME LAYOUT STYLES -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link href="../Content/combo.select.css" rel="stylesheet" />
+    @Styles.Render("~/bundles/toaster-css")
+    <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <link href="~/Content/MySiteCustome.css" rel="stylesheet" />
+
+    <style>
+
+        .page-footer {
+            background: #3b434c;
+            color: #a2abb7;
+            font-size: 13px;
+            font-weight: 300;
+            padding: 17px 0;
+        }
+        h4 {
+            font-weight:600 !important;
+        }
+        h2{
+            font-weight: 700 !important;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <!-- BEGIN HEADER TOP -->
+    <div class="page-header-top" style="box-shadow: 0px 7px 30px -15px rgba(74,74,98,.5); ">
+        <div class="container-fluid">
+            <!-- BEGIN LOGO -->
+            <div class="col-md-4 col-sm-12 col-xs-12" style="padding:0px;">
+                <div class="page-logo">
+                    <a style="text-decoration:none;" href="@Url.Action("Index","Home")">
+                        <h3 style="margin-top:24px"><span id="Logo11" class="Logo11"><b>CALIBER</b></span><span id="Logo22" class="Logo22"><b>MATRIX</b> </span></h3>
+                    </a>
+                    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                    <a href="javascript:;" class="menu-toggler"></a>
+                    <!-- END RESPONSIVE MENU TOGGLER -->
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-5 col-xs-12" style="margin-top:10px;">
+                <div class="input-group">
+                    <div id="DdlDiv" style="visibility:hidden">
+                        @*<select id="ddlProject" class="col-xs-4 col-md-6"></select>*@
+                        <select id="ddlProject" class="" style="margin-top:10px;"></select>
+                    </div>
+                    <div class="input-group-btn">
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <div class="col-sm-6 col-md-3 col-xs-12" style="padding-top:10px;">
+                @*<div class="top-menu">
+                    <button type="submit" id="sbtn" class="btn btn-primary" onclick="Back()" tabindex="3">Sign Up</button>
+                </div>*@
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="page-header" style="text-align:center;">
+    <h2> TERMS OF USE</h2>
+</div>
+        
+        <p> Welcome to Caliber Matrix (hereinafter referred to as the “Caliber Matrix”, “Website”, “Site”, “We”, “Us” or “Our”), owned and operated by Caliber Technologies Inc. (hereinafter referred to as the “Company”), with its office located at 5094 159th St W, Apple Valley, MN - 55124. Caliber Matrix is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein (the "Terms").</p>
+        <p>
+            BY CLICKING ON THE "ACCEPT" BUTTON AT THE END OF THE AGREEMENT ACCEPTANCE FORM, Users (hereinafter referred to as “You” or “Your”) AGREE TO BE BOUND BY THE TERMS AND CONDITIONS OF THIS AGREEMENT. PLEASE READ THIS ENTIRE AGREEMENT CAREFULLY BEFORE ACCEPTING ITS TERMS. YOUR USAGE OF THIS CALIBER MATRIX SIGNIFIES YOUR ASSENT TO THE FOLLOWING BINDING AGREEMENT.
+        </p>
+        <p>    Caliber Matrix is an online platform which offers you the means to effectively and affordably manage your software development and testing lifecycles, so as to decrease the time to market and increase return on investment (collectively, the “Services”).</p>
+        <p> By using Caliber Matrix, you agree to comply with and be legally bound by the terms and conditions of these Terms of Service ("Terms"). These Terms govern your access to and use of the Site and Services and all Collective Content, and constitute a binding legal agreement between you and us.</p>
+        <p> Please read carefully these Terms and our Privacy Policy, which may be found at ______________________________________ (link to privacy policy), and which is incorporated by reference into these Terms. If you do not agree to these Terms, you have no right to obtain information from or otherwise continue using the Site. Failure to use the Site in accordance with these Terms may subject you to civil and criminal penalties. This website reserves the right to recover the cost of services, collection charges and lawyers fees from persons using the Site fraudulently. This website reserves the right to initiate legal proceedings against such persons for fraudulent use of the Site and any other unlawful acts or acts or omissions in breach of these terms and conditions.</p>
+        <p> The use of this Website constitutes your consent to, and agreement to, abide by the most current version of these terms and conditions (the "Terms"). We may at any time revise these terms and conditions by updating the Terms. You agree to be bound by subsequent revisions and agree to review the Terms periodically for changes to the terms and conditions. The most up to date version of the Terms will always be available for your review under the "Terms of Use" link that appears at the bottom of the Website.</p>
+        <p> PLEASE READ THESE TERMS OF USE AND CAREFULLY AS THEY CONTAIN IMPORTANT INFORMATION REGARDING YOUR LEGAL RIGHTS, REMEDIES AND OBLIGATIONS. THESE INCLUDE VARIOUS LIMITATIONS AND EXCLUSIONS, AND A CLAUSE THAT GOVERNS THE JURISDICTION AND VENUE OF DISPUTES.</p>
+        <p>  IN USING THIS WEBSITE YOU ARE DEEMED TO HAVE READ AND AGREED TO THE FOLLOWING TERMS AND CONDITIONS SET FORTH HEREIN. ANY INCIDENTAL DOCUMENTS AND LINKS MENTIONED SHALL BE CONSIDERED TO BE ACCEPTED JOINTLY WITH THESE TERMS. YOU AGREE TO USE THE WEBSITE ONLY IN STRICT INTERPRETATION AND ACCEPTANCE OF THESE TERMS AND ANY ACTIONS OR COMMITMENTS MADE WITHOUT REGARD TO THESE TERMS SHALL BE AT YOUR OWN RISK. THESE TERMS AND CONDITIONS FORM PART OF THE AGREEMENT BETWEEN THE USERS AND US. BY ACCESSING THIS WEBSITE, AND/OR UNDERTAKING TO PERFORM A SERVICE BY US INDICATES YOUR UNDERSTANDING, AGREEMENT TO AND ACCEPTANCE, OF THE DISCLAIMER NOTICE AND THE FULL TERMS AND CONDITIONS CONTAINED HEREIN.</p>
+        <h4> 1. DEFINITIONS:</h4>
+        <p> 1.1 "Agreement" shall mean the terms and conditions as detailed herein including all Exhibits, privacy policy, other policies mentioned/published on the website and will include the references to this agreement as amended, negated, supplemented, varied or replaced from time to time.</p>
+        <p> 1.2 “____________________ (website link)” shall mean the online platform via which users can effectively and affordably manage their software development and testing lifecycles, so as to decrease the time to market and increase return on investment.</p>
+        <p> 1.3 “User” shall mean an individual/person who creates an account on our website in order to avail the services provided by our website.</p>
+        <p> 1.4 “Visitor” shall mean an individual who just visits our website and does not create an account on our website.</p>
+        <p> 1.5 “Content” shall mean all information, data, images, documents, files, scripts, applications, electronic media, logos, text, webpage and any other file or data or similar material to each of the foregoing which is uploaded, posted, published, shared, distributed, disseminated or incorporated, processed or entered into, onto or via the Services.</p>
+        <p> 1.6 “User content” shall mean all Content that a user uploads, publishes/posts, submits or transmits to be made available through our website.</p>
+        <p> 1.7 “________________________ (website) Content” shall mean all Content that our website makes available through the site or Services, including any Content licensed from a third party, but excluding user Content.</p>
+        <p> 1.8 "Software" means only the _____________________ (website) software program(s) and third party software programs, in each case, supplied by our website herewith, and corresponding documentation, associated media, printed materials, and online or electronic documentation.</p>
+        <p> 1.9 “Software Edition” means the specific version of the Software that users/you have purchased including the specified number of concurrent user licenses.</p>
+        <p> 1.10 "Hosting" means the service provided by our website in order to install and host the Software on a shared _______________________ Web Server that is publicly accessible to you over the Internet.</p>
+        <p> 1.11 “Subscription” means the combination of Software and Hosting provided by our website to you during the specified Subscription Period.</p>
+        <p> 1.12 "Subscription Period" means the period(s) during which a specified number of Users are licensed to use the Subscription pursuant to the purchased Software Edition.</p>
+        <h4>
+            2. INTERPRETATION:</h4>
+            <p> 2.1 The official language of these terms shall be English.</p>
+            <p> 2.2 The headings and sub-headings are merely for convenience purpose and shall not be used for interpretation.</p>
+        <h4>
+            3. ELIGIBILITY:</h4>
+            <p> 3.1 You may use the Service only if you are at least eighteen (18) years of age and can form a binding contract with us, and only in compliance with this Agreement and all applicable local, state, national, and international laws, rules and regulations.</p>
+            <p> 3.2 Any use or access to the Service by anyone under 18 is strictly prohibited and in violation of this Agreement. Our website reserves the right to terminate your membership and refuse to provide you with access to the website if we discover that you are under the age of 18 years. The Service is not available to any Users previously removed from the Service by us, unless we provide such Users with specific written authorization to re-use the Service.</p>
+            <p> 3.3 If you are a minor i.e. under the age of 18 years but at least 13 years of age, you may use this Site only under the supervision of a parent or legal guardian who agrees to be bound by these Terms of Use. If your age is below that of 18 years, your parents or legal guardians can transact on behalf of you.</p>
+            <p> 3.4 Except where additional terms and conditions are provided which are services specific, these terms and conditions supersede all previous representations, understandings, or agreements and shall prevail notwithstanding any variance with any other terms of any order submitted. By using the services of our website you agree to be bound by the Terms and Conditions.</p>
+        <h4>
+            4. REGISTRATION:</h4>
+            <p> 4.1 It is mandatory for the Users to register on our website in order to avail the services offered by us.</p>
+            <p> 4.2 Users shall create an account either directly with us or may register with us by using their valid account on the social networking service (“SNS”) such as Facebook or twitter or Google accounts (each such account, a “Third-Party Account”). If users access the Services through a SNS, they may link their Account with Third-Party Accounts, by allowing us to access their Third-Party Account, as is permitted under the applicable terms and conditions that govern your use of each Third-Party Account. Users represent that they are entitled to disclose their Third-Party Account login information to us and/or grant us access to their Third-Party Account (including, but not limited to, for use for the purposes described herein) without breach by them of any of the terms and conditions that govern their use of the applicable Third-Party Account and without obligating us to pay any fees or making us subject to any usage limitations imposed by such third-party service providers. Users have the ability to disable the connection between their Account and their Third-Party Accounts at any time by accessing the “Settings” section of the website. PLEASE NOTE THAT YOUR RELATIONSHIP WITH THE THIRD-PARTY SERVICE PROVIDERS ASSOCIATED WITH YOUR THIRD-PARTY ACCOUNTS IS GOVERNED SOLELY BY YOUR AGREEMENT(S) WITH SUCH THIRD-PARTY SERVICE PROVIDERS, AND WE DISCLAIM ANY LIABILITY FOR PERSONALLY IDENTIFIABLE INFORMATION THAT MAY BE PROVIDED TO IT BY SUCH THIRD-PARTY SERVICE PROVIDERS IN VIOLATION OF THE PRIVACY SETTINGS THAT YOU HAVE SET IN SUCH THIRD-PARTY ACCOUNTS.</p>
+        <h4>
+            A. Accounts:</h4>
+            <p> a) If you directly want to sign up with us and create an account directly on our website then you must register for an account with us (an "Account") and provide certain personal information including personal information such as name, email address, contact number and password.</p>
+            <p> b) You represent and warrant that all required registration information you submit is truthful and accurate, and you will maintain the accuracy of such information. You are responsible for maintaining the confidentiality of your Account login information and are fully responsible for all activities that occur under your Account. You agree to immediately notify us of any unauthorized use, or suspected unauthorized use of your Account or any other breach of security. Our website cannot and will not be liable for any loss or damage arising from your failure to comply with the above requirements. You must not share your password or other access credentials with any other person or entity that is not authorized to access your account. Without limiting the foregoing, you are solely responsible for any activities or actions that occur under your website account access credentials. We encourage you to use a “strong” password (a password that includes a combination of upper and lower case letters, numbers, and symbols) with your account. We cannot and will not be liable for any loss or damage arising from your failure to comply with any of the above.</p>
+            <p> 4.3 You agree to provide and maintain accurate, current and complete information about your Account. Without limiting the foregoing, in the event you change any of your personal information as mentioned above in this Agreement, you will update your Account information promptly.</p>
+            <p> 4.4 When creating an Account, don’t:</p>
+            <p> a) Provide any false personal information to us (including without limitation a false username) or create any Account for anyone other than yourself without such other person’s permission;</p>
+            <p> b) Use a username that is the name of another person with the intent to impersonate that person;</p>
+            <p> c) Use a username that is subject to rights of another person without appropriate authorization; or</p>
+            <p> d) Use a username that is offensive, vulgar or obscene or otherwise in bad taste.</p>
+            <p> 4.5 We reserve the right to suspend or terminate your Account if any information provided during the registration process or thereafter proves to be inaccurate, false or misleading or to reclaim any username that you create through the Service that violates our Terms. If you have reason to believe that your Account is no longer secure, then you must immediately notify us at info@caliber-technologies.com.</p>
+            <p> 4.6 You may not transfer or sell your ____________________ (name of the website) account and User ID to another party. If you are registering as a business entity, you personally guarantee that you have the authority to bind the entity to this Agreement.</p>
+            <p> 4.7 Our website reserves the right, in its sole discretion, to cancel unconfirmed or inactive accounts. Our website reserves the right to refuse service to anyone, for any reason, at any time.</p>
+            <p> 4.8 One individual can own only one account in his/her name.</p>
+            <p> 4.9 You agree to comply with all local laws regarding online conduct and acceptable content. You are responsible for all applicable taxes. In addition, you must abide by our website’s policies as stated in the Agreement and the website policy documents listed on the Website as well as all other operating rules, policies and procedures that may be published from time to time on the Website by Company.</p>
+        <h4>
+            5. SERVICES:</h4>
+            <p> 5.1 Our website offers its users with the means to effectively and affordably manage their software development and testing lifecycles, so as to decrease the time to market and increase return on investment.</p>
+            <p> 5.2 Our website offers you the following products and services:-</p>
+            <p> Project Management</p>
+            <p> Test Management and Execution</p>
+            <p> 5.3 We provide our users with the very best products and customer service. We ensure that each user is satisfied with our software products.</p>
+            <p> 5.4 We have the experience and the commitment to deliver the products users need to deliver their projects and assure quality every step of the way.</p>
+            <p>  5.5 Our services will be performed in a professional, workmanlike manner with high grade services, so that the Software is easily accessible to third parties.</p>
+            <p> 5.6 You shall be responsible for all activity occurring on our website’s servers and shall abide by all applicable local, state, national and foreign laws, treaties and regulations in connection with its use of the Subscription, including those related to data privacy, international communications and the transmission of technical or personal data.</p>
+            <p> 5.7 In order to avail our services you shall be required to subscribe to our services in the manner as mentioned in section 10 of these terms of use.</p>
+        <h4>
+            6. ACCESS TO THE SERVICE:</h4>
+            <p> 6.1 Our website grants you a non-transferable, non-exclusive, license to use the Services solely for (a) your personal, noncommercial or (b) your commercial use in accordance with the applicable restrictions outlined in then-current pricing list if you have subscribed to the Services as a commercial user. If at any time our website reasonably believes in its sole discretion that you are using the Service beyond this scope, we may terminate your access to the Service with no additional liability to you. The rights granted to you in these Terms are subject to the following restrictions:</p>
+            <p> (a) you shall not license, sell, rent, lease, transfer, assign, distribute, host, or otherwise commercially exploit the Services;</p>
+            <p> (b) you shall not modify, make derivative works of, disassemble, reverse compile or reverse engineer any part of the Services;</p>
+            <p> (c) you shall not access the Services in order to build a similar or competitive service; and</p>
+            <p> (d) except as expressly stated herein, no part of the Service may be copied, reproduced, distributed, republished, downloaded, displayed, posted or transmitted in any form or by any means. Any future release, update, or other addition to functionality of the Site or Services shall be subject to the terms of this Agreement.</p>
+            <p> 6.2 Our website hereby grants you a limited, nonexclusive, nontransferable, revocable license to use the Software, solely for the purposes of accessing the Services. Your license to use the Software is automatically revoked if you violate these Terms. We hereby reserve all rights not expressly granted in these Terms. You must not modify, make derivative works of, reverse engineer or decompile the Software, nor attempt to do so, nor assist anyone else to do so. Our Services may update the Software on your device automatically when a new version is available and you hereby authorize us to automatically update the Software on your device.</p>
+            <p> 6.3 While using our Site, you agree not to:</p>
+            <p> a) Defame, abuse, harass, threaten or otherwise violate the rights of others, including, without limitation, others' privacy rights or rights of publicity;</p>
+            <p> b) Impersonate any person or entity or use any fraudulent, misleading or inaccurate email address or other contact information;</p>
+            <p> c) Restrict or inhibit any other user from using our Site, including, without limitation, by means of "hacking" or defacing any portion our Site;</p>
+            <p> d) Violate any applicable laws or regulations;</p>
+            <p> e) Upload to, submit to, transmit through, or display on our Site (a) any material that is unlawful, fraudulent, threatening, abusive, libelous, defamatory, obscene or otherwise objectionable, or infringes our or any third party's intellectual property or other rights; (b) any confidential, proprietary or trade secret information of any third party; or (c) any advertisements, solicitations, chain letters, pyramid schemes, investment opportunities or other unsolicited commercial communication (except as otherwise expressly permitted by us);</p>
+            <p> f) Engage in spamming;</p>
+            <p> g) Transmit any software or other materials that contain any viruses, worms, trojan horses, defects, or other destructive items;</p>
+            <p> h) Modify, adapt, translate, distribute, reverse engineer, decompile or disassemble any portion of our Site; and</p>
+            <p> i) Remove any copyright, trademark or other proprietary rights notices contained in or displayed on any portion of our Site.</p>
+            <p> 6.4 If you fail to comply with the above rules, such failure will constitute a violation of these Terms, and, in addition to any other rights or remedies we may have, we may immediately terminate your access to and use of our Site.</p>
+            <p> 6.5 All title and copyrights in and to the Software, and any copies thereof, are owned by our website and/or its suppliers. Use of the Software is governed by the terms of the end user license agreement, if any, which accompanies or is included with the Software ("License Agreement"). An end user will be unable to download and/or install any Software that is accompanied by or includes a License Agreement, unless he or she first agrees to the License Agreement terms. For Software not accompanied by a License Agreement the terms and conditions set forth on this web page shall govern. All demonstration or evaluation Software is provided for academic/educational, evaluation, personal and internal use only and may not be used for commercial, development or production purposes. In addition, such Software may be time-disabled. "Time-disabled" means that all Software functions and features will cease to operate after a period of time. Any unauthorized reproduction or redistribution of the Software is expressly prohibited by law, and may result in severe civil and criminal penalties. Violators will be prosecuted to the maximum extent possible. Copying or reproduction of the software to any other web site or location for further reproduction or redistribution is expressly prohibited without the prior written consent of our website.</p>
+        <h4>
+            7. PROHIBITED CONTENT:</h4>
+            <p> 7.1 You agree not to:</p>
+            <p> a) Record, transmit, submit, upload or otherwise make available any Content in the form of information on admission forms, feedbacks, chats etc. that is unlawful, harmful, threatening, abusive, harassing, tortious, defamatory, vulgar, obscene, libelous, invasive of another’s privacy, hateful, or racially, ethnically, or otherwise objectionable;</p>
+            <p> b) Harm minors in any way;</p>
+            <p> c) Impersonate any person or entity, including, but not limited to, any of our employees, or falsely state or otherwise misrepresent your affiliation with a person or entity;</p>
+            <p> d) Forge headers or otherwise manipulate identifiers in order to disguise the origin of any of our messages or Content transmitted through our website;</p>
+            <p> e) Record, transmit, or otherwise make available any Content that you do not have a right to make available under any law or under contractual or fiduciary relationships (such as inside information or proprietary or confidential information learned or disclosed as part of an employment relationship or under a nondisclosure agreement);</p>
+            <p> f) Record, transmit, or otherwise make available any Content that infringes any patent, trademark, trade secret, copyright, or other proprietary rights (“Rights”) of any party;</p>
+            <p> g) Record, transmit, or otherwise make available any unsolicited or unauthorized advertising, promotional materials, “junk mail,” “spam,” “chain letters,” “pyramid schemes,” or any other form of solicitation;</p>
+            <p> h) Interfere with or disrupt the website or servers or networks connected to the Website, or disobey any requirements, procedures, policies, or regulations of networks connected to the website;</p>
+            <p> i) Intentionally or unintentionally violate any applicable local, state, national, or international law and any regulations having the force of law;</p>
+            <p> j) “Stalk” or otherwise harass another; and/or</p>
+            <p> k) Collect or store personal data about any other members or users</p>
+            <p> l) publicly (feedbacks/comments) post information that poses or creates a privacy or security risk to any person (including, for example, by publicly posting any person's contact information on our Services without authorization).</p>
+            <p> 7.2 You acknowledge that while we do not, in the ordinary course, access, review, or pre-screen Content, we have the right (but not the obligation), in our sole discretion, to access, review, pre-screen, refuse, or remove any Content that is available via our website. Without limiting the foregoing, we have the right to remove any Content that violates these Terms or is otherwise objectionable in our sole discretion. We also reserve the right to access, preserve, and disclose any Content or information as we reasonably believe is necessary to (a) satisfy any applicable law, regulation, legal process, or governmental request, (b) enforce these Terms, including, but not limited to, investigation of potential violations hereof, (c) detect, prevent, or otherwise address fraud, security, or technical issues, (d) respond to member or user support requests, or (e) protect the rights, property, or safety of our website, its members, users, and the public.</p>
+            <h4>
+                8. MATERIALS SUBMITTED BY USER:</h4>
+                <p> 8.1 Any materials submitted by you in the form of including, without limitation, text, graphics, images, videos, audios, documents and other materials (collectively, "User Submitted Materials") are subject to the following terms and conditions:</p>
+                <p> a) You will retain ownership of such User Submitted Materials, and you grant us and our designees a worldwide, non-exclusive, transferable, royalty-free, perpetual irrevocable right and license, with right of sublicense (through multiple tiers), to use, reproduce, distribute (through multiple tiers), create derivative works of and publicly display such User Submitted Materials solely in connection with the production or provision of any service you request or to show you how your User Submitted Materials would appear in our products or services.</p>
+                <p> b) You represent and warrant that you own or otherwise possess all necessary rights with respect to the User Submitted Materials, and that the User Submitted Materials do not and will not infringe, misappropriate, use or disclose without authorization or otherwise violate any copyright, trade secret right or other intellectual property or other property right of any third party, and that the User Submitted Materials are not unlawful, fraudulent, threatening, abusive, libelous, defamatory, obscene or otherwise objectionable.</p>
+                <p> c) You agree to indemnify and hold us, our directors, officers, shareholders, employees, contractors, agents, representatives, affiliates, and third party users harmless from and against any and all claims, causes of action, liabilities, damages, losses, expenses and costs (including, without limitation, attorneys' fees) that arise directly or indirectly out of or from: (i) your violation of these Terms, any other agreement or terms of use with us, any representation or warranty contained herein or therein or any applicable law; (ii) your User Submitted Materials; (iii) your activities in connection with obtaining any products or services from us.</p>
+                <p> d) User Submitted Materials that violate these Terms may be removed from our Site; provided, however, that we have no obligation to remove User Submitted Materials in response to user reports or requests. We are not responsible for, and will have no liability for, the removal or non-removal of any User Submitted Materials from our Site. We recommend you keep back-up copies of your User Submitted Materials on your hard drive or other personal system.</p>
+        <h4>
+            9. INTELLECTUAL PROPERTY OF COMPANY:</h4>
+            <p> 9.1 Our website, its suppliers and licensors expressly reserve all intellectual property rights in all text, programs, products, processes, technology, content and other materials, which appear on this Site. Access to this Site does not confer and shall not be considered as conferring upon anyone any license under any of ________________________ (website’s name) or any third party's intellectual property rights. All rights, including copyright, in this website are owned by or licensed to us or third party suppliers. Any use of this website or its contents, including copying or storing it or them in whole or part, other than for your own personal, non-commercial use is prohibited without the permission of our website. You cannot modify, distribute or re-post anything on this website for any purpose.</p>
+            <p> 9.2 The Caliber Matrix names and logos and all related product and service and our slogans are the trademarks or service marks of Caliber Matrix. All other marks are the property of their respective companies. No trademark or service mark license is granted in connection with the materials contained on this Site. Access to this Site does not authorize anyone to use any name, logo or mark in any manner.</p>
+            <p> 9.3 All materials, including images, text, illustrations, designs, icons, photographs, programs, music clips or downloads, video clips and written and other materials that are part of this Site (collectively, the "Contents") are intended solely for personal, non-commercial use. You may download or copy the Contents and other downloadable materials displayed on the Site for your personal use only. No right, title or interest in any downloaded materials or software is transferred to you as a result of any such downloading or copying. You may not reproduce (except as noted above), publish, transmit, distribute, display, modify, create derivative works from, sell or participate in any sale of or exploit in any way, in whole or in part, any of the Contents, the Site or any related software. All software used on this Site is the property of our website or its suppliers and protected by copyright laws of United States of America. Any other use, including the reproduction, modification, distribution, transmission, republication, display, or performance, of the Contents on this Site is strictly prohibited. Unless otherwise noted, all Contents are copyrights, trademarks and/or other intellectual property owned, controlled or licensed by our website, one of its affiliates or by third parties who have licensed their materials to us and are protected by copyright laws of United States of America. The compilation (meaning the collection, arrangement, and assembly) of all Contents on this Site is the exclusive property of our website and is also protected by Copyright laws of United States of America.</p>
+            <p> 9.4 If you learn of any unlawful material or activity on our website, or any material or activity that breaches this notice, please inform us. We respect the intellectual property rights of others and expect users of the Services to do the same. We will respond to notices of alleged copyright infringement that comply with applicable law and are promptly and properly provided to us. If you have a reason to believe that Your Content has been copied in a way that constitutes copyright infringement, please provide us with the following information:</p>
+            <p> (i) a physical or electronic signature of the copyright owner or a person authorized to act on their behalf;</p>
+            <p> (ii) identification of the copyrighted work claimed to have been infringed;</p>
+            <p> (iii) identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled, and information reasonably sufficient to permit us to locate the material;</p>
+            <p> (iv) Your contact information, including your address, telephone number and an email address;</p>
+            <p> (v) a statement by you that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law; and</p>
+            <p> (vi) a statement that the information in the notification is accurate, and that You are authorized to act on behalf of the copyright owner.</p>
+            <p> 9.5 We have the right to remove the Content alleged to be infringing without prior notice, at our sole discretion, and without liability to you. In appropriate circumstances, we will also terminate a user’s account if we determine that the user is a repeat infringer.</p>
+            <p> 9.6 While we are not obligated to review User Submitted Materials for copyright infringement, we are committed to protecting copyrights and expect users of our website to do the same. If you believe in good faith that any material used or displayed on or through our website infringes your copyright, you (or your agent) may send us a notice requesting that the material be removed, or access to it blocked. The notice must include the information as stated in clause 18.4 above.</p>
+            <p> 9.7 Notices regarding our website should be sent to: info@caliber-technologies.com (email address of our copyright agent to whom copyright infringement complaints can be filed).</p>
+            <p> 9.8 We take the protection of our copyright very seriously. Thus, if we discover that you have infringed any of our copyright, we may bring legal proceedings against you, seeking monetary damages and/or an injunction to stop you using those materials. You could also be ordered to pay legal costs.</p>
+        <h4>
+            10. SUBSCRIPTION AND PAYMENTS:</h4>
+            <p> 10.1 You shall be required to subscribe to either of the following subscription period in order to avail our services:-</p>
+            <p> a) monthly subscription at the rate as mentioned on our website; OR</p>
+            <p> b) annual subscription at the rate as mentioned on our website.</p>
+            <p> 10.2 The users shall make payments to us via their valid debit or credit cards or via paypal.</p>
+            <p> 10.3 Our website uses third party payment providers to receive payments from Users. We are not responsible for delays or erroneous transaction execution or cancellation of services/orders due to payment issues.</p>
+            <p> 10.4 We take utmost care to work with 3rd party payment providers, but do not control their systems, processes, technology and work flows, hence cannot be held responsible for any fault at the end of payment providers.</p>
+            <p> 10.5 Users understand and expressly authorize us to collect payment from or charge their credit card for availing our services.</p>
+            <p> 10.6 Our website reserves the right to change or replace the payment gateway at its sole discretion without any reservation whatsoever. Our website stores bank information of the Users in order to make it easier for them to just click and pay without entering the details every time they avail our services. All transactions are completed through secure third party payment gateways and at no point of time we assume any liability for any loss of data or wrongful payment or invalid payment processing by such a third party. Users acknowledge that we will not be liable for any damages, interests or claims etc. resulting from not processing a Transaction/Transaction Price or any delay in processing a Transaction/Transaction Price which is beyond our control.</p>
+        <h4>
+            11. FRAUDULENT/DECLINED TRANSACTIONS:
+        </h4>
+            <p> 11.1 Our website reserves the right to recover the cost of services, collection charges and lawyers' fees from persons using the website fraudulently. We reserve the right to initiate legal proceedings against such persons for fraudulent use of the website and any other unlawful act or acts or omissions in breach of these terms and conditions.</p>
+            <p> 11.2 We shall be under no liability whatsoever in respect of any loss or damage arising directly or indirectly out of the decline of authorization for any Transaction, on Account of the Cardholder having exceeded the preset limit mutually agreed by us with our acquiring bank from time to time.</p>
+        <h4>
+            12. REVIEWS, FEEDBACK, SUBMISSIONS:
+        </h4>
+                <p> 12.1 All reviews, comments, feedback, suggestions, ideas, and other submissions disclosed, submitted or offered to us on or by this Site or otherwise disclosed, submitted or offered in connection with your use of this Site (collectively, the "Comments") shall be and remain our property. Such disclosure, submission or offer of any Comments shall constitute an assignment to us of all worldwide rights, titles and interests in all copyrights and other intellectual properties in the Comments. Thus, we exclusively own all such rights, titles and interests and shall not be limited in any way in its use, commercial or otherwise, of any Comments. We will be entitled to use, reproduce, disclose, modify, adapt, create derivative works from, publish, display and distribute any Comments you submit for any purpose whatsoever, without restriction and without compensating you in any way.</p>
+                <p> 12.2 We are and shall be under no obligation (1) to maintain any feedback/Comments in confidence; (2) to pay you any compensation for any Comments; or (3) to respond to any Comments. You agree that any Comments submitted by you to the Site will not violate this policy or any right of any third party, including copyright, trademark, privacy or other personal or proprietary right(s), and will not cause injury to any person or entity. You further agree that no Comments submitted by you to the Site will be or contain libelous or otherwise unlawful, threatening, abusive or obscene material, or contain software viruses, political campaigning, commercial solicitation, chain letters, mass mailings or any form of "spam".</p>
+                <p> 12.3 Our website does not regularly review posted Comments, but does reserve the right (but not the obligation) to monitor and edit or remove any Comments submitted to the Site. You grant us the right to use the name that you submit in connection with any Comments. You agree not to use a false email address, impersonate any person or entity, or otherwise mislead as to the origin of any Comments you submit. You are and shall remain solely responsible for the content of any Comments you make and you agree to indemnify us and our affiliates for all claims resulting from any Comments you submit. We and our affiliates take no responsibility and assume no liability for any Comments submitted by you or any third party.</p>
+        <h4>
+            13. LINKS TO THIRD PARTY SITES:
+        </h4>
+                    <p> 13.1 The Service may include links to other sites and services that are not operated by us. We are providing these links to you only as a convenience and are not responsible for the content or links displayed on such sites.</p>
+                    <p>   13.2 You are responsible for and assume all risk arising from your use or reliance of any third party sites. We may provide tools through the Service that enable you to export information, including without limitation Content, to third party services. By using these tools, you agree that we may transfer such information to the applicable third-party service. Such third party services are not under our control, and we are not responsible for their use of your exported information.</p>
+                    <p> 13.3 Linked Services created by third party developers may be available on, through or in connection with our Services. Linked Services include applications, websites, desktop, wireless, mobile and other services available from third parties which can be installed onto your Profile, or elsewhere on our Services, shared with other members and  Users on our Services, otherwise accessed via our Services, or which may link to your Profile from outside of our Services.</p>
+                    <p> 13.4 Third parties that offer Linked Services may also provide you with certain options and choices, but keep in mind that when you engage with a Linked Service, you are interacting with a third party, not with us. We do not control the third party, and cannot dictate its actions. If you choose to use a Linked Service, the Linked Service may collect, store, use and share your data in accordance with the terms of service (not our terms of Use/Service) and privacy policy of and your privacy settings (if any) on such Linked Service.</p>
+                    <p> 13.5 In addition, the third party providing the Linked Service may use other parties to provide portions of the service to you, such as technology, development or payment services. We may have limited control or no control at all over the content, operations, policies, terms, or other elements of Linked Service, and we do not assume any obligation to review any Linked Service. We do not endorse, approve, or sponsor any Linked Service, or any third-party content, advertising, information, materials, products, services, or other items.</p>
+                    <p> 13.6 We are not responsible for the quality or delivery of the services offered, accessed, obtained by or advertised at such Linked Services and make no warranties, express or implied, as to the Linked Services or the providers of such Linked Services (including, but not limited to, the privacy practices thereof). We encourage you not to provide any personally identifiable information to any Linked Service unless you know and are comfortable with the third party with whom you are interacting.</p>
+                    <p> 13.7 Finally, we will under no circumstances be liable for any direct, indirect, incidental or special loss or other damages, whether arising from negligence, breach of contract, defamation, infringement of copyright or other intellectual property rights, caused by the exhibition, distribution or exploitation of any information or content contained within Linked Services. Any activities you engage in with any of the same, including but not limited to the provision of Content or data to them, are subject to the privacy and other policies, terms and conditions of use, and rules issued by the operator of the Linked Service so we encourage you to review them carefully.</p>
+        <h4>
+            14. TERMINATION:
+        </h4>
+                        <p> 14.1 We may, at any time and without notice, suspend, cancel, or terminate your right to use the website (or any portion of the website). In the event of suspension, cancellation, or termination, you are no longer authorized to access the part of the website affected by such suspension, cancellation, or termination. In the event of any suspension, cancellation, or termination, the restrictions imposed on you with respect to material downloaded from the website and the disclaimers and limitations of liabilities set forth in the Agreement, shall survive.</p>
+                        <p> 14.2 Without limiting the foregoing, we may close, suspend or limit your access to our website:</p>
+                        <p> • if we determine that you have breached, or are acting in breach of, this Agreement;</p>
+                        <p> • if we determine that you have breached legal liabilities (actual or potential), including infringing someone else's Intellectual Property Rights;</p>
+                        <p>• if we determine that you have engaged, or are engaging, in fraudulent, or illegal activities;</p>
+                        <p>  • to manage any risk of loss to us, a User, or any other person; or</p>
+                        <p> • For other similar reasons.</p>
+                        <p> 14.3 If we find you breaching this User Agreement, you may also become liable for _________________________ (amount) of fees.</p>
+        <h4>
+            15. INDEMNIFICATION:
+        </h4>
+                            <p> You agree to defend, indemnify and hold harmless our Company/website, its employees, directors, officers, agents and their successors and assigns from and against any and all claims, liabilities, damages, losses, costs and expenses, including attorney's fees, caused by or arising out of claims based upon your actions or inactions, which may result in any loss or liability to our website or any third party including but not limited to breach of any warranties, representations or undertakings or in relation to the non-fulfillment of any of your obligations under this User Agreement or arising out of your violation of any applicable laws, regulations including but not limited to Intellectual Property Rights, payment of statutory dues and taxes, claim of libel, defamation, violation of rights of privacy or publicity, loss of service by other subscribers and infringement of intellectual property or other rights. This clause shall survive the expiry or termination of this User Agreement.</p>
+        <h4>
+            16. LIMITATION OF LIABILITY:
+        </h4>
+                                <p> 16.1 WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOOD-WILL, OR OTHER INTANGIBLE LOSSES. WE SHALL ALSO NOT BE LIABLE FOR ANY DAMAGES OR LOSSES RESULTING FROM (A) YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE WEBSITE; (B) THE COST OF PROCUREMENT OF SUBSTITUTE SERVICES; (C) ANY CONDUCT OR CONTENT OF ANY THIRD PARTY USING THE WEBSITE, INCLUDING, BUT NOT LIMITED TO, ANY DEFAMATORY, OFFENSIVE, OR ILLEGAL CONDUCT OF MEMBERS AND OTHER USERS OR THIRD PARTIES; (D) ANY CONTENT OBTAINED FROM THE WEBSITE; OR (E) UNAUTHORIZED ACCESS, USE, OR ALTERATION OF YOUR TRANSMISSIONS OR CONTENT.</p>
+                                <p> 16.2 IN NO EVENT SHALL OUR AGGREGATE LIABILITY EXCEED THE GREATER OF THE AMOUNT USER HAS PAID TO US.</p>
+                                <p> 16.3 THE LIMITATIONS OF THIS SECTION SHALL APPLY TO ANY THEORY OF LIABILITY, WHETHER BASED ON WARRANTY, CONTRACT, STATUTE, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, AND WHETHER OR NOT ANY OF THE WEBSITE ENTITIES HAS BEEN INFORMED OF THE POSSIBILITY OF ANY SUCH DAMAGE, AND EVEN IF A REMEDY SET FORTH HEREIN IS FOUND TO HAVE FAILED OF ITS ESSENTIAL PURPOSE.</p>
+                                <p> 16.4 IF ANY OF THE ABOVE LIMITATIONS DOES NOT APPLY TO YOU BECAUSE YOU ARE ACCESSING WEBSITE FROM A JURISDICTION THAT DOES NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES, THESE LIMITATIONS WILL APPLY TO YOU TO THE MAXIMUM EXTENT ALLOWABLE UNDER APPLICABLE LAW.</p>
+        <h4>  17. DISCLAIMER OF WARRANTIES:</h4>
+                                <p> 17.1 ALL CONTENT AND SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THIS WEBSITE ARE PROVIDED “WITH ALL FAULTS” AND ON AN “AS IS” AND “AS AVAILABLE” BASIS, UNLESS OTHERWISE SPECIFIED IN WRITING. WE MAKE NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, AS TO THE OPERATION OF THIS WEBSITE OR THE CONTENT OR SERVICES INCLUDED ON, OR OTHERWISE MADE AVAILABLE TO YOU THROUGH, THIS WEBSITE, UNLESS OTHERWISE SPECIFIED IN WRITING, INCLUDING, BUT NOT LIMITED TO, ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR USE OR PURPOSE, NON-INFRINGEMENT, QUIET ENJOYMENT, AND ACCURACY. YOU EXPRESSLY AGREE THAT YOUR USE OF THIS WEBSITE IS AT YOUR SOLE RISK.</p>
+                                <p> 17.2 We make no warranty that the website or Services will meet your requirements, or that the website and/or Services will be uninterrupted, timely, secure, or error free; nor do we make any warranty as to the results that may be obtained from the use of the website or Services, or that defects in the website or Services will be corrected. You understand and agree that you will be solely responsible for any damage to your device or loss of data that results from the download of any material and/or Content. No advice or information, whether oral or written, obtained by you from us through the website, Services or otherwise will create any warranty, representation or guarantee not expressly stated in these Terms of Use.</p>
+                                <p> 17.3 We will not be responsible for any errors or omissions or for the results obtained from the use of such information or for any technical problems you may experience with the Site. This disclaimer constitutes an essential part of this User Agreement. In addition, to the extent permitted by applicable law, we are not liable, and you agree not to hold Company responsible, for any damages or losses (including, but not limited to, loss of money, goodwill or reputation, profits, or other intangible losses or any special, indirect, or consequential damages) resulting directly or indirectly from:</p>
+                                <p> • Your use of or your inability to use our Website, Services and tools;</p>
+                                <p> • Delays or disruptions in our Website, Services, or tools;</p>
+                                <p> • Viruses or other malicious software obtained by accessing our Website, Services, or tools or any site, Services, or tool linked to our Website, Services, or tools;</p>
+                                <p> • Glitches, bugs, errors, or inaccuracies of any kind in our Website, Services, and tools or in the information and graphics obtained from them;</p>
+                                <p> • The content, actions, or inactions of third parties, including items listed using our Website, services, or tools or the destruction of allegedly fake items;</p>
+                                <p> • A suspension or other action taken with respect to your account; and</p>
+                                <p> • The duration or manner in which, as a User, you upload, download, store and share file/content.</p>
+                                <p> 17.4 Our website periodically schedules system downtime for the Sites for maintenance and other purposes. Unplanned system outages also may occur. You agree that we have no responsibility and is not liable for: (a) the unavailability of any of the Sites; (b) any loss of data, information or materials caused by such system outages; (c) the resultant delay, mis-delivery or non-delivery of data, information or materials caused by such system outages; or (d) any outages caused by any third parties, including without limitation any companies or servers hosting any of the Sites, any Internet service providers or otherwise.</p>
+        <h4>
+            18. GOVERNING LAWS AND JURISDICTION:</h4>
+            <p> 18.1 These Terms and any action related thereto will be governed by the laws of United States of America without regard to or application of its conflict of law provisions or user’s state or country of residence.</p>
+            <p> 18.2 Users agree to submit to the exclusive jurisdiction of the courts in Minnesota, United States of America in relation to proceedings arising out of this agreement.</p>
+        <h4>
+            19. DISPUTE RESOLUTION:</h4>
+            <p> In the interest of resolving disputes between you and us in the most expedient and cost effective manner, you and we agree that any and all disputes arising in connection with the Terms shall be resolved by binding arbitration. Arbitration is more informal than a lawsuit in court. Arbitration uses a neutral arbitrator instead of a judge or jury, may allow for more limited discovery than in court, and can be subject to very limited review by courts. Arbitrators can award the same damages and relief that a court can award. Our agreement to arbitrate disputes includes, but is not limited to all claims arising out of or relating to any aspect of the Terms, whether based in contract, tort, statute, fraud, misrepresentation or any other legal theory, and regardless of whether the claims arise during or after the termination of the Terms. YOU UNDERSTAND AND AGREE THAT, BY ENTERING INTO THE TERMS, YOU AND WE ARE EACH WAIVING THE RIGHT TO A TRIAL BY JURY OR TO PARTICIPATE IN A CLASS ACTION.</p>
+        <h4>
+            20. PRIVACY:</h4>
+            <p> All Personal Information and User Generated Content provided to or displayed on the Site and Services are subject to our Privacy Statement.</p>
+        <h4>
+            21. NOTICE:</h4>
+            <p> 21.1 By using the Site and Services, you accept that communication with us will be mainly electronic. We will contact you by email or provide you with information by posting notices on the Site and Services.</p>
+            <p> 21.2 You acknowledge that all contracts, notices, information and other communication we may provide electronically comply with any legal requirements that such documents are in writing.</p>
+            <p> 21.3 Notice will be deemed received and properly served immediately when posted on the Site and Services, 24 hours after an email is sent. As proof of service, it is sufficient that:</p>
+            <p> (a) the email was sent to the specified email address.</p>
+        <h4>
+            22. SPECIAL ADMONITIONS FOR INTERNATIONAL USE:</h4>
+            <p> The services of our website are available globally. By agreeing to our terms of use and other policies, you warrant that it is completely legal to use our services in your country. It is the duty of the user to verify any potential violation. You agree to indemnify us or sister companies, employees, agents or any related individual or organization for any liability it might incur in a foreign jurisdiction. Our services shall not be deemed to constitute an offer to sell or serve in countries where it is illegal to do so. We reserve the right to monitor the location from which users access our services and to block access from any jurisdiction in which participation is illegal or restricted.</p>
+        <h4>
+            23. NO WAIVER IMPLIED:</h4>
+            <p> The failure of us to enforce at any time any of the provisions of these of Agreement, or the failure to require at any time performance by you of any of the provisions of these provisions, shall in no way be construed to be a present or future waiver of such provisions, nor in any way affect the our right to enforce each and every such provision thereafter. The express waiver by us of any provision, condition or requirement of these provisions shall not constitute a waiver of any future obligation to comply with such provision, condition or requirement.</p>
+        <h4>
+            24. SEVERABILITY:</h4>
+            <p>Each Term shall be deemed to be severable. If any Term or portion thereof is found to be invalid or unenforceable, such invalidity or unenforceability shall in no way effect the validity or enforceability of any other Term.</p>
+        <h4>
+            25. ASSIGNMENT:</h4>
+            <p> 25.1 You will not assign any rights or delegate any obligations under these Terms, in whole or in part, by operation of law or otherwise, without obtaining our prior written consent, which may be withheld in our sole discretion.</p>
+            <p> 25.2 We may assign our rights and delegate any of our obligations under these Terms, in whole or in part, without your consent. Any assignment or delegation in violation of the foregoing will be null and void. These Terms will be binding and inure to the benefit of each party’s permitted successors and assigns.</p>
+        <h4>
+            26. FORCE MAJEURE:</h4>
+            <p>We shall be under no liability to you in respect of anything that, if not for this provision, would or might constitute a breach of these Terms, where this arises out of circumstances beyond our control, including but not limited to:</p>
+            <p> (a) acts of god;</p>
+            <p> (b) natural disasters;</p>
+            <p> (c) sabotage;</p>
+            <p> (d) accident;</p>
+            <p> (e) riot;</p>
+            <p> (f) shortage of supplies, equipment, and materials;</p>
+            <p> (g) strikes and lockouts;</p>
+            <p> (h) civil unrest;</p>
+            <p> (i) Computer hacking; or</p>
+            <p> (j) malicious damage.</p>
+        <h4>
+            27.ELECTRONIC COMMUNICATION:</h4>
+            <p> 27.1 By using our services, you are deemed to have executed this Agreement electronically, effective on the date you register your Account and/or start using our services. Your Account registration constitutes an acknowledgement that you are able to electronically receive, download, and print this Agreement.</p>
+            <p> 27.2 In connection with this Agreement, you may be entitled to receive certain records, such as contracts, notices, and communications, in writing. To facilitate your use of the website, you give us permission to provide these records to you electronically instead of in paper form.</p>
+            <p> 27.3 By registering for an Account, you consent to electronically receive and access, via email, all records and notices for the services provided to you under this Agreement that we would otherwise be required to provide to you in paper form. However, we reserve the right, in our sole discretion, to communicate with you via the Postal Service and other third-party mail services using the address under which your account is registered. Your consent to receive records and notices electronically will remain in effect until you withdraw it. You may withdraw your consent to receive further records and notices electronically at any time by contacting Customer Support. If you withdraw your consent to receive such records and notices electronically, we will terminate your access to the Services, and you will no longer be able to use the Services. Any withdrawal of your consent to receive records and notices electronically will be effective only after we have a reasonable period of time to process your request for withdrawal. Please note that your withdrawal of consent to receive records and notices electronically will not apply to records and notices electronically provided by us to you before the withdrawal of your consent becomes effective.</p>
+            <p>  27.4 In order to ensure that we are able to provide records and notices to you electronically, you must notify us of any change in your email address by updating your Account information on the website or by contacting Customer Support.</p>
+            28. LEGAL COMPLIANCE
+            <p> 28.1 In addition to this Agreement, you must familiarize yourself with, and comply with the Policies, domestic laws (including common law), state legislation, international laws, statutes, ordinances and regulations regarding your use of our services. Notwithstanding successful conclusion of a transaction you must ensure strict compliance with any particular formalities which, if not complied with, will either render a transaction void or unlawful.</p>
+            <p> 28.2 You alone, and not we, are responsible for ensuring that the services and any other activities conducted on the website are lawful. You must ensure that they comply with all applicable laws in United States of America and all other countries.</p>
+            <p> 28.3 You should comply with country, state and federal regulations.</p>
+        <h4>
+            29. MODIFICATIONS:</h4>
+            <p> We may revise these Terms in our sole discretion from time to time. When changes are made, we will make the most current version available on our website and will update the “Last Updated” date above. Any changes to the Terms will be effective immediately for new users as well as for the existing users. By continuing to access or use the Services after revisions become effective, you agree to be bound by the revised Terms. If you do not agree to the new terms, please stop using the Services.</p>
+        <h4>
+            30. ENTIRE AGREEMENT:</h4>
+            <p>  These Terms collectively represent the entire agreement and understanding between you and us and supersede any other agreement or understanding (written, oral or implied) that you and we may have had. Any statement, inducement, promise, covenant or condition not expressly found either in these Terms shall be deemed as void.</p>
+        <h4>
+            31. CONTACT US:</h4>
+            <p> For any further clarification of out Terms and Conditions, please write to us at info@caliber-technologies.com.</p>
+
+
+
+</div>
+
+    <div class="page-footer">
+        <div class="container-fluid">
+            2016 &copy; Caliber Technologies Inc.
+        </div>
+    </div>
+
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+
+
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
+    <!-- END THEME GLOBAL SCRIPTS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="../assets/pages/scripts/login.min.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    <!-- END THEME LAYOUT SCRIPTS -->
+    @Scripts.Render("~/bundles/toaster")
+    
+    <script>
+        function Back()
+        {
+            window.location.href = "/Account/Register";
+        }
+    </script>
+
+
+
+</body>
+</html>

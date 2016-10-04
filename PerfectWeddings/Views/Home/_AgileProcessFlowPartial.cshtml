@@ -1,0 +1,102 @@
+﻿@model PerfectWeddings.DataTransferObjects.HomeDto
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="mt-element-step">
+            <div class="row step-line">
+                <div class="mt-step-desc">
+                </div>
+                <div class="col-md-offset-1 col-md-2 mt-step-col first step-1">
+                    <a href="/ProjectSetup/Index" class="mt-step-number bg-white" style="">
+                        <i class="fa fa-cogs"></i>
+                    </a>
+                    <div class="mt-step-title uppercase font-grey-cascade">Setup</div>
+                    <div class="mt-step-content font-grey-cascade">Setup the Teams, Iterations/Sprints and Functional Areas</div>
+                </div>
+                <div class="col-md-2 mt-step-col step-2">
+                    <div class="btn-group">
+                        <div class="mt-step-number bg-white" style="" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                            <i class="fa fa-slideshare"></i>
+                        </div>
+                        @if ((Model.AgileProjectList).Count != 0)
+                        {
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;" style="color: #337ab7;"> Agile Project </a>
+                                </li>
+                                <li class="divider"> </li>
+                                @foreach (var project in Model.AgileProjectList)
+                                {
+                                    <li>
+                                        <a href="javascript:;" class="ddlPlanLink" data-value=@project.Value> @project.Text </a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                    <div class="mt-step-title uppercase font-grey-cascade">Plan</div>
+                    <div class="mt-step-content font-grey-cascade">Plan the Backlog, Iterations, Roadmap and Releases</div>
+                </div>
+                <div class="col-md-2 mt-step-col step-3">
+                    <div class="btn-group">
+                        <div class="mt-step-number bg-white" style="" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                            <i class="icon-user"></i>
+                        </div>
+                        @if ((Model.AgileProjectList).Count != 0)
+                        {
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;" style="color: #337ab7;"> Agile Project </a>
+                                </li>
+                                <li class="divider"> </li>
+                                @foreach (var project in Model.AgileProjectList)
+                                {
+                                    <li>
+                                        <a href="javascript:;" class="ddlManageLink" data-value=@project.Value> @project.Text </a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                    <div class="mt-step-title uppercase font-grey-cascade">Manage</div>
+                    <div class="mt-step-content font-grey-cascade">Manage your User Stories, Test Cases, Defects and Processes</div>
+                </div>
+                <div class="col-md-2 mt-step-col done step-4">
+                    <div class="btn-group">
+                        <div class="mt-step-number bg-white" style="" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                            <i class="fa fa-laptop"></i>
+                        </div>
+                        @if ((Model.AgileProjectList).Count != 0)
+                        {
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;" style="color: #337ab7;"> Agile Project </a>
+                                </li>
+                                <li class="divider"> </li>
+                                @foreach (var project in Model.AgileProjectList)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Index", "FunctionalArea")" class="ddlExecuteLink" data-value=@project.Value> @project.Text </a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                    <div class="mt-step-title uppercase font-grey-cascade">Execute</div>
+                    <div class="mt-step-content font-grey-cascade">Execute your Test cases (Manual and Automation)</div>
+                </div>
+                <div class="col-md-2 mt-step-col step-5 last">
+                    <a href="/Track" class="mt-step-number bg-white" style="">
+                        <i class="icon-bar-chart"></i>
+                    </a>
+                    <div class="mt-step-title uppercase font-grey-cascade">Track</div>
+                    <div class="mt-step-content font-grey-cascade">Track the progress of the work</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

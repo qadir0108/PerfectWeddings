@@ -1,0 +1,138 @@
+﻿@using PerfectWeddings.HtmlHelpers
+<div class="page-header-menu MainMenuFix @Html.getMainMenuFix() ">
+    <div class="@Html.getSetBoxedCss() ">
+        <!-- BEGIN MEGA MENU -->
+        <!-- DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background -->
+        <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the dropdown opening on mouse hover -->
+        <div id="hormenu" class="hor-menu  @Html.GetHorMenuCss()  col-lg-11">
+            <ul class="nav navbar-nav">
+
+                <!-- MODULE PERMISSION Start-->
+                @if ((Session["SupportAccess"] != null && Convert.ToBoolean(Session["SupportAccess"].ToString()) == true) 
+                    || (Session["PortfolioAccess"] != null && Convert.ToBoolean(Session["PortfolioAccess"].ToString()) == true) 
+                    || (Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+                    || (Session["ReleaseAccess"] != null && Convert.ToBoolean(Session["ReleaseAccess"].ToString()) == true) 
+                    || (Session["TestExecutionAccess"] != null && Convert.ToBoolean(Session["TestExecutionAccess"].ToString()) == true) 
+                    || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString())))
+                {
+                    <li class="menu-dropdown classic-menu-dropdown">
+                        <a href="@Url.Action("Index","Home")">
+                            Home
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                }
+
+                @{
+                    if (Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true 
+                        || (Session["ReleaseAccess"] != null && Convert.ToBoolean(Session["ReleaseAccess"].ToString()) == true)
+                        || (Session["TestExecutionAccess"] != null && Convert.ToBoolean(Session["TestExecutionAccess"].ToString()) == true) 
+                        || (Session["SupportAccess"] != null && Convert.ToBoolean(Session["SupportAccess"].ToString()) == true) 
+                        || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true) 
+                        || (Session["PortfolioAccess"] != null && Convert.ToBoolean(Session["PortfolioAccess"].ToString()) == true))
+                    {
+
+                             <!-- For Admin user -->
+                        if (Session["IsOwner"] != null && Convert.ToBoolean(Session["IsOwner"].ToString()) == true)
+                        {
+                            <li class="menu-dropdown classic-menu-dropdown">
+                                <a href="@Url.Action("Index","UserManagement")">
+                                    User Management
+                                    <span class="arrow"></span>
+                                </a>
+                            </li>
+                        }
+
+                    }
+                }
+
+                @{
+                    if ((Convert.ToString(HttpContext.Current.Session["PortfolioAccess"]).ToLower() == "true")
+                        && (Convert.ToString(HttpContext.Current.Session["ProcessAccess"]).ToLower() == "false")
+                        && (Convert.ToString(HttpContext.Current.Session["ReleaseAccess"]).ToLower() == "false")
+                    && (Convert.ToString(HttpContext.Current.Session["TestExecutionAccess"]).ToLower() == "false")
+                    && (Convert.ToString(HttpContext.Current.Session["TrackAccess"]).ToLower() == "false"))
+                    {
+                        @Html.Partial("PortfolioNavBar")
+                    }
+
+                    else if (Session["ProjectTypeID"] != null)
+                    {
+
+                        var menuType = Session["ProjectTypeID"].ToString();
+                        if (menuType == "1")
+                        {
+                            @Html.Partial("AgileNavBar")
+                        }
+                        if (menuType == "2")
+                        {
+                            @Html.Partial("WaterFallNavBar")
+                        }
+                        if (menuType == "3")
+                        {
+                            @Html.Partial("PortfolioNavBar")
+                        }
+
+                    }
+                }
+
+                @{
+                    if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true)
+                    || (Session["ReleaseAccess"] != null && Convert.ToBoolean(Session["ReleaseAccess"].ToString()) == true))
+                    {
+                        if ((Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.Release, (Convert.ToInt32(Session["UserKey"])))))
+                        {
+                            <li>
+                                <a href="@Url.Action("Plan", "Release")" class="nav-link ">Release</a>
+                            </li>
+                        }
+                    }
+                }
+
+                @{
+                    if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+                        || (Session["SupportAccess"] != null && Convert.ToBoolean(Session["SupportAccess"].ToString()) == true) 
+                        || (Session["PortfolioAccess"] != null && Convert.ToBoolean(Session["PortfolioAccess"].ToString()) == true))
+                    {
+                        if ((Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.Support, (Convert.ToInt32(Session["UserKey"])))))
+                        {
+
+                            <li>
+                                <a href="@Url.Action("Index","Incident")" class="nav-link ">Support</a>
+                            </li>
+                        }
+                    }
+                }
+
+
+                <!-- MODULE PERMISSION CODE END-->
+
+
+
+
+            </ul>
+        </div>
+        <!-- END MEGA MENU -->
+
+        <div class="customsettings">@Html.Partial("ThemePref", Html.GetThem())</div>
+    </div>
+</div>
+
+<script>
+
+    //$('.hor-menu  li a').click(function (e) {
+    //    var $this = $(this);
+    //    if (!$this.hasClass('active')) {
+    //        $this.addClass('active');
+    //    }
+    //    e.preventDefault();
+    //});
+
+
+    $('.hor-menu  li a').click(function (e) {
+        var $this = $(this);
+        if (!$this.hasClass('active')) {
+            $this.addClass('active');
+        }
+    });
+</script>

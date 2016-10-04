@@ -1,0 +1,131 @@
+﻿
+ <!-- MODULE PERMISSION Start-->
+@{
+    if (Session["ProcessAccess"] != null 
+        || Session["TrackAccess"] != null 
+        || Session["ReleaseAccess"] != null 
+        || Session["PortfolioAccess"] != null)
+    {
+        <li class="menu-dropdown classic-menu-dropdown  ">
+            <a href="javascript:;">
+                Plan
+                <span class="arrow"></span>
+            </a>
+            <ul class="dropdown-menu">
+
+                @if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+                    || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true) 
+                    || (Session["PortfolioAccess"] != null && Convert.ToBoolean(Session["PortfolioAccess"].ToString()) == true))
+                {
+
+                    <li>
+                        <a href="@Url.Action("WaterfallPlanIndex","WaterfallPlan")" class="nav-link ">Planning</a>
+                    </li>
+                }          
+            </ul>
+        </li>
+    }
+}
+@{
+    if (Session["ProcessAccess"] != null 
+        || Session["TrackAccess"] != null 
+        || Session["TestExecutionAccess"] != null)
+    {
+        <li class="menu-dropdown classic-menu-dropdown  ">
+            <a href="javascript:;">
+                Manage
+                <span class="arrow"></span>
+            </a>
+            <ul class="dropdown-menu">
+                @if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true)
+                    || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true))
+                {
+
+                    <li>
+                        <a href="@Url.Action("Index","Requirement")" class="nav-link ">Requirments</a>
+                    </li>
+                }
+                @if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+                    || (Session["SupportAccess"] != null && Convert.ToBoolean(Session["SupportAccess"].ToString()) == true) 
+                    || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true) 
+                    || (Session["TestExecutionAccess"] != null && Convert.ToBoolean(Session["TestExecutionAccess"].ToString()) == true))
+                {
+                    <li>
+                        <a href="@Url.Action("Index","TestCases")" class="nav-link ">Test Cases</a>
+                    </li>
+                }
+                @{
+        if ((Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true) 
+            || (Session["SupportAccess"] != null && Convert.ToBoolean(Session["SupportAccess"].ToString()) == true) 
+            || (Session["TestExecutionAccess"] != null && Convert.ToBoolean(Session["TestExecutionAccess"].ToString()) == true))
+        {
+            if (Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.Defects, (Convert.ToInt32(Session["UserKey"]))))
+            {
+                <li>
+                    <a href="@Url.Action("WaterFall","Defects")" class="nav-link ">Defects</a>
+                </li>
+            }
+        }
+                }
+                @if (Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true )
+                {
+                    <li>
+                        <a href="javascript:;" class="nav-link ">Release</a>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+}
+@{
+    if (Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true )
+    {
+        if (Html.CheckPermission(PerfectWeddings.Enums.MiscEnums.PagePermissions.ExecuteFunctional, (Convert.ToInt32(Session["UserKey"]))))
+        {
+            <li class="menu-dropdown classic-menu-dropdown  ">
+                <a href="javascript:;">
+                    Execute
+                    <span class="arrow"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="@Url.Action("Index","FunctionalArea")" class="nav-link ">Functional Execution</a>
+                    </li>
+                </ul>
+            </li>
+        }
+    }
+}
+
+@{
+    if (Session["ProcessAccess"] != null || Session["TrackAccess"] != null || Session["TestExecutionAccess"] != null)
+    {
+        <li class="menu-dropdown mega-menu-dropdown  ">
+            <a href="javascript:;">
+                Track
+                <span class="arrow"></span>
+            </a>
+            <ul class="dropdown-menu">
+                @if (Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true )
+                {
+                    <li>
+                        <a href="javascript:;" class="nav-link ">Dashboard</a>
+                    </li>
+                }
+                @if (Session["TrackAccess"] != null && Convert.ToBoolean(Session["TrackAccess"].ToString()) == true
+                    || (Session["ProcessAccess"] != null && Convert.ToBoolean(Session["ProcessAccess"].ToString()) == true)
+                    || (Session["TestExecutionAccess"] != null && Convert.ToBoolean(Session["TestExecutionAccess"].ToString()) == true))
+                {
+                    <li>
+                        <a href="javascript:;" class="nav-link ">Charts</a>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+}
+
+<!-- MODULE PERMISSION CODE END-->
+
+
+<!-- REMOVE/COMMENT BELOW CODE WHEN USING MODULE PERMISSION CODE ABOVE-->
