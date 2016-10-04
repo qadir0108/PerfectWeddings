@@ -102,6 +102,7 @@
     <Compile Include="Entities\SupplierCompany.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="EntityManager\LocationManager.cs" />
+    <Compile Include="EntityManager\EnquirerManager.cs" />
     <Compile Include="EntityManager\UserManager.cs" />
     <Compile Include="EntityManager\NormalUserManager.cs" />
     <Compile Include="EntityManager\SupplierCategoryManager.cs" />
