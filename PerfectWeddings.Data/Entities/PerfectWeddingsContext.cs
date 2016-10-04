@@ -57,6 +57,8 @@ namespace PerfectWeddings.Data.Entities
         public DbSet<WebSitePage> WebSitePages { get; set; }
         public DbSet<WebSiteSettings> WebSiteSettings { get; set; }
 
+        public DbSet<Enquirer> Enquirers { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

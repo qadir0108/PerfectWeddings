@@ -92,6 +92,7 @@
     <Compile Include="BlogEntryTypeEnum.cs" />
     <Compile Include="UserLoginStatusEnum.cs" />
     <Compile Include="UserStatusEnum.cs" />
+    <Compile Include="EnquiryCategoryEnum.cs" />
     <Compile Include="UserTypeEnum.cs" />
   </ItemGroup>
   <ItemGroup>

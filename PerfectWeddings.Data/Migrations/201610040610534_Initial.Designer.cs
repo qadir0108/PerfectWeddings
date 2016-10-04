@@ -13,7 +13,7 @@ namespace PerfectWeddings.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201610031023277_Initial"; }
+            get { return "201610040610534_Initial"; }
         }
         
         string IMigrationMetadata.Source

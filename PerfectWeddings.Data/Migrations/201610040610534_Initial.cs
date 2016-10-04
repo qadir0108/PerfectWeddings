@@ -454,6 +454,24 @@ namespace PerfectWeddings.Data.Migrations
                 .Index(t => t.BlogEntry_Id);
             
             CreateTable(
+                "dbo.Enquirer",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        EnquiryCategory = c.Int(nullable: false),
+                        Message = c.String(),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        EmailAddress = c.String(),
+                        PhoneNumber = c.String(),
+                        CreatedAt = c.DateTime(nullable: false),
+                        CreatedBy_Id = c.Guid(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.User", t => t.CreatedBy_Id)
+                .Index(t => t.CreatedBy_Id);
+            
+            CreateTable(
                 "dbo.Event",
                 c => new
                     {
@@ -530,6 +548,7 @@ namespace PerfectWeddings.Data.Migrations
             DropForeignKey("dbo.EventSeatingTable", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.Guest", "Event_Id", "dbo.Event");
             DropForeignKey("dbo.Event", "CreatedBy_Id", "dbo.User");
+            DropForeignKey("dbo.Enquirer", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.BlogEntryTag", "BlogEntry_Id", "dbo.BlogEntry");
             DropForeignKey("dbo.BlogEntryTag", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.BlogEntry", "CreatedBy_Id", "dbo.User");
@@ -581,6 +600,7 @@ namespace PerfectWeddings.Data.Migrations
             DropIndex("dbo.EventSeatingTable", new[] { "Event_Id" });
             DropIndex("dbo.EventSeatingTable", new[] { "CreatedBy_Id" });
             DropIndex("dbo.Event", new[] { "CreatedBy_Id" });
+            DropIndex("dbo.Enquirer", new[] { "CreatedBy_Id" });
             DropIndex("dbo.BlogEntryTag", new[] { "BlogEntry_Id" });
             DropIndex("dbo.BlogEntryTag", new[] { "CreatedBy_Id" });
             DropIndex("dbo.BlogEntry", new[] { "CreatedBy_Id" });
@@ -633,6 +653,7 @@ namespace PerfectWeddings.Data.Migrations
             DropTable("dbo.HoneyMoonPackage");
             DropTable("dbo.EventSeatingTable");
             DropTable("dbo.Event");
+            DropTable("dbo.Enquirer");
             DropTable("dbo.BlogEntryTag");
             DropTable("dbo.BlogEntry");
             DropTable("dbo.BlogEntryComment");

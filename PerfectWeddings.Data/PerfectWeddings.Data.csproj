@@ -80,6 +80,7 @@
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\BlogEntry.cs" />
     <Compile Include="Entities\SupplierCoupon.cs" />
+    <Compile Include="Entities\Enquirer.cs" />
     <Compile Include="Entities\WebSitePage.cs" />
     <Compile Include="Entities\EventSeatingTable.cs" />
     <Compile Include="Entities\WebSiteSettings.cs" />
@@ -106,9 +107,9 @@
     <Compile Include="EntityManager\SupplierCategoryManager.cs" />
     <Compile Include="EntityManager\BaseEntityManager.cs" />
     <Compile Include="EntityManager\IBaseEntityManager.cs" />
-    <Compile Include="Migrations\201610031023277_Initial.cs" />
-    <Compile Include="Migrations\201610031023277_Initial.Designer.cs">
-      <DependentUpon>201610031023277_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201610040610534_Initial.cs" />
+    <Compile Include="Migrations\201610040610534_Initial.Designer.cs">
+      <DependentUpon>201610040610534_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,8 +131,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610031023277_Initial.resx">
-      <DependentUpon>201610031023277_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610040610534_Initial.resx">
+      <DependentUpon>201610040610534_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
