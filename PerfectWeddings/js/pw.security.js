@@ -5,41 +5,49 @@ var pw = pw || {};
 pw.security.register = function (form, name, email, weddingDate) {
     debugger;
 
-    form.validate();
-    if (form.valid()) {
+    form.validator('validate').on('submit', function (e) {
+        debugger;
 
-        pw.blockUI({
-            target: form,
-            boxed: true,
-            message: 'Processing...'
-        });
+        if (e.isDefaultPrevented()) {
+            // handle the invalid form...
+        } else {
+            // everything looks good!
+        
+            e.preventDefault();
+            
+            pw.blockUI({
+                target: form,
+                boxed: true,
+                message: 'Processing...'
+            });
 
-        $.ajax({
-            type: "POST",
-            url: '/Account/Register',
-            data: "{Name : '" + name + "', Email: '" + email + "', WeddingDate: '" + weddingDate + "'}",
-            contentType: "application/json; charset=utf-8",
-            success: function (response) {
-                debugger;
-                if (response.IsSucess) {
-                    pw.showSuccess('Couple has been registered successfully.');
-                    setTimeout(
-                        function () {
-                            location.href = "http://localhost:50000/Account/Login";
-                        }, 3000);
-                } else {
-                    pw.showError(response.ErrorMessage);
+            $.ajax({
+                type: "POST",
+                url: '/Account/Register',
+                data: "{Name : '" + name + "', Email: '" + email + "', WeddingDate: '" + weddingDate + "'}",
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    debugger;
+                    if (response.IsSucess) {
+                        pw.showSuccess('Couple has been registered successfully.');
+                        setTimeout(
+                            function () {
+                                location.href = "http://localhost:50000/Account/Login";
+                            }, 3000);
+                    } else {
+                        pw.showError(response.ErrorMessage);
+                    }
+                },
+                failure: function (response) {
+                    pw.showError('There is erorr');
+                },
+                complete: function () {
+                    pw.unblockUI(form)
                 }
-            },
-            failure: function (response) {
-                pw.showError('There is erorr');
-            },
-            complete: function () {
-                pw.unblockUI(form)
-            }
-        });
-    }
-    
+            });
+        }
+    }) //end validator
+
     //setTimeout(
     //    function () {
     //        pw.unblockUI('#frmRegister')

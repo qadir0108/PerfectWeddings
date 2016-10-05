@@ -40,24 +40,41 @@
             <div class="col-md-6 singup-couple">
                 <div class="well-box">
                     <h2>Let's turn your wedding into a reality!</h2>
-                    <form id="frmRegister" onsubmit="return false;">
+                    <form id="frmRegister" role="form">
 
                         <!-- Text input-->
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <label class="control-label" for="txtName">Your Name<span class="required">*</span></label>
-                            <input id="txtName" name="txtName" type="text" placeholder="Your name" class="form-control input-md" required>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </div>
+                                <input id="txtName" name="txtName" type="text" placeholder="Your name" class="form-control input-md" required>
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                            
                         </div>
 
                         <!-- Text input-->
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <label class="control-label" for="txtEmail">E-mail<span class="required">*</span></label>
-                            <input id="txtEmail" name="txtEmail" type="text" placeholder="E-Mail" class="form-control input-md" required>
+                            <div class="input-group">
+                                <span class="input-group-addon">@@</span>
+                                <input id="txtEmail" name="txtEmail" type="email" placeholder="E-Mail" class="form-control input-md" required>
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
 
                         <!-- Select Basic -->
-                        <div class="form-group">
+                        <div class="form-group has-feedback">
                             <label class="control-label" for="phone">Wedding Date<span class="required">*</span></label>
-                            <input type="text" placeholder="Wedding Date" id="txtWeddingDate" class="form-control" required>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i> 
+                                </div>
+                                <input type="text" placeholder="Wedding Date" id="txtWeddingDate" class="form-control input-md" required>
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            </div>
                         </div>
                         <!-- Button -->
                         <div class="form-group">

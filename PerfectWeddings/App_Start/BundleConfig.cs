@@ -14,7 +14,6 @@ namespace PerfectWeddings
                 "~/css/fonts1.css",
                 "~/css/fonts2.css",
                 "~/css/font-awesome.min.css",
-
                 "~/css/bootstrap.min.css",
                 "~/css/style.css",
                 "~/css/owl.carousel.css",
@@ -22,14 +21,16 @@ namespace PerfectWeddings
                 "~/css/owl.transitions.css",
                 "~/css/fontello.css",
                 "~/css/jquery-ui.css",
-                "~/css/toastr.min.css"
+                "~/css/toastr.min.css",
+                "~/css/pw.css"
                 ));
 
             bundles.Add(new ScriptBundle("~/PerfectWeddings/JS").Include(
                 "~/js/jquery-1.11.1.js", 
                 "~/js/jquery-1.11.3.min.js",
-                "~/js/jquery.validate.min.js",
-                "~/js/additional-methods.min.js", 
+                // "~/js/jquery.validate.min.js", Using bootstrap validations now
+                // "~/js/additional-methods.min.js",  Using bootstrap validations now
+                "~/js/validator.min.js",
                 "~/js/bootstrap.min.js",
                 "~/js/jquery.flexnav.js",
                 "~/js/navigation.js",
