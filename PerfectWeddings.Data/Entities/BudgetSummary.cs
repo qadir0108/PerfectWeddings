@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace PerfectWeddings.Data.Entities
         public int NoOfGuests { get; set; }
         public double TotalBudgetedCost { get; set; }
 
+        [Required]
+        public virtual NormalUser NormalUser { get; set; }
         public virtual ICollection<BudgetList> BudgetList { get; set; }
 
         public BudgetSummary()

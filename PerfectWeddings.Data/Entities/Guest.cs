@@ -20,6 +20,8 @@ namespace PerfectWeddings.Data.Entities
         public bool IsInvitationSent { get; set; }
         public AttendingStatusEnum IsAttending { get; set; }
 
+        public virtual NormalUser NormalUser { get; set; }
+
         public Guest()
         {
         }

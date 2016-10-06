@@ -101,6 +101,23 @@
     <Compile Include="Entities\SupplierAdvertisement.cs" />
     <Compile Include="Entities\SupplierCompany.cs" />
     <Compile Include="Entities\Supplier.cs" />
+    <Compile Include="EntityManager\BlogEntryCategoryManager.cs" />
+    <Compile Include="EntityManager\BlogEntryCommentManager.cs" />
+    <Compile Include="EntityManager\BlogEntryTagManager.cs" />
+    <Compile Include="EntityManager\EmployeeManager.cs" />
+    <Compile Include="EntityManager\WebSiteManager.cs" />
+    <Compile Include="EntityManager\WebSitePageManger.cs" />
+    <Compile Include="EntityManager\WebSiteSettingsManager.cs" />
+    <Compile Include="EntityManager\EventManager.cs" />
+    <Compile Include="EntityManager\HoneyMoonPackageManager.cs" />
+    <Compile Include="EntityManager\MessageManager.cs" />
+    <Compile Include="EntityManager\SupplierAdvertisementManager.cs" />
+    <Compile Include="EntityManager\SupplierCouponManager.cs" />
+    <Compile Include="EntityManager\SupplierEnquiryManger.cs" />
+    <Compile Include="EntityManager\SupplierFacilityManager.cs" />
+    <Compile Include="EntityManager\SupplierReviewManager.cs" />
+    <Compile Include="EntityManager\SupplierManager.cs" />
+    <Compile Include="EntityManager\BlogEntryManager.cs" />
     <Compile Include="EntityManager\LocationManager.cs" />
     <Compile Include="EntityManager\EnquirerManager.cs" />
     <Compile Include="EntityManager\UserManager.cs" />
@@ -108,9 +125,9 @@
     <Compile Include="EntityManager\SupplierCategoryManager.cs" />
     <Compile Include="EntityManager\BaseEntityManager.cs" />
     <Compile Include="EntityManager\IBaseEntityManager.cs" />
-    <Compile Include="Migrations\201610040610534_Initial.cs" />
-    <Compile Include="Migrations\201610040610534_Initial.Designer.cs">
-      <DependentUpon>201610040610534_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201610060909395_Initial.cs" />
+    <Compile Include="Migrations\201610060909395_Initial.Designer.cs">
+      <DependentUpon>201610060909395_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,8 +149,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610040610534_Initial.resx">
-      <DependentUpon>201610040610534_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610060909395_Initial.resx">
+      <DependentUpon>201610060909395_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

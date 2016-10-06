@@ -50,30 +50,23 @@ namespace PerfectWeddings.Data.Migrations
                         Name = c.String(),
                         WhySpecial = c.String(),
                         VideoURL = c.String(),
-                        Category = c.Int(),
                         AccountType = c.Int(),
                         AccountExpiryDate = c.DateTime(),
                         NumberOfAdAllowed = c.Int(),
                         IsVerified = c.Boolean(),
                         Discriminator = c.String(nullable: false, maxLength: 128),
                         CreatedBy_Id = c.Guid(),
-                        Budget_Id = c.Guid(),
-                        WebSite_Id = c.Guid(),
-                        Company_Id = c.Guid(),
+                        Category_Id = c.Guid(),
                         Location_Id = c.Guid(),
                         NormalUser_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.CreatedBy_Id)
-                .ForeignKey("dbo.BudgetSummary", t => t.Budget_Id)
-                .ForeignKey("dbo.WebSite", t => t.WebSite_Id)
-                .ForeignKey("dbo.SupplierCompany", t => t.Company_Id)
+                .ForeignKey("dbo.SupplierCategory", t => t.Category_Id)
                 .ForeignKey("dbo.Location", t => t.Location_Id)
                 .ForeignKey("dbo.User", t => t.NormalUser_Id)
                 .Index(t => t.CreatedBy_Id)
-                .Index(t => t.Budget_Id)
-                .Index(t => t.WebSite_Id)
-                .Index(t => t.Company_Id)
+                .Index(t => t.Category_Id)
                 .Index(t => t.Location_Id)
                 .Index(t => t.NormalUser_Id);
             
@@ -86,10 +79,16 @@ namespace PerfectWeddings.Data.Migrations
                         Name = c.String(),
                         CreatedAt = c.DateTime(nullable: false),
                         CreatedBy_Id = c.Guid(),
+                        User_Id = c.Guid(),
+                        User_Id1 = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.CreatedBy_Id)
-                .Index(t => t.CreatedBy_Id);
+                .ForeignKey("dbo.User", t => t.User_Id)
+                .ForeignKey("dbo.User", t => t.User_Id1)
+                .Index(t => t.CreatedBy_Id)
+                .Index(t => t.User_Id)
+                .Index(t => t.User_Id1);
             
             CreateTable(
                 "dbo.BudgetSummary",
@@ -103,6 +102,8 @@ namespace PerfectWeddings.Data.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.CreatedBy_Id)
+                .ForeignKey("dbo.User", t => t.Id)
+                .Index(t => t.Id)
                 .Index(t => t.CreatedBy_Id);
             
             CreateTable(
@@ -116,14 +117,14 @@ namespace PerfectWeddings.Data.Migrations
                         ActualCost = c.Double(nullable: false),
                         PaidCost = c.Double(nullable: false),
                         CreatedAt = c.DateTime(nullable: false),
-                        CreatedBy_Id = c.Guid(),
                         BudgetSummary_Id = c.Guid(),
+                        CreatedBy_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.User", t => t.CreatedBy_Id)
                 .ForeignKey("dbo.BudgetSummary", t => t.BudgetSummary_Id)
-                .Index(t => t.CreatedBy_Id)
-                .Index(t => t.BudgetSummary_Id);
+                .ForeignKey("dbo.User", t => t.CreatedBy_Id)
+                .Index(t => t.BudgetSummary_Id)
+                .Index(t => t.CreatedBy_Id);
             
             CreateTable(
                 "dbo.CheckList",
@@ -150,14 +151,14 @@ namespace PerfectWeddings.Data.Migrations
                         Id = c.Guid(nullable: false),
                         Comment = c.String(),
                         CreatedAt = c.DateTime(nullable: false),
-                        CreatedBy_Id = c.Guid(),
                         CheckList_Id = c.Guid(),
+                        CreatedBy_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.User", t => t.CreatedBy_Id)
                 .ForeignKey("dbo.CheckList", t => t.CheckList_Id)
-                .Index(t => t.CreatedBy_Id)
-                .Index(t => t.CheckList_Id);
+                .ForeignKey("dbo.User", t => t.CreatedBy_Id)
+                .Index(t => t.CheckList_Id)
+                .Index(t => t.CreatedBy_Id);
             
             CreateTable(
                 "dbo.Guest",
@@ -222,13 +223,12 @@ namespace PerfectWeddings.Data.Migrations
                         Id = c.Guid(nullable: false),
                         CreatedAt = c.DateTime(nullable: false),
                         CreatedBy_Id = c.Guid(),
-                        Settings_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.CreatedBy_Id)
-                .ForeignKey("dbo.WebSiteSettings", t => t.Settings_Id)
-                .Index(t => t.CreatedBy_Id)
-                .Index(t => t.Settings_Id);
+                .ForeignKey("dbo.User", t => t.Id)
+                .Index(t => t.Id)
+                .Index(t => t.CreatedBy_Id);
             
             CreateTable(
                 "dbo.WebSitePage",
@@ -264,6 +264,8 @@ namespace PerfectWeddings.Data.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.CreatedBy_Id)
+                .ForeignKey("dbo.WebSite", t => t.Id)
+                .Index(t => t.Id)
                 .Index(t => t.CreatedBy_Id);
             
             CreateTable(
@@ -280,12 +282,12 @@ namespace PerfectWeddings.Data.Migrations
                         CreatedAt = c.DateTime(nullable: false),
                         CreatedBy_Id = c.Guid(),
                         Location_Id = c.Guid(),
-                        Supplier_Id = c.Guid(),
+                        Supplier_Id = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.CreatedBy_Id)
                 .ForeignKey("dbo.Location", t => t.Location_Id)
-                .ForeignKey("dbo.User", t => t.Supplier_Id)
+                .ForeignKey("dbo.User", t => t.Supplier_Id, cascadeDelete: true)
                 .Index(t => t.CreatedBy_Id)
                 .Index(t => t.Location_Id)
                 .Index(t => t.Supplier_Id);
@@ -309,6 +311,19 @@ namespace PerfectWeddings.Data.Migrations
                 .Index(t => t.CreatedBy_Id);
             
             CreateTable(
+                "dbo.SupplierCategory",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        Name = c.String(),
+                        CreatedAt = c.DateTime(nullable: false),
+                        CreatedBy_Id = c.Guid(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.User", t => t.CreatedBy_Id)
+                .Index(t => t.CreatedBy_Id);
+            
+            CreateTable(
                 "dbo.SupplierCompany",
                 c => new
                     {
@@ -321,6 +336,8 @@ namespace PerfectWeddings.Data.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.CreatedBy_Id)
+                .ForeignKey("dbo.User", t => t.Id)
+                .Index(t => t.Id)
                 .Index(t => t.CreatedBy_Id);
             
             CreateTable(
@@ -332,11 +349,11 @@ namespace PerfectWeddings.Data.Migrations
                         Image = c.String(),
                         CreatedAt = c.DateTime(nullable: false),
                         CreatedBy_Id = c.Guid(),
-                        Supplier_Id = c.Guid(),
+                        Supplier_Id = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.CreatedBy_Id)
-                .ForeignKey("dbo.User", t => t.Supplier_Id)
+                .ForeignKey("dbo.User", t => t.Supplier_Id, cascadeDelete: true)
                 .Index(t => t.CreatedBy_Id)
                 .Index(t => t.Supplier_Id);
             
@@ -354,11 +371,11 @@ namespace PerfectWeddings.Data.Migrations
                         IsNeedCallback = c.Boolean(nullable: false),
                         CreatedAt = c.DateTime(nullable: false),
                         CreatedBy_Id = c.Guid(),
-                        Supplier_Id = c.Guid(),
+                        Supplier_Id = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.CreatedBy_Id)
-                .ForeignKey("dbo.User", t => t.Supplier_Id)
+                .ForeignKey("dbo.User", t => t.Supplier_Id, cascadeDelete: true)
                 .Index(t => t.CreatedBy_Id)
                 .Index(t => t.Supplier_Id);
             
@@ -370,13 +387,10 @@ namespace PerfectWeddings.Data.Migrations
                         Name = c.String(),
                         CreatedAt = c.DateTime(nullable: false),
                         CreatedBy_Id = c.Guid(),
-                        Supplier_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.CreatedBy_Id)
-                .ForeignKey("dbo.User", t => t.Supplier_Id)
-                .Index(t => t.CreatedBy_Id)
-                .Index(t => t.Supplier_Id);
+                .Index(t => t.CreatedBy_Id);
             
             CreateTable(
                 "dbo.SupplierReview",
@@ -409,14 +423,14 @@ namespace PerfectWeddings.Data.Migrations
                         CommenterName = c.String(),
                         CommenterEmail = c.String(),
                         CreatedAt = c.DateTime(nullable: false),
-                        CreatedBy_Id = c.Guid(),
                         BlogEntry_Id = c.Guid(),
+                        CreatedBy_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.User", t => t.CreatedBy_Id)
                 .ForeignKey("dbo.BlogEntry", t => t.BlogEntry_Id)
-                .Index(t => t.CreatedBy_Id)
-                .Index(t => t.BlogEntry_Id);
+                .ForeignKey("dbo.User", t => t.CreatedBy_Id)
+                .Index(t => t.BlogEntry_Id)
+                .Index(t => t.CreatedBy_Id);
             
             CreateTable(
                 "dbo.BlogEntry",
@@ -445,13 +459,10 @@ namespace PerfectWeddings.Data.Migrations
                         Name = c.String(),
                         CreatedAt = c.DateTime(nullable: false),
                         CreatedBy_Id = c.Guid(),
-                        BlogEntry_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.CreatedBy_Id)
-                .ForeignKey("dbo.BlogEntry", t => t.BlogEntry_Id)
-                .Index(t => t.CreatedBy_Id)
-                .Index(t => t.BlogEntry_Id);
+                .Index(t => t.CreatedBy_Id);
             
             CreateTable(
                 "dbo.Enquirer",
@@ -525,23 +536,35 @@ namespace PerfectWeddings.Data.Migrations
                 .Index(t => t.CreatedBy_Id);
             
             CreateTable(
-                "dbo.SupplierCategory",
+                "dbo.SupplierFacilitySupplier",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
-                        Name = c.String(),
-                        CreatedAt = c.DateTime(nullable: false),
-                        CreatedBy_Id = c.Guid(),
+                        SupplierFacility_Id = c.Guid(nullable: false),
+                        Supplier_Id = c.Guid(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.User", t => t.CreatedBy_Id)
-                .Index(t => t.CreatedBy_Id);
+                .PrimaryKey(t => new { t.SupplierFacility_Id, t.Supplier_Id })
+                .ForeignKey("dbo.SupplierFacility", t => t.SupplierFacility_Id, cascadeDelete: true)
+                .ForeignKey("dbo.User", t => t.Supplier_Id, cascadeDelete: true)
+                .Index(t => t.SupplierFacility_Id)
+                .Index(t => t.Supplier_Id);
+            
+            CreateTable(
+                "dbo.BlogEntryTagBlogEntry",
+                c => new
+                    {
+                        BlogEntryTag_Id = c.Guid(nullable: false),
+                        BlogEntry_Id = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.BlogEntryTag_Id, t.BlogEntry_Id })
+                .ForeignKey("dbo.BlogEntryTag", t => t.BlogEntryTag_Id, cascadeDelete: true)
+                .ForeignKey("dbo.BlogEntry", t => t.BlogEntry_Id, cascadeDelete: true)
+                .Index(t => t.BlogEntryTag_Id)
+                .Index(t => t.BlogEntry_Id);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.SupplierCategory", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.HoneyMoonPackage", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.EventSeatingTable", "Event_Id", "dbo.Event");
             DropForeignKey("dbo.Guest", "EventSeatingTable_Id", "dbo.EventSeatingTable");
@@ -549,35 +572,39 @@ namespace PerfectWeddings.Data.Migrations
             DropForeignKey("dbo.Guest", "Event_Id", "dbo.Event");
             DropForeignKey("dbo.Event", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.Enquirer", "CreatedBy_Id", "dbo.User");
-            DropForeignKey("dbo.BlogEntryTag", "BlogEntry_Id", "dbo.BlogEntry");
+            DropForeignKey("dbo.BlogEntryComment", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.BlogEntryTag", "CreatedBy_Id", "dbo.User");
+            DropForeignKey("dbo.BlogEntryTagBlogEntry", "BlogEntry_Id", "dbo.BlogEntry");
+            DropForeignKey("dbo.BlogEntryTagBlogEntry", "BlogEntryTag_Id", "dbo.BlogEntryTag");
             DropForeignKey("dbo.BlogEntry", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.BlogEntryComment", "BlogEntry_Id", "dbo.BlogEntry");
             DropForeignKey("dbo.BlogEntry", "Category_Id", "dbo.BlogEntryCategory");
-            DropForeignKey("dbo.BlogEntryComment", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.BlogEntryCategory", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.User", "NormalUser_Id", "dbo.User");
             DropForeignKey("dbo.SupplierReview", "Supplier_Id", "dbo.User");
             DropForeignKey("dbo.SupplierReview", "Reviewer_Id", "dbo.User");
             DropForeignKey("dbo.SupplierReview", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.User", "Location_Id", "dbo.Location");
-            DropForeignKey("dbo.SupplierFacility", "Supplier_Id", "dbo.User");
+            DropForeignKey("dbo.SupplierFacilitySupplier", "Supplier_Id", "dbo.User");
+            DropForeignKey("dbo.SupplierFacilitySupplier", "SupplierFacility_Id", "dbo.SupplierFacility");
             DropForeignKey("dbo.SupplierFacility", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.SupplierEnquiry", "Supplier_Id", "dbo.User");
             DropForeignKey("dbo.SupplierEnquiry", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.SupplierCoupon", "Supplier_Id", "dbo.User");
             DropForeignKey("dbo.SupplierCoupon", "CreatedBy_Id", "dbo.User");
-            DropForeignKey("dbo.User", "Company_Id", "dbo.SupplierCompany");
+            DropForeignKey("dbo.SupplierCompany", "Id", "dbo.User");
             DropForeignKey("dbo.SupplierCompany", "CreatedBy_Id", "dbo.User");
+            DropForeignKey("dbo.User", "Category_Id", "dbo.SupplierCategory");
+            DropForeignKey("dbo.SupplierCategory", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.SupplierAdvertisement", "Supplier_Id", "dbo.User");
             DropForeignKey("dbo.SupplierAdvertisement", "Location_Id", "dbo.Location");
             DropForeignKey("dbo.Location", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.SupplierAdvertisement", "CreatedBy_Id", "dbo.User");
-            DropForeignKey("dbo.User", "WebSite_Id", "dbo.WebSite");
-            DropForeignKey("dbo.WebSite", "Settings_Id", "dbo.WebSiteSettings");
+            DropForeignKey("dbo.WebSiteSettings", "Id", "dbo.WebSite");
             DropForeignKey("dbo.WebSiteSettings", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.WebSitePage", "WebSite_Id", "dbo.WebSite");
             DropForeignKey("dbo.WebSitePage", "CreatedBy_Id", "dbo.User");
+            DropForeignKey("dbo.WebSite", "Id", "dbo.User");
             DropForeignKey("dbo.WebSite", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.Message", "NormalUser_Id", "dbo.User");
             DropForeignKey("dbo.Message", "Sender_Id", "dbo.User");
@@ -587,45 +614,51 @@ namespace PerfectWeddings.Data.Migrations
             DropForeignKey("dbo.Guest", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.CheckList", "NormalUser_Id", "dbo.User");
             DropForeignKey("dbo.CheckList", "CreatedBy_Id", "dbo.User");
-            DropForeignKey("dbo.CheckListComment", "CheckList_Id", "dbo.CheckList");
             DropForeignKey("dbo.CheckListComment", "CreatedBy_Id", "dbo.User");
-            DropForeignKey("dbo.User", "Budget_Id", "dbo.BudgetSummary");
+            DropForeignKey("dbo.CheckListComment", "CheckList_Id", "dbo.CheckList");
+            DropForeignKey("dbo.BudgetSummary", "Id", "dbo.User");
             DropForeignKey("dbo.BudgetSummary", "CreatedBy_Id", "dbo.User");
-            DropForeignKey("dbo.BudgetList", "BudgetSummary_Id", "dbo.BudgetSummary");
             DropForeignKey("dbo.BudgetList", "CreatedBy_Id", "dbo.User");
+            DropForeignKey("dbo.BudgetList", "BudgetSummary_Id", "dbo.BudgetSummary");
+            DropForeignKey("dbo.SocialAccount", "User_Id1", "dbo.User");
+            DropForeignKey("dbo.SocialAccount", "User_Id", "dbo.User");
             DropForeignKey("dbo.SocialAccount", "CreatedBy_Id", "dbo.User");
             DropForeignKey("dbo.User", "CreatedBy_Id", "dbo.User");
-            DropIndex("dbo.SupplierCategory", new[] { "CreatedBy_Id" });
+            DropIndex("dbo.BlogEntryTagBlogEntry", new[] { "BlogEntry_Id" });
+            DropIndex("dbo.BlogEntryTagBlogEntry", new[] { "BlogEntryTag_Id" });
+            DropIndex("dbo.SupplierFacilitySupplier", new[] { "Supplier_Id" });
+            DropIndex("dbo.SupplierFacilitySupplier", new[] { "SupplierFacility_Id" });
             DropIndex("dbo.HoneyMoonPackage", new[] { "CreatedBy_Id" });
             DropIndex("dbo.EventSeatingTable", new[] { "Event_Id" });
             DropIndex("dbo.EventSeatingTable", new[] { "CreatedBy_Id" });
             DropIndex("dbo.Event", new[] { "CreatedBy_Id" });
             DropIndex("dbo.Enquirer", new[] { "CreatedBy_Id" });
-            DropIndex("dbo.BlogEntryTag", new[] { "BlogEntry_Id" });
             DropIndex("dbo.BlogEntryTag", new[] { "CreatedBy_Id" });
             DropIndex("dbo.BlogEntry", new[] { "CreatedBy_Id" });
             DropIndex("dbo.BlogEntry", new[] { "Category_Id" });
-            DropIndex("dbo.BlogEntryComment", new[] { "BlogEntry_Id" });
             DropIndex("dbo.BlogEntryComment", new[] { "CreatedBy_Id" });
+            DropIndex("dbo.BlogEntryComment", new[] { "BlogEntry_Id" });
             DropIndex("dbo.SupplierReview", new[] { "Supplier_Id" });
             DropIndex("dbo.SupplierReview", new[] { "Reviewer_Id" });
             DropIndex("dbo.SupplierReview", new[] { "CreatedBy_Id" });
-            DropIndex("dbo.SupplierFacility", new[] { "Supplier_Id" });
             DropIndex("dbo.SupplierFacility", new[] { "CreatedBy_Id" });
             DropIndex("dbo.SupplierEnquiry", new[] { "Supplier_Id" });
             DropIndex("dbo.SupplierEnquiry", new[] { "CreatedBy_Id" });
             DropIndex("dbo.SupplierCoupon", new[] { "Supplier_Id" });
             DropIndex("dbo.SupplierCoupon", new[] { "CreatedBy_Id" });
             DropIndex("dbo.SupplierCompany", new[] { "CreatedBy_Id" });
+            DropIndex("dbo.SupplierCompany", new[] { "Id" });
+            DropIndex("dbo.SupplierCategory", new[] { "CreatedBy_Id" });
             DropIndex("dbo.Location", new[] { "CreatedBy_Id" });
             DropIndex("dbo.SupplierAdvertisement", new[] { "Supplier_Id" });
             DropIndex("dbo.SupplierAdvertisement", new[] { "Location_Id" });
             DropIndex("dbo.SupplierAdvertisement", new[] { "CreatedBy_Id" });
             DropIndex("dbo.WebSiteSettings", new[] { "CreatedBy_Id" });
+            DropIndex("dbo.WebSiteSettings", new[] { "Id" });
             DropIndex("dbo.WebSitePage", new[] { "WebSite_Id" });
             DropIndex("dbo.WebSitePage", new[] { "CreatedBy_Id" });
-            DropIndex("dbo.WebSite", new[] { "Settings_Id" });
             DropIndex("dbo.WebSite", new[] { "CreatedBy_Id" });
+            DropIndex("dbo.WebSite", new[] { "Id" });
             DropIndex("dbo.Message", new[] { "NormalUser_Id" });
             DropIndex("dbo.Message", new[] { "Sender_Id" });
             DropIndex("dbo.Message", new[] { "Reciever_Id" });
@@ -634,22 +667,24 @@ namespace PerfectWeddings.Data.Migrations
             DropIndex("dbo.Guest", new[] { "Event_Id" });
             DropIndex("dbo.Guest", new[] { "NormalUser_Id" });
             DropIndex("dbo.Guest", new[] { "CreatedBy_Id" });
-            DropIndex("dbo.CheckListComment", new[] { "CheckList_Id" });
             DropIndex("dbo.CheckListComment", new[] { "CreatedBy_Id" });
+            DropIndex("dbo.CheckListComment", new[] { "CheckList_Id" });
             DropIndex("dbo.CheckList", new[] { "NormalUser_Id" });
             DropIndex("dbo.CheckList", new[] { "CreatedBy_Id" });
-            DropIndex("dbo.BudgetList", new[] { "BudgetSummary_Id" });
             DropIndex("dbo.BudgetList", new[] { "CreatedBy_Id" });
+            DropIndex("dbo.BudgetList", new[] { "BudgetSummary_Id" });
             DropIndex("dbo.BudgetSummary", new[] { "CreatedBy_Id" });
+            DropIndex("dbo.BudgetSummary", new[] { "Id" });
+            DropIndex("dbo.SocialAccount", new[] { "User_Id1" });
+            DropIndex("dbo.SocialAccount", new[] { "User_Id" });
             DropIndex("dbo.SocialAccount", new[] { "CreatedBy_Id" });
             DropIndex("dbo.User", new[] { "NormalUser_Id" });
             DropIndex("dbo.User", new[] { "Location_Id" });
-            DropIndex("dbo.User", new[] { "Company_Id" });
-            DropIndex("dbo.User", new[] { "WebSite_Id" });
-            DropIndex("dbo.User", new[] { "Budget_Id" });
+            DropIndex("dbo.User", new[] { "Category_Id" });
             DropIndex("dbo.User", new[] { "CreatedBy_Id" });
             DropIndex("dbo.BlogEntryCategory", new[] { "CreatedBy_Id" });
-            DropTable("dbo.SupplierCategory");
+            DropTable("dbo.BlogEntryTagBlogEntry");
+            DropTable("dbo.SupplierFacilitySupplier");
             DropTable("dbo.HoneyMoonPackage");
             DropTable("dbo.EventSeatingTable");
             DropTable("dbo.Event");
@@ -662,6 +697,7 @@ namespace PerfectWeddings.Data.Migrations
             DropTable("dbo.SupplierEnquiry");
             DropTable("dbo.SupplierCoupon");
             DropTable("dbo.SupplierCompany");
+            DropTable("dbo.SupplierCategory");
             DropTable("dbo.Location");
             DropTable("dbo.SupplierAdvertisement");
             DropTable("dbo.WebSiteSettings");

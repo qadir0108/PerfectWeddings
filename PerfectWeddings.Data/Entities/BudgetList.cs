@@ -20,6 +20,8 @@ namespace PerfectWeddings.Data.Entities
         public double ActualCost { get; set; }
         public double PaidCost { get; set; }
 
+        public virtual BudgetSummary BudgetSummary { get; set; }
+
         public BudgetList()
         {
         }

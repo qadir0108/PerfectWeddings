@@ -14,6 +14,8 @@ namespace PerfectWeddings.Data.Entities
 
         public string Name { get; set; }
 
+        public virtual ICollection<BlogEntry> BlogEntrys { get; set; }
+
         public BlogEntryTag()
         {
         }

@@ -9,9 +9,9 @@ using PerfectWeddings.Data;
 
 namespace PerfectWeddings.Data.EntityManager
 {
-    public class NormalUserManager : UserManager
+    public class EventManager : BaseEntityManager<Event>
     {
-        public NormalUserManager()
+        public EventManager()
         {
 
         }

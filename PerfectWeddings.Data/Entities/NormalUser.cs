@@ -23,7 +23,8 @@ namespace PerfectWeddings.Data.Entities
         public GenderEnum PartnerGender { get; set; }
 
         public WebSite WebSite { get; set; }
-        public BudgetSummary Budget { get; set; }
+
+        public virtual BudgetSummary BudgetSummary { get; set; }
 
         public virtual ICollection<Message> Messages { get; set; }
         public virtual ICollection<Supplier> WishList { get; set; }

@@ -1,6 +1,7 @@
 ﻿using PerfectWeddings.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,9 @@ namespace PerfectWeddings.Data.Entities
 
         public int Capacity { get; set; }
         public int Cost { get; set; }
+
+        [Required]
+        public virtual Supplier Supplier { get; set; }
 
         public SupplierAdvertisement()
         {

@@ -9,9 +9,9 @@ using PerfectWeddings.Data;
 
 namespace PerfectWeddings.Data.EntityManager
 {
-    public class NormalUserManager : UserManager
+    public class SupplierCouponManager : BaseEntityManager<SupplierCoupon>
     {
-        public NormalUserManager()
+        public SupplierCouponManager()
         {
 
         }

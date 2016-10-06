@@ -15,7 +15,7 @@ namespace PerfectWeddings.Data.Entities
         public string VideoURL { get; set; }
 
         public SupplierCompany Company { get; set; }
-        public SupplierCategoryEnum Category { get; set; }
+        public SupplierCategory Category { get; set; }
 
         public Location Location { get; set; }
 

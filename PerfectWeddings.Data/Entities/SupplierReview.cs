@@ -17,7 +17,8 @@ namespace PerfectWeddings.Data.Entities
         public string ReviewTitle { get; set; }
         public string ReviewDetail { get; set; }
 
-        public NormalUser Reviewer { get; set; }
+        public virtual NormalUser Reviewer { get; set; }
+        public virtual Supplier Supplier { get; set; }
 
         public SupplierReview()
         {

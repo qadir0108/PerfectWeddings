@@ -18,6 +18,8 @@ namespace PerfectWeddings.Data.Entities
         public string CommenterName { get; set; }
         public string CommenterEmail { get; set; }
 
+        public virtual BlogEntry BlogEntry { get; set; }
+
         public BlogEntryComment()
         {
         }

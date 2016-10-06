@@ -9,9 +9,9 @@ using PerfectWeddings.Data;
 
 namespace PerfectWeddings.Data.EntityManager
 {
-    public class NormalUserManager : UserManager
+    public class BlogEntryCommentManager : BaseEntityManager<BlogEntryComment>
     {
-        public NormalUserManager()
+        public BlogEntryCommentManager()
         {
 
         }

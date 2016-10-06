@@ -17,6 +17,8 @@ namespace PerfectWeddings.Data.Entities
         public string Description { get; set; }
         public string TimeFrame { get; set; }
 
+        public NormalUser NormalUser { get; set; }
+
         public virtual ICollection<CheckListComment> Comments { get; set; }
         
         public CheckList()

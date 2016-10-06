@@ -1,6 +1,7 @@
 ﻿using PerfectWeddings.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,10 @@ namespace PerfectWeddings.Data.Entities
 
         public string Theme { get; set; }
         public List<string> Themes { get; set; }
-        
+
+        [Required]
+        public virtual WebSite WebSite { get; set; }
+
         public WebSiteSettings()
         {
         }

@@ -19,6 +19,8 @@ namespace PerfectWeddings.Data.Entities
         public bool IsPasswordProtected { get; set; }
         public string Password { get; set; }
 
+        public virtual WebSite WebSite { get; set; }
+
         public WebSitePage()
         {
         }

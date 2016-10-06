@@ -16,6 +16,8 @@ namespace PerfectWeddings.Data.Entities
         public SocialAccountType Type { get; set; }
         public string Name { get; set; }
 
+        public virtual User User { get; set; }
+
         public SocialAccount()
         {
 

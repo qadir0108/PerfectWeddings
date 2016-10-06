@@ -15,6 +15,8 @@ namespace PerfectWeddings.Data.Entities
 
         public string Comment { get; set; }
 
+        public virtual CheckList CheckList { get; set; }
+
         public CheckListComment()
         {
 
