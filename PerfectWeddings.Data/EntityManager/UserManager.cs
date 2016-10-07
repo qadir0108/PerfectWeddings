@@ -17,21 +17,6 @@ namespace PerfectWeddings.Data.EntityManager
         {
 
         }
-
-        public UserLoginStatusEnum Authenticate(string UserName, string Password)
-        {
-            var user = GetAll().FirstOrDefault(x => x.UserName.Equals(UserName, StringComparison.InvariantCultureIgnoreCase));
-            if (user == null) return UserLoginStatusEnum.NotFound;
-
-            if (user.Status == UserStatusEnum.Expired) return UserLoginStatusEnum.Expired;
-
-            var decryptedPassword = Encryption.Decrypt(user.Password);
-
-            if (decryptedPassword.Equals(Password, StringComparison.InvariantCultureIgnoreCase)
-                        && user.Status == UserStatusEnum.Active)
-                return UserLoginStatusEnum.Authenticated;
-            else
-                return UserLoginStatusEnum.NotAuthenticated;
-        }
+        
     }
 }
