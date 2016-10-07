@@ -303,6 +303,14 @@ namespace PerfectWeddings.Controllers
         /// Type:HttpGet
         /// </summary>
         /// <returns>return model</returns>
+        /// 
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult RegisterSupplier()
+        {
+            PerfectWeddings.ViewModels.RegisterSupplierViewModel model = new PerfectWeddings.ViewModels.RegisterSupplierViewModel();
+            return View(model);
+        }
         [AllowAnonymous]
         [HttpGet]
         public ActionResult Register()
@@ -352,6 +360,53 @@ namespace PerfectWeddings.Controllers
                     EmailAddress = model.Email,
                     WeddingDate = model.WeddingDate
                 });
+
+                return Json(new JsonResponse() { IsSucess = true }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new JsonResponse() { IsSucess = false, ErrorMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult> LoginSupplier(LoginModel model)
+        {
+            try
+            {
+                SupplierManager sMgr = new SupplierManager();
+                var result = sMgr.Authenticate(model.UserName, model.Password);
+
+                if(result != Enums.UserLoginStatusEnum.Authenticated)
+                    throw new Exception(result.ToString());
+
+                return Json(new JsonResponse() { IsSucess = true }, JsonRequestBehavior.AllowGet);
+            
+            }
+            catch (Exception ex)
+            {
+                return Json(new JsonResponse() { IsSucess = false, ErrorMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult> loginCouple(LoginModel model)
+        {
+            try
+            {
+                //SuplierManager.Authenticater nuMgr = new SuplierManager.Authenticate();
+                //nuMgr.Insert(new Data.Entities.NormalUser()
+                //{
+                //    UserName = model.Email,
+                //    FirstName = model.Name,
+                //    LastName = model.Name,
+                //    EmailAddress = model.Email,
+                //    WeddingDate = model.WeddingDate
+                //});
 
                 return Json(new JsonResponse() { IsSucess = true }, JsonRequestBehavior.AllowGet);
             }

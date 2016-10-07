@@ -8,9 +8,9 @@ namespace PerfectWeddings.ViewModels
         [DataType(DataType.Text)]
         [StringLength(50)]
         [Display(Name = "User Name")]
-        public string userName { get; set; }
+        public string UserName { get; set; }
         [Required(ErrorMessage = "Please Enter a Password")]
-        [DataType(DataType.Text)]       
+        [DataType(DataType.Password)]       
         [Display(Name = "Password")]
         public string Password { get; set; }
 

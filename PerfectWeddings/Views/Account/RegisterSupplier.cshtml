@@ -1,0 +1,142 @@
+﻿@model PerfectWeddings.ViewModels.RegisterSupplierViewModel
+
+@{
+  Layout = "/Views/Shared/_Layout.cshtml";
+}
+}
+
+<div class="tp-page-head">
+    <!-- page header -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>Contact us</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tp-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">Contact us</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="well-box">
+                    <p>Please fill out the form below and we will get back to you as soon as possible.</p>
+                    <form id="frmRegSupplier" role="form">
+
+                        <!-- Text input-->
+                        <div class="form-group has-feedback">
+                            <label class="control-label" for="txtfirstName">First Name<span class="required">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </div>
+                                <input id="txtfirstName" name="txtfirstName" type="text" placeholder="First Name" class="form-control input-md" required>
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label class="control-label" for="txtlastName">First Name<span class="required">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </div>
+                                <input id="txtlastName" name="txtlastName" type="text" placeholder="Last Name" class="form-control input-md" required>
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            </div>
+
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group has-feedback">
+                            <label class="control-label" for="txtEmail">E-mail<span class="required">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-addon">@@</span>
+                                <input id="txtEmail" name="txtEmail" type="email" placeholder="E-Mail" class="form-control input-md" required>
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label class="control-label" for="txtPhone">Phone no<span class="required">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-earphone"></span>
+                                </div>
+                                <input id="txtPhone" name="txtPhone" type="number" placeholder="Phone no" class="form-control input-md" required>
+                            </div>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="category">Category<span class="required">*</span></label>
+                            @Html.EnumDropDownListFor(model => model.category, new { @class = "form-control input-md ", @id = "category", required = "required" })
+
+
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="control-label" for="txtmessage">Message<span class="required">*</span></label>
+                              
+                            <textarea id="txtmessage" name="txtmessage" type="txt" rows="5" placeholder="message" class="form-control input-md" required></textarea>
+                             
+                     
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                        <!-- Button -->
+                        <div class="form-group">
+                            <button id="btnRegister" name="btnRegister" class="btn btn-primary">Create An Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6 contact-info">
+                <div class="well-box">
+                    <ul class="listnone">
+                        <li class="address">
+                            <h2><i class="fa fa-map-marker"></i>Location</h2>
+                            <p>
+                                1228 Hawks Nest Lane
+                                Saint Louis, MO 63143
+                            </p>
+                        </li>
+                        <li class="email">
+                            <h2><i class="fa fa-envelope"></i>E-Mail</h2>
+                            <p>Info@weddingSupplier.com</p>
+                        </li>
+                        <li class="call">
+                            <h2><i class="fa fa-phone"></i>Contact</h2>
+                            <p>+1800-123-4567</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="well-box">
+                    <h2>Need Help ?</h2>
+                    <p>Are you an advertiser enquiring about advertising in You &amp; Your Wedding or on weddingSupplier? Please <a href="#">click here </a>to contact the advertising team.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="map" id="googleMap"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYZrVraR5BeDWAV_yfIH7c6o0PzeLtj9w&callback=initialize" async defer></script>
+<script>
+    $(document).ready(function () {
+        gm.googleMaps();
+ });
+</script>

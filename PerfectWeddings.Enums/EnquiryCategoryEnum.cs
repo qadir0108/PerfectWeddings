@@ -10,12 +10,12 @@ namespace PerfectWeddings.Enums
     public enum EnquiryCategoryEnum
     {
         [Description("Couple")]
-        Couple = 1,
+        Couple = 0,
         [Description("Supplier")]
-        Supplier = 2,
+        Supplier = 1,
         [Description("Advertisement")]
-        Advertisement = 3,
+        Advertisement = 2,
         [Description("Suggestion")]
-        Suggestion = 4
+        Suggestion = 3
     }
 }
