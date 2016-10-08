@@ -8,9 +8,11 @@ using PerfectWeddings.ViewModels;
 using PerfectWeddings.Enums;
 using PerfectWeddings.Data.EntityManager;
 using PerfectWeddings.Data.Entities;
+using PerfectWeddings.Helpers;
 
 namespace PerfectWeddings.Controllers
 {
+    [AjaxAuthorize]
     public class SupplierController : BaseController
     {
         public ActionResult Dashboard()

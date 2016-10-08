@@ -243,6 +243,7 @@
     <Compile Include="Handler\FileUploadHandler.ashx.cs">
       <DependentUpon>FileUploadHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AjaxAuthorizeAttribute.cs" />
     <Compile Include="Helpers\ApplicationExtensions.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
     <Compile Include="Helpers\HMTLHelperExtensions.cs" />

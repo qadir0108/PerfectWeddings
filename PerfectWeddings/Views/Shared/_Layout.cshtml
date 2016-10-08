@@ -29,5 +29,16 @@
     @Html.Partial("_Header")
     @RenderBody()
     @Html.Partial("_Footer")
+
+<script>
+    $(function () {
+        $(document).ajaxError(function (e, xhr) {
+            if (xhr.status == 403) {
+                var response = $.parseJSON(xhr.responseText);
+                window.location = response.LogOnUrl;
+            }
+        });
+    });
+</script>
 </body>
 </html>
