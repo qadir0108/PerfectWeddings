@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PerfectWeddings.Data.Migrations;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -17,7 +18,7 @@ namespace PerfectWeddings.Data.Entities
             Configuration.LazyLoadingEnabled = true;
             Configuration.ProxyCreationEnabled = false;
 
-            Database.SetInitializer(new PerfectWeddingsDBInitializer());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<PerfectWeddingsContext, Configuration>());
         }
 
         public DbSet<BlogEntry> BlogEntrys { get; set; }
