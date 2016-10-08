@@ -17,6 +17,7 @@ namespace PerfectWeddings.Data.Entities
             Configuration.LazyLoadingEnabled = true;
             Configuration.ProxyCreationEnabled = false;
 
+            Database.SetInitializer(new PerfectWeddingsDBInitializer());
         }
 
         public DbSet<BlogEntry> BlogEntrys { get; set; }
