@@ -32,5 +32,10 @@ namespace PerfectWeddings.Data.EntityManager
             else
                 return UserLoginStatusEnum.NotAuthenticated;
         }
+        public User GetByUsername(string UserName)
+        {
+            var user = GetAll().FirstOrDefault(x => x.UserName.Equals(UserName, StringComparison.InvariantCultureIgnoreCase));
+            return user;
+        }
     }
 }

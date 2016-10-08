@@ -41,7 +41,8 @@ namespace PerfectWeddings
                  "~/js/toastr.min.js",
                  "~/js/jquery.blockUI.js",
                  "~/js/pw.js",
-                 "~/js/pw.security.js"
+                 "~/js/pw.security.js",
+                 "~/js/pw.maps.js"
             ));
 
             bundles.Add(new ScriptBundle("~/PerfectWeddings/jQueryUI").Include(

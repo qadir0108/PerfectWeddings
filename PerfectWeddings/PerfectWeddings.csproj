@@ -234,6 +234,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -253,6 +254,7 @@
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\ModulesPermissionViewModel.cs" />
     <Compile Include="ViewModels\RegisterSupplierViewModel.cs" />
+    <Compile Include="ViewModels\ListingViewModel.cs" />
     <Compile Include="ViewModels\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -399,7 +401,7 @@
     <Content Include="images\woo-parallax.jpg" />
     <Content Include="js\accordion-sign.js" />
     <Content Include="js\additional-methods.min.js" />
-    <Content Include="js\GoogleMaps.js" />
+    <Content Include="js\pw.maps.js" />
     <Content Include="js\jquery-1.11.1.js" />
     <Content Include="js\jquery.blockUI.js" />
     <Content Include="js\jquery.min.js" />
@@ -610,6 +612,8 @@
     <Content Include="Views\Shared\_SuperAdminLayout.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Account\RegisterSupplier.cshtml" />
+    <Content Include="Views\Supplier\Dashboard.cshtml" />
+    <Content Include="Views\Supplier\_AddListing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

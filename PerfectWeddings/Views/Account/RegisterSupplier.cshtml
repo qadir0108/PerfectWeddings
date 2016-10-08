@@ -3,7 +3,7 @@
 @{
   Layout = "/Views/Shared/_Layout.cshtml";
 }
-}
+
 
 <div class="tp-page-head">
     <!-- page header -->
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group has-feedback">
-                            <label class="control-label" for="txtlastName">First Name<span class="required">*</span></label>
+                            <label class="control-label" for="txtlastName">Last Name<span class="required">*</span></label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-user"></span>
@@ -78,7 +78,7 @@
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-earphone"></span>
                                 </div>
-                                <input id="txtPhone" name="txtPhone" type="number" placeholder="Phone no" class="form-control input-md" required>
+                                <input id="txtPhone" name="txtPhone" type="text" placeholder="Phone no" class="form-control input-md" required>
                             </div>
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
@@ -98,7 +98,7 @@
                         </div>
                         <!-- Button -->
                         <div class="form-group">
-                            <button id="btnRegister" name="btnRegister" class="btn btn-primary">Create An Account</button>
+                            <button id="btnRegisterSupplier" name="btnRegisterSupplier" class="btn btn-primary">Create An Account</button>
                         </div>
                     </form>
                 </div>
@@ -134,9 +134,42 @@
     </div>
 </div>
 <div class="map" id="googleMap"></div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYZrVraR5BeDWAV_yfIH7c6o0PzeLtj9w&callback=initialize" async defer></script>
 <script>
+
+   
+
     $(document).ready(function () {
-        gm.googleMaps();
- });
+       // pw.googleMaps();
+        $('#btnRegisterSupplier').click(function () {
+            pw.security.registerSupplier($("#frmRegSupplier"), $('#txtfirstName').val(), $('#txtlastName').val(), $('#txtEmail').val(), $('#txtPhone').val(), $('#category').val(), $('#txtmessage').val());
+        });
+
+        var myCenter = new google.maps.LatLng(33.7182, 73.0605);
+        function initialize() {
+            var mapProp = {
+                center: myCenter,
+                zoom: 9,
+                scrollwheel: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myCenter,
+
+                //icon: 'images/pinkball.png'
+            });
+
+            marker.setMap(map);
+            var infowindow = new google.maps.InfoWindow({
+                content: "Hello Address"
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    });
+  
+
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYZrVraR5BeDWAV_yfIH7c6o0PzeLtj9w&callback=initialize" async defer></script>

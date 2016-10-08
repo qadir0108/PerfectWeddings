@@ -4,5 +4,47 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Dashboard</h2>
+<div class="tp-dashboard-head">
+    <!-- page header -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 profile-header">
+                <div class="profile-pic col-md-2"><img src="images/profile-dashbaord.png" alt=""></div>
+                <div class="profile-info col-md-9">
+                    <h1 class="profile-title">Member Name<small>Welcome Back memeber</small></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.page header -->
+<div class="tp-dashboard-nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 dashboard-nav">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a ><i class="fa fa-dashboard db-icon"></i>My Dashboard</a></li>
+                    <li><a ><i class="fa fa-user db-icon"></i>My Profile</a></li>
+                    <li><a ><i class="fa fa-list db-icon"></i>My Listing </a></li>
+                    <li class="active"><a id="addListing" ><i class="fa fa-plus-square db-icon"></i>Add listing</a></li>
+                    <li><a id=""><i class="fa fa-list-alt db-icon"></i>Pricing Plan</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="partialLoadingDiv"></div>
 
+<script>
+    $(document).ready(function () {
+        pw.security.Listing();
+        $("#addListing").click(function () {
+            pw.security.Listing();
+        });
+
+      
+    });
+
+    
+
+</script>

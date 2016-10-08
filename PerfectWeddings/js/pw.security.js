@@ -54,6 +54,58 @@ pw.security.register = function (form, name, email, weddingDate) {
     //    }, 3000);
 }
 
+pw.security.registerSupplier = function (frmRegSupplier, txtfirstName, txtlastName, txtEmail, txtPhone, category, txtmessage) {
+    debugger;
+
+    frmRegSupplier.validator('validate').on('submit', function (e) {
+        debugger;
+
+        if (e.isDefaultPrevented()) {
+            // handle the invalid form...
+        } else {
+            // everything looks good!
+
+            e.preventDefault();
+
+            pw.blockUI({
+                target: frmRegSupplier,
+                boxed: true,
+                message: 'Processing...'
+            });
+
+            $.ajax({
+                type: "POST",
+                url: '/Account/RegisterSupplier',
+                data: "{firstName : '" + txtfirstName + "', lastName: '" + txtlastName + "', phoneNo: '" + txtPhone + "', message: '" + txtmessage + "', category: '" + category + "', email: '" + txtEmail + "'}",
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    debugger;
+                    if (response.IsSucess) {
+                        pw.showSuccess('Registered successfully.');
+                        setTimeout(
+                            function () {
+                                location.href = "http://localhost:50000/Account/RegisterSupplier";
+                            }, 3000);
+                    } else {
+                        pw.showError(response.ErrorMessage);
+                    }
+                },
+                failure: function (response) {
+                    pw.showError('There is erorr');
+                },
+                complete: function () {
+                    pw.unblockUI(frmRegSupplier)
+                }
+            });
+        }
+    }) //end validator
+
+    //setTimeout(
+    //    function () {
+    //        pw.unblockUI('#frmRegister')
+    //    }, 3000);
+}
+
 pw.security.supplierLogin = function (frmSupplierLogin, txtSupplierName, passwordSupplier) {
     debugger;
     frmSupplierLogin.validator('validate').on('submit', function (e) {
@@ -74,8 +126,8 @@ pw.security.supplierLogin = function (frmSupplierLogin, txtSupplierName, passwor
 
             $.ajax({
                 type: "POST",
-                url: '/Account/loginSupplier',
-                data: "{userName : '" + txtSupplierName + "', Password: '" + passwordSupplier + "'}",
+                url: '/Account/LoginSupplier',
+                data: "{UserName : '" + txtSupplierName + "', Password: '" + passwordSupplier + "'}",
                 contentType: "application/json; charset=utf-8",
                 success: function (response) {
                     debugger;
@@ -93,7 +145,7 @@ pw.security.supplierLogin = function (frmSupplierLogin, txtSupplierName, passwor
                     pw.showError('There is erorr');
                 },
                 complete: function () {
-                    pw.unblockUI(form)
+                    pw.unblockUI(frmSupplierLogin)
                 }
             });
         }
@@ -126,26 +178,36 @@ pw.security.coupleLogin = function (frmCoupleLogin, txtCoupleName, passwordCoupl
 
             $.ajax({
                 type: "POST",
-                url: '/Account/loginCouple',
-                data: "{userName : '" + txtCoupleName + "', Password: '" + passwordCouple + "'}",
+                url: '/Account/LoginCouple',
+                data: "{UserName : '" + txtCoupleName + "', Password: '" + passwordCouple + "'}",
                 contentType: "application/json; charset=utf-8",
                 success: function (response) {
                     debugger;
                     if (response.IsSucess) {
                         pw.showSuccess('Couple has been login Successfully.');
+                        
                         setTimeout(
                             function () {
                                 location.href = "http://localhost:50000/Account/Login";
-                            }, 3000);
+                              
+                            }, 1000);
                     } else {
                         pw.showError(response.ErrorMessage);
+                       
+                        setTimeout(
+                         function () {
+                      
+                             location.href = "http://localhost:50000/Account/Login";
+                         }, 1000);
                     }
                 },
                 failure: function (response) {
                     pw.showError('There is erorr');
+
                 },
                 complete: function () {
-                    pw.unblockUI(form)
+                    pw.unblockUI(frmCoupleLogin)
+                   
                 }
             });
         }
@@ -225,4 +287,24 @@ pw.validateEmail = function (email) {
 pw.validatePassword = function (password) {
     var pa = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,20})$/;
     return pa.test(password);
+}
+
+pw.security.Listing = function () {
+    alert("In");
+    $.ajax({
+        url: '/Supplier/AddListing',
+        type: "GET",
+        data: {},
+        success: function (response) {
+
+            $('#partialLoadingDiv').html(response);
+            alert("working");
+
+        },
+        error: function (xhr, desc, err) {
+            console.log(xhr);
+            alert(err + "1");
+
+        }
+    });
 }

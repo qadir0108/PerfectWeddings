@@ -5,30 +5,20 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using PerfectWeddings.ViewModels;
+using PerfectWeddings.Data.Entities;
 
 namespace PerfectWeddings.Controllers
 {
     public class BaseController : Controller
     {
 
-        /// <summary>
-        /// Method:GetProjectId
-        /// </summary>
-        /// <returns>Return ProjectId</returns>
-        public int GetProjectId()
+        public User LoggedInUser
         {
-            try
+            get
             {
-                string val = Session["Index"].ToString();
-                string[] value = val.Split('_');
-                int SelectedProjectID = Convert.ToInt32(value[0]);
-                return SelectedProjectID;
+                var user = (User)Session["User"];
+                return user;
             }
-            catch
-            {
-                throw;
-            }
-
         }
 
         /// <summary>

@@ -17,11 +17,12 @@ using PerfectWeddings.ViewModels;
 using PerfectWeddings.Business;
 using PerfectWeddings.Data.EntityManager;
 using PerfectWeddings.Helpers;
+using PerfectWeddings.Data.Entities;
 
 namespace PerfectWeddings.Controllers
 {
     [CustomAuthorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationUserManager _userManager;
 
@@ -308,9 +309,41 @@ namespace PerfectWeddings.Controllers
         [HttpGet]
         public ActionResult RegisterSupplier()
         {
-            PerfectWeddings.ViewModels.RegisterSupplierViewModel model = new PerfectWeddings.ViewModels.RegisterSupplierViewModel();
+            RegisterSupplierViewModel model = new RegisterSupplierViewModel();
             return View(model);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult> RegisterSupplier(RegisterSupplierViewModel model)
+        {
+            try
+            {
+                EnquirerManager nuMgr = new EnquirerManager();
+                nuMgr.Insert(new Enquirer()
+                {
+                    FirstName = model.firstName,
+                    LastName = model.lastName,
+                    EmailAddress = model.email,
+                    PhoneNumber=model.phoneNo,
+                    EnquiryCategory=model.category,
+                    Message=model.message
+                });
+
+                return Json(new JsonResponse() { IsSucess = true }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new JsonResponse() { IsSucess = false, ErrorMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+
         [AllowAnonymous]
         [HttpGet]
         public ActionResult Register()
@@ -358,7 +391,8 @@ namespace PerfectWeddings.Controllers
                     FirstName = model.Name,
                     LastName = model.Name,
                     EmailAddress = model.Email,
-                    WeddingDate = model.WeddingDate
+                    WeddingDate = model.WeddingDate,
+                    Type = Enums.UserTypeEnum.NormalUser
                 });
 
                 return Json(new JsonResponse() { IsSucess = true }, JsonRequestBehavior.AllowGet);
@@ -382,6 +416,9 @@ namespace PerfectWeddings.Controllers
                 if(result != Enums.UserLoginStatusEnum.Authenticated)
                     throw new Exception(result.ToString());
 
+                Session["User"] = sMgr.GetByUsername(model.UserName);
+
+
                 return Json(new JsonResponse() { IsSucess = true }, JsonRequestBehavior.AllowGet);
             
             }
@@ -394,21 +431,19 @@ namespace PerfectWeddings.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult> loginCouple(LoginModel model)
+        public async Task<ActionResult> LoginCouple(LoginModel model)
         {
             try
             {
-                //SuplierManager.Authenticater nuMgr = new SuplierManager.Authenticate();
-                //nuMgr.Insert(new Data.Entities.NormalUser()
-                //{
-                //    UserName = model.Email,
-                //    FirstName = model.Name,
-                //    LastName = model.Name,
-                //    EmailAddress = model.Email,
-                //    WeddingDate = model.WeddingDate
-                //});
+                NormalUserManager nmgr = new NormalUserManager();
+                var result = nmgr.Authenticate(model.UserName, model.Password);
+                if (result != Enums.UserLoginStatusEnum.Authenticated)
+                    throw new Exception(result.ToString());
+
+                Session["User"] = nmgr.GetByUsername(model.UserName);
 
                 return Json(new JsonResponse() { IsSucess = true }, JsonRequestBehavior.AllowGet);
+
             }
             catch (Exception ex)
             {
