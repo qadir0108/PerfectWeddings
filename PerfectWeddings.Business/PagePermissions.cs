@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace PerfectWeddings.Business
 {
-    public class PagePermissions
+    public enum PagePermissions
     {
+        All,
+        Admin
     }
 }

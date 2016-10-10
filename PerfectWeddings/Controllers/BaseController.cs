@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using PerfectWeddings.ViewModels;
 using PerfectWeddings.Data.Entities;
+using System.Web.Security;
 
 namespace PerfectWeddings.Controllers
 {
@@ -16,25 +17,20 @@ namespace PerfectWeddings.Controllers
         {
             get
             {
-                var user = (User)Session["User"];
-                return user;
-            }
-        }
+                if (User.Identity.IsAuthenticated)
+                {
 
-        /// <summary>
-        /// Method:GetUserId
-        /// </summary>
-        /// <returns>Return UserModel</returns>
-        public UserModel GetUserModel()
-        {
-            try
-            {
-                UserModel userModel = ((UserModel)Session["userModel"]);
-                return userModel;
-            }
-            catch
-            {
-                throw;
+                    var UserName = User.Identity.Name;
+                    return (User)Session["User"];
+                }
+                else
+                {
+                    FormsAuthentication.SignOut();
+                    Session.Clear();
+                    Session.Abandon();
+                    FormsAuthentication.RedirectToLoginPage();
+                    return null;
+                }
             }
         }
     }

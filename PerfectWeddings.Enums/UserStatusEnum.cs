@@ -10,10 +10,10 @@ namespace PerfectWeddings.Enums
     public enum UserStatusEnum
     {
         [Description("Active")]
-        Active = 1,
+        Active = 0,
         [Description("DeActive")]
-        DeActive = 2,
+        DeActive = 1,
         [Description("Expired")]
-        Expired = 3
+        Expired = 2
     }
 }

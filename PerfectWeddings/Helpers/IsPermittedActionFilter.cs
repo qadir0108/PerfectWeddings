@@ -1,4 +1,5 @@
 ﻿using PerfectWeddings.Business;
+using PerfectWeddings.Data.Entities;
 using PerfectWeddings.ViewModels;
 using System;
 using System.Web;
@@ -7,18 +8,9 @@ using System.Web.Routing;
 
 namespace PerfectWeddings.Helpers
 {
-    public class CustomAuthorize : AuthorizeAttribute
+    public class IsPermittedActionFilter : ActionFilterAttribute
     {
-        protected override bool AuthorizeCore(HttpContextBase httpContext)
-        {
-            return SessionObjects.isAuthenticated;
-        }
-    }
-
-    public class HasPermission : ActionFilterAttribute
-    {
-        //Properties in Action Filter
-        public PagePermissions FormType { get; set; }
+        public PagePermissions Permission { get; set; }
 
         /// <summary>
         /// Method: OnActionExecuting
@@ -28,15 +20,14 @@ namespace PerfectWeddings.Helpers
         /// <param name="filterContext"></param>
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {           
-            bool HasPermission = false;
+            bool IsPermitted = false;
 
             try
             {
-                // Check Is user session null
-                if (HttpContext.Current.Session["userModel"] == null || FormType == null)
+                // Check session
+                if (HttpContext.Current.Session["User"] == null)
                 {
-                    filterContext.Result =
-                        new RedirectToRouteResult(new RouteValueDictionary   
+                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary   
                     {  
                         { "action", "Login" },  
                         { "controller", "Account" }                   
@@ -44,10 +35,15 @@ namespace PerfectWeddings.Helpers
                     return;
                 }
 
-                // Check User has permission to access given form
-                var userModel = (UserModel)HttpContext.Current.Session["userModel"];
-                //HasPermission = Business.AuthManager.HasPermission(FormType, (int)userModel.UserId);
-                if(HasPermission)
+                // Check Admin
+                var user = (User)HttpContext.Current.Session["User"];
+                if (user.Type == Enums.UserTypeEnum.SuperAdmin && Permission == PagePermissions.Admin)
+                    IsPermitted = true;
+
+                if (Permission == PagePermissions.All)
+                    IsPermitted = true;
+
+                if (IsPermitted)
                 {
                     base.OnActionExecuting(filterContext);
                     return;
